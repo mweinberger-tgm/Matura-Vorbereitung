@@ -1,0 +1,250 @@
+\documentclass[letterpaper, 12pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEFINITIONS
+% Change those informations
+% If you need umlauts you have to escape them, e.g. for an ü you have to write \"u
+\gdef\mytitle{Feingliederung}
+\gdef\mythema{Ethik}
+
+\gdef\mysubject{Systemtechnik-Matura}
+\gdef\mycourse{5BHIT 2015/16}
+\gdef\myauthor{Michael Weinberger}
+
+\gdef\myversion{1.0}
+\gdef\mybegin{21. April 2016}
+\gdef\myfinish{\today}
+
+\gdef\mygrade{}
+\gdef\myteacher{Betreuer: Graf/Borko}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input special/preamble.tex
+
+\let\tempsection\section
+\renewcommand\section[1]{\vspace{-0.3cm}\tempsection{#1}\vspace{-0.3cm}}
+\WithSuffix\newcommand\section*[1]{\tempsection*{#1}}
+
+\let\tempsubsection\subsection
+\renewcommand\subsection[1]{\vspace{0cm}\tempsubsection{#1}\vspace{0cm}}
+
+\let\tempsubsubsection\subsubsection
+\renewcommand\subsubsection[1]{\vspace{0cm}\tempsubsubsection{#1}\vspace{0cm}}
+
+\linespread{0.94}
+
+\lhead{\mysubject}
+\chead{}
+\rhead{\bfseries\mythema}
+\lfoot{\mycourse}
+\cfoot{\thepage}
+% Creative Commons license BY
+% http://creativecommons.org/licenses/?lang=de
+\rfoot{\ccby\hspace{2mm}\myauthor}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+\parindent 0pt
+\parskip 6pt
+
+\pagenumbering{Roman} 
+\input{special/title}
+
+\clearpage
+\thispagestyle{empty}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\pagestyle{fancy}
+
+%\vspace{-0.5cm}
+\textbf{Kompetenzen für den Teilbereich 'Ethische Aspekte, Rechtliche Grundlagen und Gesellschaftliche Auswirkungen der Informationstechnologie'} \newline
+\begin{itemize}
+	\item können die Interaktion zwischen Informationstechnik, Gesellschaft und Politik analysieren und in ihrer Arbeit beachten
+	\item kennen rechtliche Grundlagen der Informationstechnologe und reflektieren Auswirkungen des Missbrauchs von Informationstechnologien
+	\item beachten ethische Standards bei Datensicherheit, Datenschutz und Privatsphäre
+	\item beachten ethische Grundwerte in der Sicherheits- und Überwachungstechnik
+\end{itemize}
+
+\clearpage
+
+\textbf{Einführung in ethische Grundlagen}
+
+zusammenfassung des jahres hier! \newline
+notwendigkeit, fundamentalethik, verantwortungsethik, gesinnungsethik, deontologische position, kategorischer imperativ, kant, utlitarismus, --> prinzipien, diskursethik, prinzipalismus, schritte der ethischen urteilsfindung, güterabwägung in gewissensentscheidungen, verantwortung, grenzen der verantwortung, technisches handeln und ethik in informatik wird hier aufgelistet und erklärt
+
+\clearpage
+
+\section{Cloud Computing und Internet of Things}
+
+\subsection{Einführung}
+
+Begriffserklärungen, aufkommende trends in letzter zeit, anwendungsfälle, beispiel
+
+\subsection{Bedenken}
+
+sammeln von fakten \newline
+daten liegen auf fremden servern, ist datenschutz gegeben, privatsphäre, missbrauch der daten,
+weitergeben an dritte, internet of things = kann viel mitloggen --> fitnessarmbänder, auch kühlschrank im internet, gläserner mensch, data mining
+
+\subsection{Formulierung ethischer Fragestellungen}
+
+diskutieren anhand der bedenken auf grundlage der theorie \newline
+aufstellen einiger wichtiger fragen und versuch einer ethischen urteilsfindung
+
+\clearpage
+
+\section{Automatisierung, Regelung und Steuerung}
+
+Themengebiet wird ausgelassen (1 von 1)
+
+\clearpage
+
+\section{Security, Safety, Availability}
+
+\subsection{Einführung}
+
+Begriffserklärungen, aufkommende internetkriminalität, anwendungsfälle, beispiel, rechtliche grundlagen + auswirkungen des missbrauchs, welche arten der it-kriminalität gibt es, wie kann man sich absichern? \newline availability --> it-gesellschaft kontext herstellen, welche services sind (überlebens-?) wichtig, wirtschaftlicher schaden durch manipulation/downtime
+
+\subsection{Bedenken}
+
+sammeln von fakten \newline
+datendiebstahl, hacking, ... sicherheits- und überwachungstechnik (auch kameras, massenüberwachung, vorratsdatenspeicherung), verlust der privatsphäre durch totale sicherheit, wie viele daten darf ein unternehmen von mir sammeln, social engineering als zugang zu sensiblen daten, mensch = schwachstelle
+
+\subsection{Formulierung ethischer Fragestellungen}
+
+diskutieren anhand der bedenken auf grundlage der theorie \newline
+aufstellen einiger wichtiger fragen und versuch einer ethischen urteilsfindung
+
+\clearpage
+
+\section{Authentication, Authorization, Accounting}
+
+\subsection{Einführung}
+
+begriffserklärungen, anwendungsfälle, beispiel, hilft die identität zu bestätigen und zu wahren
+
+\subsection{Bedenken}
+
+sammeln von fakten \newline
+wegfallen der anonymität, wie unsicher ist mein passwort, hacking, identitätsdiebstahl, wie sicher ist mein system / sicherheitslücken
+
+\subsection{Formulierung ethischer Fragestellungen}
+
+diskutieren anhand der bedenken auf grundlage der theorie \newline
+aufstellen einiger wichtiger fragen und versuch einer ethischen urteilsfindung
+
+\clearpage
+
+\section{Disaster Recovery}
+
+\subsection{Einführung}
+
+begriffserklärungen, anwendungsfälle, beispiel, notwendigkeit hervorheben, gutes level mit hohen kosten verbunden
+
+\subsection{Bedenken}
+
+sammeln von fakten \newline
+leaks, whistleblowing bis hin zu wikileaks, panama papers als folge schlechter disasterplanung oder übersehen von sicherheitslücken, datenverlust für unternehmen nicht tragbar, wie weit hafte ich für datenverlust
+
+\subsection{Formulierung ethischer Fragestellungen}
+
+diskutieren anhand der bedenken auf grundlage der theorie \newline
+aufstellen einiger wichtiger fragen und versuch einer ethischen urteilsfindung
+
+\clearpage
+
+\section{Algorithmen und Protokolle}
+
+\subsection{Einführung}
+
+begriffserklärungen, anwendungsfälle, beispiel, notwendigkeit hervorheben, verschlüsselung, sicherheitszertifizierungen, was ist standard in der it, vertrauensproblem bei ungesicherten verbindungen, rechtslage bis von zu gesetzen zum verbot von verschlüsselung
+
+\subsection{Bedenken}
+
+sammeln von fakten \newline
+sicherheitslücken in verschlüsselungsalgorithmen, unverschlüsselte kommunikation kann abgefangen werden, schüre ich durch verschlüsselung terrorismus? wenn alle daten verschlüsselt sind, können verbrechen geplant werden und behörden haben keine handhabe.
+
+\subsection{Formulierung ethischer Fragestellungen}
+
+diskutieren anhand der bedenken auf grundlage der theorie \newline
+aufstellen einiger wichtiger fragen und versuch einer ethischen urteilsfindung
+
+\clearpage
+
+\section{Konsistenz und Datenhaltung}
+
+\subsection{Einführung}
+
+begriffserklärungen, anwendungsfälle, beispiel, notwendigkeit hervorheben, erklärung inkonsistenzen, wieso datenbanken, kundendaten konsisten sein sollen, fehlertoleranz, schutz vor missbrauch oder verlust (lost update bei bankdaten?)
+
+\subsection{Bedenken}
+
+sammeln von fakten \newline
+wo liegt die verantwortung? kunde, der daten freigibt oder unternehmer, der daten ablegt. was passiert bei datendiebstählen? habe ich die vollständige einsicht, was auf den servern abgelegt ist?
+
+\subsection{Formulierung ethischer Fragestellungen}
+
+diskutieren anhand der bedenken auf grundlage der theorie \newline
+aufstellen einiger wichtiger fragen und versuch einer ethischen urteilsfindung
+
+\clearpage
+
+\section{Projektumfeld UN-Sensornetz}
+
+\subsection{Einführung}
+
+beschreibung des umfelds, einbindung der themenbereiche
+
+\subsection{Bedenken}
+
+wie sensibel sind die daten? missbrauch --> irrtümliche tsunami-warnung lässt städte räumen
+
+\subsection{Formulierung ethischer Fragestellungen}
+
+diskutieren anhand der bedenken auf grundlage der theorie \newline
+aufstellen einiger wichtiger fragen und versuch einer ethischen urteilsfindung
+
+\clearpage
+
+\section{Projektumfeld Magna-Konzern}
+
+\subsection{Einführung}
+beschreibung des umfelds, einbindung der themenbereiche
+
+\subsection{Bedenken}
+
+werden bestehende kundendaten (kreditkarte) gelöscht (unwahrscheinlich) oder übernommen? werden kunden darüber informiert bzw. verändern sich die geschäftsbedingungen?
+
+\subsection{Formulierung ethischer Fragestellungen}
+
+diskutieren anhand der bedenken auf grundlage der theorie \newline
+aufstellen einiger wichtiger fragen und versuch einer ethischen urteilsfindung
+
+\clearpage
+
+\section{Projektumfeld Loxone}
+
+\subsection{Einführung}
+beschreibung des umfelds, einbindung der themenbereiche
+
+\subsection{Bedenken}
+
+ein hacker hat die oberhand über das haus, was passiert? werden alle gesammelten daten auf unternehmensserver weitergeleitet oder nur lokal verarbeitet? gesamtes leben überwachbar im ernstfall. gefahr einer cyberattacke auf pflege-/gesundheitssysteme
+
+\subsection{Formulierung ethischer Fragestellungen}
+
+diskutieren anhand der bedenken auf grundlage der theorie \newline
+aufstellen einiger wichtiger fragen und versuch einer ethischen urteilsfindung
+
+\clearpage
+
+\bibliographystyle{unsrt}
+\bibliography{SYT_Ethik_Weinberger}
+\lstlistoflistings
+\listoffigures
+
+\end{document}
