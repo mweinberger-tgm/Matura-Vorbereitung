@@ -1,4 +1,4 @@
-chatclient, java, filetransfermöglichkeit, daten auf den server übertragen & laden oder zu client, nachrichten von einem an alle (mulitcast), 
+﻿chatclient, java, filetransfermöglichkeit, daten auf den server übertragen & laden oder zu client, nachrichten von einem an alle (mulitcast), 
 server soll mitloggen die userstatistiken (datenübertragung, filetransfer progressmonitorstream), diese statistik soll per anfrage geschickt werden als POJO,
 Protokoll im Sinne zum Steuern des Programms (POJO ist eine möglichkeit: diese nachricht ist chat, dateianfrage, ...)
 konsole, gui nicht notwendig
@@ -9,3 +9,6 @@ für 2 beispiele 5 stunden (aber mit overhead, effektiv 4 stunden vl)
 backup backup backup! alles abspeichern am externen stick
 kompensationsprüfung auch theorie 4./5., aber auch polymorphie, ...
 es gibt bei beiden matura-beispielen einen erwartungshorizont
+
+1 beispiel python alles aus 2. semester wie sew/insy, nur ohne insy, sprich qt designer und pyside, 2. beispiel java 
+beide beispiele sind unabhängig voneinander, man muss aber beide haben
