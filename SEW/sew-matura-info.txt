@@ -1,0 +1,11 @@
+chatclient, java, filetransfermöglichkeit, daten auf den server übertragen & laden oder zu client, nachrichten von einem an alle (mulitcast), 
+server soll mitloggen die userstatistiken (datenübertragung, filetransfer progressmonitorstream), diese statistik soll per anfrage geschickt werden als POJO,
+Protokoll im Sinne zum Steuern des Programms (POJO ist eine möglichkeit: diese nachricht ist chat, dateianfrage, ...)
+konsole, gui nicht notwendig
+sinnvolles Modell, java api und oracle tutorials (zum rauskopieren von codebeispielen), eher keine Theoriefragen, protokoll ist zu erstellen mit texteditor oder libre
+astah ist in der community drauf, uml nicht jeden dreck rein, keine getter/setter, nur grundstruktur / konzept also beziehungen zwischen den klassen usw
+patterns nicht explizit gefordert, aber beeinflusst die beurteilung
+für 2 beispiele 5 stunden (aber mit overhead, effektiv 4 stunden vl)
+backup backup backup! alles abspeichern am externen stick
+kompensationsprüfung auch theorie 4./5., aber auch polymorphie, ...
+es gibt bei beiden matura-beispielen einen erwartungshorizont
