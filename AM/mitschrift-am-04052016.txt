@@ -41,3 +41,5 @@ rechenweg ist immer zu dokumentieren! --> 'eh kulant', wenn klar ersichtlich
 also bei befehlen ist klar, was verwendet wurde und wie es gemacht wurde
 
 lösungen in maxima mit kommentar versehen zur sicherheit
+
+gut auf sachzusammenhang achten, keywords müssen vorkommen!
