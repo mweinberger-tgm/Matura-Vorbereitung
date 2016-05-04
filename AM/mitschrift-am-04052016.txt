@@ -27,3 +27,12 @@ zählt dann aber!)
 
 alles kann in maxima gemacht werden, außer wenn in angabe anders definiert
 also leere zeilen, kasterl oder irgendwas ergänzt werden muss
+
+zuerst einmal die leichten sachen machen und den aufseher um abspeichern bitten
+fortschritt so gut wie möglich irgendwie sichern!
+
+berechnungen mit technologieeinsatz dokumentieren!
+wenn steht integrate, dann ist anzunehmen, dass integriert wurde
+
+achtung auf die achsenbeschriftungen! jedes diagramm, die lösung einer 
+handlungsanweisung ist braucht eine
