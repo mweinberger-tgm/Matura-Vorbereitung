@@ -36,3 +36,8 @@ wenn steht integrate, dann ist anzunehmen, dass integriert wurde
 
 achtung auf die achsenbeschriftungen! jedes diagramm, die lösung einer 
 handlungsanweisung ist braucht eine
+
+rechenweg ist immer zu dokumentieren! --> 'eh kulant', wenn klar ersichtlich
+also bei befehlen ist klar, was verwendet wurde und wie es gemacht wurde
+
+lösungen in maxima mit kommentar versehen zur sicherheit
