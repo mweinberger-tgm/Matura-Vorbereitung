@@ -14,3 +14,13 @@ operativ: romberg
 dgl 2. ordnung kommt nicht, kein federpendel, schwingungen, ...
 
 keine verschlüsselung
+
+es sind 4.5 stunden zeit, 5 schulstunden
+
+mit der hand bei maxima einzeichnen durch drucken, mit aufsicht reden wie 
+es mit drucken ist ... 1 od 2 ausdrucke in der zeit sind sicher möglich
+
+zirkel zur sicherheit auch mitnehmen!
+maxima als pdf umwandeln, so ist vor drucken wysiwyg
+maxima-ausdrucke händisch ergänzbar (wenn skalierung vergessen einzeichenbar,
+zählt dann aber!)
