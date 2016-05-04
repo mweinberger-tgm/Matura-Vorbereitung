@@ -5,7 +5,7 @@ wenn mehr verlangt, dann in angabe erläutert wie man's macht
 matrix --> keine deformationsmatrix
 verschieben also translation ja, spiegeln auch
 
-inhomogene DGL lösungsart nicht vorgegeben (ode2, ic2)
+inhomogene DGL lösungsart nicht vorgegeben (ode2, ic2 geht auch statt ic1, ic1 für 1. ord.)
 homogene DGL --> Trennung der Variablen muss händisch durchführbar sein!
 
 kann auch sein: integrationsverfahren beschreiben, untersumme
@@ -20,7 +20,10 @@ es sind 4.5 stunden zeit, 5 schulstunden
 mit der hand bei maxima einzeichnen durch drucken, mit aufsicht reden wie 
 es mit drucken ist ... 1 od 2 ausdrucke in der zeit sind sicher möglich
 
-zirkel zur sicherheit auch mitnehmen!
+zirkel zur sicherheit auch mitnehmen! kreisdiagramm z.B. winkel ausrechnen, die prozentzahl entsprechen
 maxima als pdf umwandeln, so ist vor drucken wysiwyg
 maxima-ausdrucke händisch ergänzbar (wenn skalierung vergessen einzeichenbar,
 zählt dann aber!)
+
+alles kann in maxima gemacht werden, außer wenn in angabe anders definiert
+also leere zeilen, kasterl oder irgendwas ergänzt werden muss
