@@ -1,0 +1,16 @@
+zinsen, 4. klasse
+nix, was nicht in der formelsammlung steht
+wenn mehr verlangt, dann in angabe erläutert wie man's macht
+
+matrix --> keine deformationsmatrix
+verschieben also translation ja, spiegeln auch
+
+inhomogene DGL lösungsart nicht vorgegeben (ode2, ic2)
+homogene DGL --> Trennung der Variablen muss händisch durchführbar sein!
+
+kann auch sein: integrationsverfahren beschreiben, untersumme
+operativ: romberg
+
+dgl 2. ordnung kommt nicht, kein federpendel, schwingungen, ...
+
+keine verschlüsselung
