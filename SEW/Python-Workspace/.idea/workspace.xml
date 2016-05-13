@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b43582e-2499-4ff3-b945-8fb10a490fd6" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Java-Workspace/src/mweinberger/controller/HelloWorld.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Java-Workspace/.idea/misc.xml" afterPath="$PROJECT_DIR$/../Java-Workspace/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Java-Workspace/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Java-Workspace/.idea/workspace.xml" />
     </list>
     <ignored path="Python-Workspace.iws" />
@@ -79,6 +77,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Qt-Spiel-master" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -94,7 +93,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="24" width="1922" height="1033" extended-state="7" />
+    <frame x="-1" y="24" width="1922" height="1033" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
