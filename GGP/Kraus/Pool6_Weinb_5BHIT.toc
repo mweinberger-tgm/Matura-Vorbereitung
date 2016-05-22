@@ -1,3 +1,0 @@
-\select@language {ngerman}
-\contentsline {section}{\numberline {1}Pool 6a - Wechselwirkungen von Kultur, Gesellschaft und Wirtschaft in der Geschichte \cite {buch}}{1}{section.1}
-\contentsline {subsection}{\numberline {1.1}Flucht, Vertreibung und Deportation: Migration und weltweite Kriege im 20. Jahrhundert}{1}{subsection.1.1}
