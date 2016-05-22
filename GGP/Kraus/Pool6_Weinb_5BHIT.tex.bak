@@ -1,0 +1,206 @@
+\documentclass[letterpaper, 12pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEFINITIONS
+% Change those informations
+% If you need umlauts you have to escape them, e.g. for an ü you have to write \"u
+\gdef\mytitle{Ausarbeitung}
+\gdef\mythema{Pool 6a - Wechselwirkungen von Kultur, Gesellschaft und Wirtschaft in der Geschichte}
+
+\gdef\mysubject{GGP-Matura}
+\gdef\mycourse{5BHIT 2015/16}
+\gdef\myauthor{Michael Weinberger}
+
+\gdef\myversion{1.0}
+\gdef\mybegin{17. Mai 2016}
+\gdef\myfinish{20. Mai 2016}
+
+\gdef\mygrade{}
+\gdef\myteacher{Betreuer: Kraus}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input special/preamble.tex
+
+\let\tempsection\section
+\renewcommand\section[1]{\vspace{-0.3cm}\tempsection{#1}\vspace{-0.3cm}}
+\WithSuffix\newcommand\section*[1]{\tempsection*{#1}}
+
+\let\tempsubsection\subsection
+\renewcommand\subsection[1]{\vspace{0cm}\tempsubsection{#1}\vspace{0cm}}
+
+\let\tempsubsubsection\subsubsection
+\renewcommand\subsubsection[1]{\vspace{0cm}\tempsubsubsection{#1}\vspace{0cm}}
+
+\linespread{0.94}
+
+\lhead{\mysubject}
+\chead{}
+\rhead{\bfseries\mythema}
+\lfoot{\mycourse}
+\cfoot{\thepage}
+% Creative Commons license BY
+% http://creativecommons.org/licenses/?lang=de
+\rfoot{\ccby\hspace{2mm}\myauthor}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+\parindent 0pt
+\parskip 6pt
+
+\pagenumbering{Roman} 
+\input{special/title}
+
+\clearpage
+\thispagestyle{empty}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\pagestyle{fancy}
+
+%\vspace{-0.5cm}
+\textbf{Kompetenzen für Dezentrale Systeme}
+
+\begin{itemize}
+	\item	\textbf{Lastenverteilung auf Applikationsebene} \newline
+	\textit{'können Lastverteilung auf Applikationsebene realisieren'}
+	\item 	\textbf{Sicherheitskonzepte} \newline
+	\textit{'können Sicherheitskonzepte für verteilte, dezentrale Systeme entwickeln'}
+	\item 	\textbf{Durchführung von Transaktionen in verteilten Systemen} \newline
+	\textit{'können in dezentralen Systemen Transaktionen durchführen'}
+	\item	\textbf{Programmiertechniken zur Realisierung von entfernten Prozeduren, Methoden und Objekten} \newline
+	\textit{'können Programmiertechniken in verteilten Systemen zur Realisierung von entfernten Prozeduren, Methoden und Objekten anwenden sowie webbasierte Dienste und Messaging-Dienste in solchen Systemen implementieren'}
+\end{itemize}
+
+\clearpage
+
+\section{Cloud Computing und Internet of Things}
+
+\subsection{Einführung}
+
+cc/iot --> Was versteht man darunter
+
+\subsection{Realisierung von entfernten Prozeduren, Methoden, Objekten zur Interkommunikation}
+
+ipc, rpc, java rmi
+
+\subsection{Grundlagen Messaging-Dienste}
+
+mom, ...
+
+\subsection{Anwendung mit webbasierten Diensten}
+
+JEE, REST Grundlagen, Frameworks, ...
+
+\clearpage
+
+\section{Automatisierung, Regelung und Steuerung}
+
+Themengebiet wird ausgelassen (1 von 1)
+
+\clearpage
+
+\section{Security, Safety, Availability}
+
+\subsection{Grundlegende Sicherheitskonzepte}
+
+Intrusion Detection, Honey Pot, Application Firewall, ... sowie Unterschiede
+
+\subsection{Risiken \& Gefahren von dezentralen Systemen}
+
+Beschreibung und Lösungsansätze
+
+\subsection{Frameworks}
+
+Funktionsweisen, verschiedene Ansätze
+
+\clearpage
+
+\section{Authentication, Authorization, Accounting}
+
+\subsection{Beschreibung der Grundlagen}
+
+Auth, Aut, Audit
+
+\subsection{Was ist LDAP?}
+Erklärung der Funktionsweise
+
+\subsection{Benutzerverwaltung mit LDAP}
+
+Serverarten, Zugriff darauf
+
+\subsection{Möglichkeiten zur Implementierung/alternative verteilte Authentifizierungsdienste}
+
+KDC, kerberos, Single Sign On, ...
+
+\clearpage
+
+\section{Disaster Recovery}
+
+\subsection{Backup-Strategien}
+
+Häufigkeit, wo werden sie aufbewahrt, sicherheitslevels
+
+\subsection{Disaster Recovery Plan}
+
+Aufstellen, was sollte drin sein, ...
+
+\subsection{Best Practice für die vorgegebenen Anforderungen}
+
+hot standby, cold standby, cluster
+
+\subsection{Rollback}
+
+Wie wird zentrales Image verteilt?
+
+\clearpage
+
+\section{Algorithmen und Protokolle}
+
+\subsection{Techniken zur Prüfung und Erhöhung der Sicherheit von dezentralen Systemen}
+
+Vorgehensweisen, symm. Verschlüsselung, SSL/TLS-Protokoll, ...
+
+\subsection{Grundlagen Lastverteilung}
+
+Hervorheben der Notwendigkeit, erste ansätze
+
+\subsection{Load Balancing-Algorithmen}
+
+round robin, weighted distr, least conn, ...
+
+\subsection{Session-basiertes Load Balancing}
+
+Erklärung der Vorteile und Idee zur Verwirklichung
+
+\subsection{Load-Balancing-Frameworks}
+
+Einführung und Unterschiede
+
+\clearpage
+
+\section{Konsistenz und Datenhaltung}
+
+\subsection{Grundlagen \& Erklärung}
+
+cap-theorem, hervorheben der notwendigkeit, vermeidung von inkonsistenzen, ...
+
+\subsection{Verschiedene Transaktionsprotokolle}
+
+2-phase, 3-phase, 2-phase-lock, long-duration, transaction, jta
+
+\subsection{Lösungsansätze bei Transaktionskonflikten}
+
+Aufzählen und erklären der verschiedenen vorgehensweisen
+
+\clearpage
+
+\clearpage
+\bibliographystyle{unsrt}
+\bibliography{SYT_DezSys_Weinberger}
+\lstlistoflistings
+\listoffigures
+
+\end{document}
