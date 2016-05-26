@@ -177,7 +177,7 @@ ausführte oder welcher Schaden dadurch entstand. Die Hauptziele eines IDS sind 
 das Ergreifen von aktiven Gegenmaßnahmen
 	\item eine juristische Verwertbarkeit der gesammelten Daten (den Angriff betreffend)
 	\item die Erkennung von Verlusten(Daten z.B.)
-	\item der Schutz vor zuk¨unftigen Angriffen durch die Auswertung der gesammelten Daten
+	\item der Schutz vor zukünftigen Angriffen durch die Auswertung der gesammelten Daten
 bei einem (simulierten) Angriff.
 \end{itemize}
 
@@ -508,31 +508,49 @@ jedem Server eine gewisse Gewichtung zugewiesen wird. In der Praxis wird diese M
 oder Round-Robin angewandt. Sollen nun weitere Server hinzugefügt werden im Fall von Weighted
 Round-Robin die Anfragen wie gewohnt der Reihe nach gewichtet verteilt. Im Fall von Weighted
 Least Connections ist lediglich auf die Anzahl der aktuell verbundenen Clients und die Gewichtung zu achten. Diese Methode ist besonders dann geeignet, wenn bereits bestehende, womöglich leistungsschwä-
-chere Hardware mit leistungsstärkerer kombiniert werden soll.
+chere Hardware mit leistungsstärkerer kombiniert werden soll. \cite{ausarbeitunglb}
 
 \subsubsection{Response Time}
 
 In der Annahme, dass eine schnelle Reaktion eines Servers eine gute Performance zur Folge hat,
 wird die Reaktionszeit eines Servers vom Load Balancer gemessen und anhand dieser ein Server
-ausgewählt. Hierzu werden entweder HTTP GET oder TCP SYN (Synchronize) Anfragen versandt
-und die Zeit gemessen, die vergeht, bis eine HTTP GET Antwort oder TCP SYN ACK (Synchronize
-Acknowledge) von diesem Server zurückgekommen ist. Für eine effiziente Lastenverteilung muss diese Antwortzeit über einen längeren Zeitraum gemessen werden. Aufgrund der Komplexität dieser Methode, könnte diese Methode alleine nicht die beste Möglichkeit
+ausgewählt. Für eine effiziente Lastenverteilung muss diese Antwortzeit über einen längeren Zeitraum gemessen werden. Aufgrund der Komplexität dieser Methode, könnte diese Methode alleine nicht die beste Möglichkeit
 zur Lastenverteilung bieten. Der Algorithmus kann hingegen in Kombination mit anderen
-Load Balancing Methoden funktionieren.
+Load Balancing-Methoden funktionieren. \cite{ausarbeitunglb}
 
 \subsubsection{Server Probe}
 
+Auf jedem Server rennt im Hintergrund ein Programm, welches die aktuelle Auslastung des Servers
+an den Load Balancer in regelmäßigen Zeitabständen weiterleitet. Auf diese Weise hat der Load
+Balancer stets Zugriff auf Daten, wie die aktuelle Auslastung der CPU, aber auch den verfügbaren
+Arbeits- und Festplattenspeicher. \cite{ausarbeitunglb}
+
 \subsubsection{Kombiniert}
+
+Die Kombination von zwei oder mehreren Methoden kann eine besseres Erfassen der Serverlast
+ermöglichen. Hierzu können beispielsweise die Methoden Response Time und Least Connections
+zusammen verwendet werden. Die Verfahren können vom Load Balancer wieder mit entsprechender
+Gewichtung verwendet werden. \cite{ausarbeitunglb}
 
 \subsubsection{Zufällig}
 
+Der denkbar einfachste Alogrithmus: Der zu verwendende Server wird von einem Zufallszahlengenerator am Load-Balancer festgelegt.
+Sollten nun innerhalb eines kurzen Zeitraumes viele Anfragen zustande kommen, so werden diese
+zufällig verteilt, was in etwa eine gleichmäßige Verteilung der Anfragen gewährleistet. \cite{ausarbeitunglb}
+
 \subsection{Session-basiertes Load Balancing}
 
-Erklärung der Vorteile und Idee zur Verwirklichung
+Hier wird der Ansatz verfolgt, dass bei mehreren Anfragen vom selben User der bereits zugewiesene Server weiter verwendet wird. Dies spart einen erneuten Rechenaufwand, um die Anfrage einem neuen Server zuzuweisen, kann jedoch darin resultieren, dass aufgrund der 'sticky session' zu viele Anfragen auf einmal zugeteilt werden, sofern der Zeitraum, wie lange eine Session maximal dauern darf zu lange eingestellt ist. \cite{ausarbeitunglb}
 
 \subsection{Load-Balancing-Frameworks}
 
-Einführung und Unterschiede
+\subsubsection{Apache Hadoop}
+
+Apache Hadoop ist ein Framework, welches das verteilte Verarbeiten von groÿen Datenmengen,
+die auf vielen Clustern verstreut sein können. Das Design erlaubt es, dass sowohl ein paar wenige,
+aber auch mehrere 1000 Server mühelos verwendet werden können. Das Framework selbst wurde so
+entworfen, dass Fehler auf Applikationsebene entdeckt und beseitigt werden können, was wiederum
+eine hohe Verfügbarkeit des Services auf dem Cluster sicherstellt. Hadoop verfügt über verschiedene Module, die nach Wahl hinzugefügt werden können, etwa das Hadoop Distributed File System oder etwa MapReduce. \cite{ausarbeitunglb}
 
 \clearpage
 
@@ -540,22 +558,102 @@ Einführung und Unterschiede
 
 \subsection{Grundlagen \& Erklärung}
 
-cap-theorem, hervorheben der notwendigkeit, vermeidung von inkonsistenzen, ...
+\subsubsection{CAP-Theorem}
+
+Das CAP-Theorem beschreibt das Verhältnis zwischen Consistency, Availability und Partition Tolerance
+(Konsistenz, Verfügbarkeit und Partitionstoleranz) indem es besagt, dass nur davon zwei in
+einem verteilten System gleichzeitig angeboten werden können. \\
+Consistency zählt zu den Sicherheitseigenschaften und beschreibt im Groben, dass eine Anfrage eine richtige Antwort erhält. Abhängig was Konsistenz im Detail ist liegt von der Service Spezifikationen ab. Als Beispiel für Consistency kann ein Onlineshop gesehen werden. Wenn 2 Personen
+gleichzeitig das letzte Exemplar beantragen, dürfen nicht beide die Antwort bekommen, dass die
+Bestellung erfolgreich war und somit zur Zahlung weiter gelangen. \\
+Availability: In verteilten Systemen muss für eine kontinuierliche Verfügbarkeit, jede Anfrage, die ein nicht fehlerhaften Node erhält, eine Antwort bekommen. \\
+Partition Tolerance: Wenn man jedoch die Daten und Logik auf mehrere
+Nodes verteilt besteht die Gefahr von Partition forming. Dies passiert, wenn sie in verschiedenen
+Gruppen aufgeteilt werden und wegen eines Fehlers nicht
+mehr miteinander kommunizieren können. Keine Fehler außer ein Totalausfall soll eine Antwort
+verfälschen. Wenn man somit eine Partition im Netzwerk hat, verliert man entweder Consistency,
+weil man Änderungen auf beiden Partitionen erlaubt oder Availability, weil man einen
+Fehler entdeckt und man das System abstellen muss um dies zu reparieren. \cite{ausarbeitungtra}
 
 \subsection{Verschiedene Transaktionsprotokolle}
 
-2-phase, 3-phase, 2-phase-lock, long-duration, transaction, jta
+\subsubsection{2-Phase-Commit}
 
-\subsection{Lösungsansätze bei Transaktionskonflikten}
+Der Zwei-Phasen-Commit ist eine Methode zur Koordination einer Transaktion zwischen mindestens
+zwei Ressourcenmanager. Es gewährleisten Datenintegrität bei der Sicherstellung, dass entweder
+eine Transaktion von allen Ressourcemanager committed werden oder bei allen ein Rollback
+stattfindet. Die 1. Phase des Zwei-Phasen-Commit wird Abstimmungsphase oder Vorbereitungsphase
+genannt, die 2. Phase Entscheidungsphase oder Commit/Abort-Phase. \cite{ausarbeitungtra}
 
-Aufzählen und erklären der verschiedenen vorgehensweisen
+\subsubsection{3-Phase-Commit}
+
+Der Drei-Phasen-Commit verhindert das Problem des Zwei-Phasen-Commit, dass Teilnehmer nach
+einem Absturz des Koordinators teilweise nicht mehr zu einer eindeutigen Entscheidung
+kommen können. In der Praxis wird der 3PC nicht häufig eingesetzt, da der Zustand bei dem
+2PC selten vorkommen. Beim 3PC genügen die Zustände des Koordinators und der Teilnehmer
+folgender Bedingungen:
+
+\begin{itemize}
+	\item Keinem einzelnen Zustand ist es möglich direkt in COMMIT/ABORT-Zustand zu gelangen.
+	\item Keinem einzelnen Zustand ist es unmöglich eine endgültige Entscheidung zu treffen (Übergang
+in den COMMIT-Zustand) \cite{ausarbeitungtra}
+\end{itemize}
+
+\subsubsection{2-Phase-Lock}
+
+Das Zwei-Phasen-Sperrprotokoll ist eine Methode zur Synchronisierung von Zugriff auf aufgeteilte
+Daten. Bei einer Schreibsperre kann nur der sperrende Prozess auf das Objekt zugreifen und somit dieses auch ändern. Bei einer Lesesperre können mehrere Prozesse das gesperrte Objekt lesen. \\
+Die konservative Art des 2PL verhindert einen Deadlock. Dies wird umgesetzt indem bei Beginn der Transaktion
+alle benötigten Sperren auf einmal gesetzt werden. Die strikte Art ist die häufiger verwendete
+Art von 2PL. Hier werden alle gesetzten Write-Locks erst am Ende der Transaktion freigegeben. \cite{ausarbeitungtra}
+
+\subsubsection{Long-duration Transaction}
+
+Sehr viele Businesstransaktionen sind Long-term-/Long-running-/Long-duration-Tranaktionen. Diese
+laufen meist wie der Name sagt für eine lange Zeit, sogar für Stunden oder Tage. Daher werden
+meistens Timelimits gesetzt. Nach Ablauf des Limits geschieht ein Rollback. \cite{ausarbeitungtra}
+
+\subsection{Transaktionskonflikte}
+
+\subsubsection{ACID}
+
+Das Transaktionsprinzp sollte dem ACID-Schema folgen. 
+
+\begin{itemize}
+	\item Atomicity \\
+		Transaktion wird entweder ganz oder gar nicht
+ausgeführt
+	\item Consistency \\
+		Datenbank ist vor Beginn und nach Beendigung einer
+Transaktion jeweils in einem konsistenten Zustand
+	\item Isolation \\
+		Nutzer, der mit einer Datenbank arbeitet, sollte den
+Eindruck haben, dass er mit dieser Datenbank alleine
+arbeitet
+	\item Durability \\
+		Nach erfolgreichem Abschluss einer Transaktion muss
+das Ergebnis dieser Transaktion 'dauerhaft' in der Datenbank gespeichert werden.
+\end{itemize}
 
 \clearpage
+
+\subsubsection{Probleme im Mehrbenutzerbetrieb und Lösungsansätze}
+
+Folgendes wird durch ACID-konformen Transaktionen verhindert
+
+\begin{itemize}
+	\item Inkonsistentes Lesen: Nonrepeatable Read
+	\item Abhängigkeiten von nicht freigegebenen Daten: Dirty
+Read
+	\item Das Phantom-Problem 
+	\item Verlorengegangenes Ändern: Lost Update
+\end{itemize}
+
+Im 2PC-Betrieb kann wie bereits kurz angesprochen nach dem Vote der Koordinator ausfallen. Die Teilnehmer müssen daraufhin nach einem Timeout aborten. Das ist jedoch quasi Rückgängigmachen einer bereits getroffenen Entscheidung. \\
+Im 3PC-Fehlerfall (Ausfall des Koordinators und k-1 Teilnehmer) sind alle weiteren Teilnehmer im Zustand 'Ready'. Die ausgefallenen Teilnehmer können nur in den Zuständen 'Ready', 'Abort' oder 'Pre-Commit' sein, weswegen die Transaktion abgebrochen werden kann. Sollte einer der Teilnehmer im Zustand 'Pre-Commit' oder 'Commit' sein, so muss ein neuer Koordinator das Protokoll fortsetzen. \cite{error}
 
 \clearpage
 \bibliographystyle{unsrt}
 \bibliography{SYT_DezSys_Weinberger}
-\lstlistoflistings
-\listoffigures
 
 \end{document}
