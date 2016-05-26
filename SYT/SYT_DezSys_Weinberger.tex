@@ -94,19 +94,23 @@ Das Internet der Dinge (Internet of Things / IoT) ist ein Gebilde, bei dem Objek
 
 \subsection{Realisierung von entfernten Prozeduren, Methoden, Objekten zur Interkommunikation}
 
+Dieses Kapitel bezieht sich auf die Implementierungen für die Programmiersprache Java.
+
 \subsubsection{Interprozesskommunikation}
 
 Interprozesskommunikation (IPC) ist eine Sammlung von Programmierinterfaces, die einem erlauben koordinierte Aktivitäten zwischen verschiedenen Prozessen nebenläufig laufen zu lassen. Dies ermöglicht etwa, dass ein Programm viele Benutzeranfragen gleichzeitig verarbeiten kann. Jede einzelne Useranfrage kann auch mehrere Prozesse generieren, die allesamt miteinander kommunzieren müssen. IPC nimmt sich dieser Problematik an. Jede einzelne Umsetzungsmethode hat seine eigenen Vor- und Nachteile, so ist es nicht selten, dass auch mehrere Methoden gleichzeitig zum Einsatz kommen. \cite{ipc}
 
 \subsubsection{Wie werden Informationen ausgetauscht?}
 
-In der Interprozesskommunikation empfiehlt es sich, ein 'Protokoll' zu definieren, sprich, wie Nachrichten untereinander weitergegeben werden. Beispielsweise ist SOAP ein standardisiertes Verpackungsprotokoll für Nachrichten. Die Spezifikation definiert einen XML-basierten Umschlag (Envelope) für die zu übertragenden Informationen sowie Regeln für die Umsetzung von Anwendungs- und plattformspezifischen Datentypen in XML-Darstellung. Der Nachrichtenaustausch über XML stellt eine flexible Methode zur Kommunikation zwischen Anwendungen dar. Eine Nachricht kann alles mögliche enthalten z.B. Warenbestellungen, Suchanfragen oder ähnliches. Da XML an keine bestimmte Programmiersprache oder ein bestimmtes Betriebssystem gebunden ist, können XML-Nachrichten in allen Umgebungen verwendet werden. \cite{ausarbeitungsoa}
+In der Interprozesskommunikation empfiehlt es sich, ein 'Protokoll' zu definieren, sprich, wie Nachrichten untereinander weitergegeben werden. Beispielsweise ist SOAP ein standardisiertes Verpackungsprotokoll für Nachrichten. Die Spezifikation definiert einen XML-basierten Umschlag (Envelope) für die zu übertragenden Informationen sowie Regeln für die Umsetzung von Anwendungs- und plattformspezifischen Datentypen in XML-Darstellung. Der Nachrichtenaustausch über XML stellt eine flexible Methode zur Kommunikation zwischen Anwendungen dar. Eine Nachricht kann alles mögliche enthalten z.B. Warenbestellungen, Suchanfragen oder ähnliches. Da XML an keine bestimmte Programmiersprache oder ein bestimmtes Betriebssystem gebunden ist, können XML-Nachrichten in allen Umgebungen verwendet werden. Aufgrund der Einfachheit empfiehlt sich in Java der Einsatz sogenannter POJOs. Das sind schlicht und einfach 'plain old java objects' mit Methoden und Attributen. Dieses Objekt kann in verteilten Systemen serialisiert übertragen werden. \cite{ausarbeitungsoa}
 
 \subsubsection{Sockets}
 
-pojo? soap?
-
-vorstufe von rmi, für einfachere sachen
+Sockets sind wahrscheinlich die einfachste Möglichkeit, um Prozesse 'miteinander reden zu lassen'. Ein Socket ist ein Kommunikationsendpunkt, und wird über eine IP-Adresse und einen Port eindeutig identifiziert. Er nimmt eingehende Verbindungen entgegen, und verbindet sich mit seinem Gegenstück. Unter einer IP-Adresse können mehrere Sockets erreichbar sein! Sowohl Server als auch Client
+benötigen einen eindeutigen Kommunikationsendpunkt, wir unterscheiden zwischen
+Server-Socket und Client-Socket. Der Server-Socket wartet und 'horcht' auf eingehende
+Verbindungen durch Clients, wird daher auch passiver Socket genannt. Er muss einer IP-Adresse und einem Port zugeteilt sein ('Binding'). Er empfängt Daten von Clients, führt Berechnungen
+durch und sendet das Ergebnis zurück, der Aufbau geschieht typischerweise multithreaded. Der Client-Socket verbindet sich mit Server-Socket und initiiert den Verbindungsaufbau, wird daher aktiver Socket genannt. Er muss IP und Port des Servers wissen, und sendet single- oder multithreaded Daten an den Server und erhält Resultate.
 
 \subsubsection{RPC}
 
