@@ -110,19 +110,33 @@ Sockets sind wahrscheinlich die einfachste Möglichkeit, um Prozesse 'miteinande
 benötigen einen eindeutigen Kommunikationsendpunkt, wir unterscheiden zwischen
 Server-Socket und Client-Socket. Der Server-Socket wartet und 'horcht' auf eingehende
 Verbindungen durch Clients, wird daher auch passiver Socket genannt. Er muss einer IP-Adresse und einem Port zugeteilt sein ('Binding'). Er empfängt Daten von Clients, führt Berechnungen
-durch und sendet das Ergebnis zurück, der Aufbau geschieht typischerweise multithreaded. Der Client-Socket verbindet sich mit Server-Socket und initiiert den Verbindungsaufbau, wird daher aktiver Socket genannt. Er muss IP und Port des Servers wissen, und sendet single- oder multithreaded Daten an den Server und erhält Resultate.
+durch und sendet das Ergebnis zurück, der Aufbau geschieht typischerweise multithreaded. Der Client-Socket verbindet sich mit Server-Socket und initiiert den Verbindungsaufbau, wird daher aktiver Socket genannt. Er muss IP und Port des Servers wissen, und sendet single- oder multithreaded Daten an den Server und erhält Resultate. \cite{socketslides}
 
 \subsubsection{RPC}
 
+Der Remote Procedure Call (RPC) ist ein Protokoll, das die Implementierung verteilter Anwendungen - also Netzwerkdienste - vereinfachen soll. Die dahinter steckende Idee ist, dass ein Programm eine Funktion eines Programms, das auf einem anderen Rechner läuft, nutzen kann, ohne sich um die zu Grunde liegenden Netzwerkdetails kümmern zu müssen. Der RPC arbeitet nach dem Client-Server-Modell. Ein RPC-Aufruf arbeitet in den meisten Fällen synchron. Das lokale Programm, der Client, sendet eine Anforderung an das entfernte Programm, den Server, und unterbricht seine Arbeit bis zum Eintreffen der Antwort. In Verbindung mit Threads ist allerdings eine asynchrone Realisierung eines entfernten Funktionsaufrufs möglich. Die Programmierung eines Programms, das RPC-Aufrufe verwendet, gestaltet sich recht einfach. In dem der Sprache C sehr ähnlichen Programmcode wird eine so genannte Stub-Routine verwendet, die als Platzhalter für den kompletten Code zur Realisierung des Netzwerkzugriffs dient. Später wird mit Hilfe des Programms rpcgen aus der Datei ein vollständiges C-Programm erzeugt. \citep{rpc}
+
 \subsubsection{Java RMI}
 
-\subsubsection{CORBA}
-
-ipc, rpc, java rmi
+Während RPC C-basiert ist, liegt bei RMI (Remote Method Invocation) der Fokus voll und ganz auf Java, und setzt dieses objektorientiert um. Objekte, die sich auf unterschiedlichen Rechnern befinden, können mit Hilfe von RMI über Methodenaufrufe miteinander kommunizieren. Das Prinzip von RMI ist denkbar einfach: Ein Client-Objekt sendet dabei
+eine Nachricht an den Server, die die aufzurufende Methode sowie die dafür
+benötigten Parameter enthält. Das Server-Objekt führt die entsprechende
+Methode aus und schickt das Resultat wieder an den Client zurück. Zur Realisierung dieses Konzepts kapselt Java die Daten, die über das Netzwerk
+übermittelt werden sollen, auf dem Client-Rechner in sogenannten
+'Stubs'. Die Parameter müssen dafür zuerst in einem passenden Format
+zusammengefasst werden. Komplizierter ist diese Aktion bei Objekten, beispielsweise bei Strings oder
+eigenen Klassen. Da Objektreferenzen im Grunde nichts anderes sind als
+Zeiger auf bestimmte lokale Speicherstellen, kann der Server damit natürlich
+nicht viel anfangen. Es muß also das komplette Objekt übermittelt werden,
+wozu Object Serialization, also der gleiche Mechanismus verwendet
+wird, der mit dem auch Objekte beziehungsweise Objektreferenzen auf
+einer Diskette oder Festplatte gespeichert werden. Um das zu ermöglichen,
+müssen Objekte, die als Parameter für RMI-Aufrufe dienen, das Interface
+'Serializable' aus dem Package 'java.io' implementieren. \citep{rmi}
 
 \subsection{Grundlagen Messaging-Dienste}
 
-mom, ...
+mom, corba ...
 
 \subsection{Anwendung mit webbasierten Diensten}
 
