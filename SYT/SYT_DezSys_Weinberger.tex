@@ -136,11 +136,14 @@ müssen Objekte, die als Parameter für RMI-Aufrufe dienen, das Interface
 
 \subsection{Grundlagen Messaging-Dienste}
 
-mom, corba ...
+Message Oriented Middleware (MOM) ist die Basis für eine asynchrone Kommunikation zwischen Client und Server in einer verteilten Anwendung. Diese Form der Kommunikation steht im Gegensatz dazu, wenn Client und Server direkt und zeitgleich - also synchron - miteinander in Verbindung stehen und sich damit ebenso blockieren können. MOM wird daher auch als eine lose Kopplung zwischen den Teilnehmern bezeichnet. Der MOM-Server übernimmt die Verwaltung der asynchronen Nachrichten in Regel in Form einer Warteschlange. Dadurch kann der Empfänger die Nachrichten zu einem beliebigen Zeitpunkt aus dieser Warteschlange abholen. Der zentrale Gesichtspunkt eines MOM-Servers ist die unabhängige Vermittlung von Nachrichten. Damit steht ein MOM-Server im Vorteil gegenüber klassischen verteilten Systemen, die auf Remote Procedure Call (RPC) basieren. Message Oriented Middleware bietet damit ein Konzept zum Austausch von Nachrichten unabhängig von Programmiersprachen und Plattformen. Jedoch existieren Programmierschnittstellen (API) für verschiedene Programmiersprachen, zum Beispiel der Java Message Service (JMS). In der Regel wird dabei die Technik der Warteschlangen (Queue) eingesetzt:
 
-\subsection{Anwendung mit webbasierten Diensten}
-
-JEE, REST Grundlagen, Frameworks, ...
+\begin{itemize}
+	\item Der Sender stellt eine Nachricht in die Queue des Empfängers.
+	\item Dabei wirken Sender und Empfänger immer unabhängig voneinander.
+	\item Der Sender agiert weiter, ohne dass er Kenntnis vom Status seiner Nachricht hat.
+	\item Der Empfänger holt die Nachricht zu einem beliebigen Zeitpunkt aus seiner Queue. \cite{mom}
+\end{itemize}
 
 \clearpage
 
@@ -152,17 +155,74 @@ Themengebiet wird ausgelassen (1 von 1)
 
 \section{Security, Safety, Availability}
 
+Im Allgemeinen kann man die vier folgenden wichtigen Schutzziele definieren:
+
+\begin{itemize}
+	\item Vertraulichkeit – Schutz vor unautorisiertem Zugang zu Informationen.
+	\item Integrität - Schutz vor unautorisierter unbemerkter Änderung von Informationen.
+	\item Verfügbarkeit - Schutz vor unautorisiertem Beschlagnehmen von Informationen
+oder Ressourcen.
+	\item Zurechenbarkeit – für Aktionen und Ereignisse Verantwortliche müssen ermittelbar
+sein.
+\end{itemize}
+
 \subsection{Grundlegende Sicherheitskonzepte}
 
-Intrusion Detection, Honey Pot, Application Firewall, ... sowie Unterschiede
+\subsubsection{Intrusion Detection-Systeme}
 
-\subsection{Risiken \& Gefahren von dezentralen Systemen}
+Ein IPS (Intrusion Prevention System) hat sich in der Vergangenheit als nicht wirksam gezeigt. Die Bedrohungen können oft sehr vielfältig sein, ohne ein IDS hat man keine Möglichkeit herauszufinden
+wie lange ein Eindringling unbemerkt blieb, wie und wann er seinen Angriff
+ausführte oder welcher Schaden dadurch entstand. Die Hauptziele eines IDS sind also:
 
-Beschreibung und Lösungsansätze
+\begin{itemize}
+	\item Benachrichtigung des Admins/Sicherheitsbeauftragten im Falle eines Angriffs oder
+das Ergreifen von aktiven Gegenmaßnahmen
+	\item eine juristische Verwertbarkeit der gesammelten Daten (den Angriff betreffend)
+	\item die Erkennung von Verlusten(Daten z.B.)
+	\item der Schutz vor zuk¨unftigen Angriffen durch die Auswertung der gesammelten Daten
+bei einem (simulierten) Angriff.
+\end{itemize}
 
-\subsection{Frameworks}
+Wie oben schon erwähnt ist das Ziel des Einsatzes von IDS
+ist eine frühzeitige Erkennung von Attacken, um den möglichen Schaden zu minimieren
+und Angreifer identifizieren zu können. Nachdem etwaige Sicherheitsverletzungen durch die Analysekomponenten erkannt wurden,
+werden die Reaktionskomponenten des Intrusion Detection Systems veranlasst entsprechende
+Reaktionen durchzuführen. Es wird grundlegend zwischen passiven und aktiven
+Reaktionen unterschieden. Passive Reaktionen liefern lediglich Informationen an
+den Nutzer des IDS und überlassen diesem dann die Ergreifung weiterer Maßnahmen.
+Aktive Reaktionen umfassen aber das automatische oder halbautomatische Auslösen
+von Aktionen. Hierbei sind zum Beispiel gezielte Aktionen gegen den Angreifer wie das
+Blockieren von Netzwerkdiensten, die Benachrichtigung umgebender Systeme oder die
+Sammlung zusätzlicher Informationen möglich. \\
+Es gibt auch Unterscheidungen, ein Network-based IDS versucht den Paketverkehr im Netz aufzuzeichnen und zu analysieren, während Host-based IDS nur für einen Rechner operieren, beides mit Vor- und Nachteilen.
 
-Funktionsweisen, verschiedene Ansätze
+\subsubsection{Honey Pot-Systeme}
+
+Ein Honigtopf oder englisch honeypot ist eine Einrichtung, die einen Angreifer vom
+eigentlichen Ziel ablenken soll und ihn in einen Bereich hineinziehen soll, der ihn sonst
+nicht interessiert hätte. Ein Honeypot ist also
+konkret ein schlecht abgesicherter Server, der bestimmte Netzwerkdienste eines Rechnernetzes simuliert, jedoch aus Sicht des Betreibers 'nicht nötig' ist und keine richtigen Daten oder Dienste bereithält. Honeypots werden vorrangig dazu eingesetzt, um Informationen
+über das Angriffsmuster und das Angreiferverhalten zu erhalten. Erfolgt durch
+den Angreifer ein Zugriff auf so einen Honey Pot, werden alle damit verbundenen Aktionen
+protokolliert und ggf. ein Alarm ausgelöst. Das abgekapselte reale Netzwerk
+bleibt vom Angriff möglichst verschont, da es besser gesichert ist als der Honeypot. Die Idee hinter dem Einsatz von Honeypot-Systemen ist in einem Netzwerk einen
+oder am besten mehrere Honeypots zu installieren, die keine vom Anwender oder anderen
+Kommunikationspartnern benötigten Dienste bieten und so im Normalfall niemals
+angesprochen werden. Ein Angreifer, der das Netzwerk auf Sicherheitslücken untersucht, wird den schlecht gesicherten Honeypot als Angriffsziel bevorzugen, und so kaum Schaden anrichten.
+
+\subsubsection{Application Firewall}
+
+Eine Application Firewall ist eine spezielle Art einer Firewall die Input, Output und/oder
+Zugriff zu oder von einer Applikation oder eines Dienstes kontrolliert. Eine Application
+Firewall arbeitet indem sie den Input, Output oder Zugriffe auf Systemdienste protokolliert
+und diese gegebenenfalls blockiert falls ein Verstoß gegen die Firewall-Policy
+vorliegt. Die Firewall ist dafür ausgerichtet den ganzen Netzwerkverkehr (bis zum Application
+Layer) zu kontrollieren. Wieder gibt es die Unterscheidung Network-/Host-based. \cite{ausarbeitungsec}
+
+\subsection{Dezentrale Systeme sicherer machen}
+
+An sich lässt sich diese Frage so beantworten: Mit Authentifikation, Autorisierung, Verschlüsselung und Session Management lässt sich der Sicherheitsgrad einer Anwendung allgemein werhöhen. Diese Themen werden genauer in späteren Punkten besprochen. \\
+Ein Framework, dass die genannten Punkte vereint ist etwa Apache Shiro. Hier wird eine umfassend API bereitgestellt. Der Fokus liegt hierbei natürlich auf Webanwendungen, aber auch auf mobilen Applikationen (App-Entwicklung). Vergleichlich ist etwa Spring Security, welches als Teil des bekannten Spring-Frameworks Features wie etwa Authentifikation/Autorisierung und Schutz vor den häufigsten Angriffen im Enterprise-Bereich.
 
 \clearpage
 
