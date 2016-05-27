@@ -654,40 +654,57 @@ Im 3PC-Fehlerfall (Ausfall des Koordinators und k-1 Teilnehmer) sind alle weiter
 
 \clearpage
 
-\subsection{Projektumfeld: UN-Sensornetz}
+\section{Projektumfeld: Smart-Home-Hersteller Loxone}
 
-Die UN hat eine Ausschreibung für ein Sensor-Netz zur Tsunami-Warnung.
-Das Unternehmen bei dem Sie arbeiten will an dieser Ausschreibung
-teilnehmen.
-Es soll ein verteiltes Sensor-Netz aus Bojen weltweit in den Ozeanen
-ausgebracht werden.
-Die Daten (Temperatur, Wellengang, Tiefe) der Sensoren sollen in
-Echtzeit abgerufen werden können und gesammelt in konstanten
-Zeitabständen automatisch übermittelt werden.
-Die gesammelten Daten sollen automatisch ausgewertet und visualisiert
-werden. Die Sensor-Bojen müssen energieautark und zuverlässig
-funktionieren und ein langes Wartungsfenster besitzen.
-Die Kommunikation der Bojen soll als Peer-to-Peer Netzwerk realisiert
-werden.
-Die Auswertung soll in einem hochverfügbaren zentralen System realisiert
-werden und mit einer offenen Schnittstelle für andere Systeme
-ausgestattet sein.
+Loxone als Smart-Home-Systemhersteller möchte seine Produktpalette mit
+Hilfe eines Partners erweitern. Die Firma Festo will expandieren und
+geht auf das Angebot ein. \\
+Die Idee ist mehr mobile Robotik ins tägliche Leben einzubringen
+(Staubsauger, Rasenmäher, Lasttransporter, etc.). Zur Überwachung werden
+energieautarke Sensoreinheiten benötigt (Funklösung, energiesparend).
+Auch weitere Sensoren sollen miteingebunden werden
+(Ambient-Assisted-Living, Pflege/Gesundheit, etc.).
+Die Steuerung und Datenerfassung soll mittels einer Cloudimplementierung
+erfolgen (IoT, App, etc.).
+Dabei ist die Sicherheit bez. die Datenweitergabe ein wichtiger Aspekt.
 
 Wie ich diese Aufgabenstellung bearbeiten würde:
 
-\subsubsection{Cloud Computing und IoT}
+\subsection{Cloud Computing und IoT}
 
-\ceparagraph{Hallo}
+\subsubsection{Einführung}
 
-\subsubsection{Security, Safety, Availability}
+Wie bereits der Aufgabenstellung zu entnehmen ist, soll hier eine Cloudimplementierung geschehen. Jeder Client, egal ob Rasenmäher oder Staubsauger, ist ständig mit dem Internet verbunden. Hierfür benötigt es eine möglichst hochverfügbare Internetanbindung seitens des Clients. Ohne Konnektivität können die angebotenen Services nicht gewährleistet werden. Über eine zentrale, firmeneigene Stelle außerhalb des Netzwerks werden alle Clients gesteuert, und deren Daten aufgenommen. Der große Vorteil einer Implementierung mithilfe der 'Cloud' ist die hohe Skalierbarkeit. Sollte Loxone weiter expandieren wollen, so kann innerhalb kürzester Zeit mehr Kapazität zur Verfügung gestellt werden. Auch die bessere Wartbarkeit ist ein positiver Aspekt. Da die Cloudinfrastruktur meist von externen, marktführenden Providern bereitgestellt wird, wird das System als hochverfügbar gelten. Ein Ausfall soll besonders hier nicht passieren, da sonst 'der ganze Betrieb steht' und hunderte, wenn nicht sogar tausende User in Mitleidenschaft zieht, die ihre Heimrobotik nicht mehr verwenden können.
 
-\subsubsection{Authentication, Authorization, Accounting}
+\subsubsection{Wer bietet Cloud-Infrastruktur an?}
 
-\subsubsection{Disaster Recovery}
+\ceparagraph{Amazon Web Services (AWS)}
 
-\subsubsection{Algorithmen und Protokolle}
+Amazon ist mit Abstand der Innovationsmotor im Cloud-Computing-Markt. Im Bereich Infrastructure-as-a-Service (IaaS) ist AWS der unangefochtene Marktführer. Es gibt eine Vielzahl von bekannten, weltweit operierenden Unternehmen, die hier auf AWS schwören. Zur Verbesserung der Hochverfügbarkeit haben sie Rechenzentrum rund um den Globus verteilt, um einen möglichst guten Ping zu erzielen. Das AWS-Portfolio umfasst über drei Dutzend verschiedene Web-Services, einige der relevantesten Services zur Implementierung:
 
-\subsubsection{Konsistenz und Datenhaltung}
+\begin{itemize}
+	\item Amazon Elastic Compute Engine (EC2) \\
+		... dient zum Ausführen von Anwendungen auf skalierbaren Rechenkapazitäten. EC2 kann als 'unbegrenzte Anzahl virtueller Maschinen' gesehen werden. 
+	\clearpage
+	\item Amazon Dynamo DB \\
+	... ein vollständig verwalteter NoSQL-DB-Service, mit niederiger Latenz und hoher Skalierbarkeit.
+	\item Amazon Simple Storage Service (S3) \\
+	... ein skalierbarer Speicher für beliebige Datenmengen, zur Absicherung und Archivierung der Daten. \cite{aws}
+\end{itemize}
+
+\ceparagraph{Microsoft Azure}
+
+\subsubsection{Konzept zur Realisierung von entfernten Prozeduren}
+
+\subsection{Security, Safety, Availability}
+
+\subsection{Authentication, Authorization, Accounting}
+
+\subsection{Disaster Recovery}
+
+\subsection{Algorithmen und Protokolle}
+
+\subsection{Konsistenz und Datenhaltung}
 
 \clearpage
 \bibliographystyle{unsrt}
