@@ -16,3 +16,9 @@ Wissen ansammeln, Technologien anschauen, erläutern und auf Probleme anwenden k
 
 Zu stur auf Aufgabenstellung Wort für Wort kann auch kontraproduktiv sein --> über den tellerrand blicken, umfeld durchdenken
 Handlungsalternativen anschauen!
+Man darf auch Aufgabenstellung infrage stellen, wenn man gut argumentiert, kann aber auch nach hinten losgehen!
+
+im beispiel ... metabegriffe rauslesen können --> architektur ohne bottleneck impliziert lastverteilung, virtualisierung, ...
+out of the box denken! nicht an so wörtern wie architektur dezidiert aufhängen
+
+aufgabenstellungen bleiben sehr generisch, innerhalb des kontextes bleiben und zum thema hinführen
