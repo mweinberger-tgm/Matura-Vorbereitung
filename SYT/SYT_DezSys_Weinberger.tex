@@ -653,6 +653,43 @@ Im 2PC-Betrieb kann wie bereits kurz angesprochen nach dem Vote der Koordinator 
 Im 3PC-Fehlerfall (Ausfall des Koordinators und k-1 Teilnehmer) sind alle weiteren Teilnehmer im Zustand 'Ready'. Die ausgefallenen Teilnehmer können nur in den Zuständen 'Ready', 'Abort' oder 'Pre-Commit' sein, weswegen die Transaktion abgebrochen werden kann. Sollte einer der Teilnehmer im Zustand 'Pre-Commit' oder 'Commit' sein, so muss ein neuer Koordinator das Protokoll fortsetzen. \cite{error}
 
 \clearpage
+
+\subsection{Projektumfeld: UN-Sensornetz}
+
+Die UN hat eine Ausschreibung für ein Sensor-Netz zur Tsunami-Warnung.
+Das Unternehmen bei dem Sie arbeiten will an dieser Ausschreibung
+teilnehmen.
+Es soll ein verteiltes Sensor-Netz aus Bojen weltweit in den Ozeanen
+ausgebracht werden.
+Die Daten (Temperatur, Wellengang, Tiefe) der Sensoren sollen in
+Echtzeit abgerufen werden können und gesammelt in konstanten
+Zeitabständen automatisch übermittelt werden.
+Die gesammelten Daten sollen automatisch ausgewertet und visualisiert
+werden. Die Sensor-Bojen müssen energieautark und zuverlässig
+funktionieren und ein langes Wartungsfenster besitzen.
+Die Kommunikation der Bojen soll als Peer-to-Peer Netzwerk realisiert
+werden.
+Die Auswertung soll in einem hochverfügbaren zentralen System realisiert
+werden und mit einer offenen Schnittstelle für andere Systeme
+ausgestattet sein.
+
+Wie ich diese Aufgabenstellung bearbeiten würde:
+
+\subsubsection{Cloud Computing und IoT}
+
+\ceparagraph{Hallo}
+
+\subsubsection{Security, Safety, Availability}
+
+\subsubsection{Authentication, Authorization, Accounting}
+
+\subsubsection{Disaster Recovery}
+
+\subsubsection{Algorithmen und Protokolle}
+
+\subsubsection{Konsistenz und Datenhaltung}
+
+\clearpage
 \bibliographystyle{unsrt}
 \bibliography{SYT_DezSys_Weinberger}
 
