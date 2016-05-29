@@ -1,0 +1,719 @@
+\documentclass[letterpaper, 12pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEFINITIONS
+% Change those informations
+% If you need umlauts you have to escape them, e.g. for an ü you have to write \"u
+\gdef\mytitle{Ausarbeitung}
+\gdef\mythema{DezSys}
+
+\gdef\mysubject{Systemtechnik-Matura}
+\gdef\mycourse{5BHIT 2015/16}
+\gdef\myauthor{Michael Weinberger}
+
+\gdef\myversion{1.0}
+\gdef\mybegin{21. April 2016}
+\gdef\myfinish{16. Mai 2016}
+
+\gdef\mygrade{}
+\gdef\myteacher{Betreuer: Graf/Borko}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input special/preamble.tex
+
+\let\tempsection\section
+\renewcommand\section[1]{\vspace{-0.3cm}\tempsection{#1}\vspace{-0.3cm}}
+\WithSuffix\newcommand\section*[1]{\tempsection*{#1}}
+
+\let\tempsubsection\subsection
+\renewcommand\subsection[1]{\vspace{0cm}\tempsubsection{#1}\vspace{0cm}}
+
+\let\tempsubsubsection\subsubsection
+\renewcommand\subsubsection[1]{\vspace{0cm}\tempsubsubsection{#1}\vspace{0cm}}
+
+\linespread{0.94}
+
+\lhead{\mysubject}
+\chead{}
+\rhead{\bfseries\mythema}
+\lfoot{\mycourse}
+\cfoot{\thepage}
+% Creative Commons license BY
+% http://creativecommons.org/licenses/?lang=de
+\rfoot{\ccby\hspace{2mm}\myauthor}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+\parindent 0pt
+\parskip 6pt
+
+\pagenumbering{Roman} 
+\input{special/title}
+
+\clearpage
+\thispagestyle{empty}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\pagestyle{fancy}
+
+%\vspace{-0.5cm}
+\textbf{Kompetenzen für Dezentrale Systeme}
+
+\begin{itemize}
+	\item	\textbf{Lastenverteilung auf Applikationsebene} \newline
+	\textit{'können Lastverteilung auf Applikationsebene realisieren'}
+	\item 	\textbf{Sicherheitskonzepte} \newline
+	\textit{'können Sicherheitskonzepte für verteilte, dezentrale Systeme entwickeln'}
+	\item 	\textbf{Durchführung von Transaktionen in verteilten Systemen} \newline
+	\textit{'können in dezentralen Systemen Transaktionen durchführen'}
+	\item	\textbf{Programmiertechniken zur Realisierung von entfernten Prozeduren, Methoden und Objekten} \newline
+	\textit{'können Programmiertechniken in verteilten Systemen zur Realisierung von entfernten Prozeduren, Methoden und Objekten anwenden sowie webbasierte Dienste und Messaging-Dienste in solchen Systemen implementieren'}
+\end{itemize}
+
+\clearpage
+
+\section{Cloud Computing und Internet of Things}
+
+\subsection{Einführung}
+
+\subsubsection{Was versteht man unter Cloud Computing?}
+
+Heutzutage setzen viele Hersteller auf Cloud Computing und bieten dementsprechende Plattformen an, der Trend geht immer mehr in diese Richtung. \begin{center}
+Konkret geht es bei Cloud Computing um die Auslagerung von Anwendungen, Daten und Rechenvorgängen ins Web. \\
+\end{center} 
+Dies könnte zum Beispiel die Auslagerung von Bürosoftware wie Tabellenkalkulation, Textverarbeitung oder CRM-Systemen in die Cloud sein.
+Diese Auslagerung bietet einige Vorteile. Die Synchronisation zwischen mehreren Rechnern wird nicht mehr relevant und gemeinsame Arbeit an Dokumenten durch die zentrale Ablage vereinfacht. Für das Absichern der Datensätze ist die Cloud Computing-Plattform und die Anwendung selbst verantwortlich. Natürlich ist auch der Datenspeicher in der 'Wolke' begrenzt, jedoch in jeder Hinsicht größer als der eines einzelnen Rechners oder Festplattenverbundes im normalen Stil. Verglichen mit traditionellen Systemumgebungen sind Cloud Computing-Plattformen wesentlich einfacher zu verwalten. Der Grund dafür ist der hohe Abstraktionsgrad der Plattformen, denn um typische Administrationsaufgaben wie Load Balancing oder Serverwartung kümmert sich der Anbieter. Bei Rechenvorgängen ist der Vorteil einer besseren Skalierbarkeit gegeben, dass man auf einen großen Pool von Instanzen zurückgreifen kann. Dank Cloud Computing und dessen hoher Flexibilität kann man diese Server beispielsweise auch für wenige Stunden oder Tage, in denen sie benötigt werden, \textit{on demand} mieten und somit Betriebskosten einsparen. Die Bereitstellung erfolgt innerhalb von Minuten, und kommt ohne komplexe Verträge aus.\cite{ausarbeitungcc}
+
+\subsubsection{Was versteht man unter IoT?}
+
+Das Internet der Dinge (Internet of Things / IoT) ist ein Gebilde, bei dem Objekte, Tiere oder Menschen mit einem einzigartigen Identifikator ausgestattet sind. Weiterhin ist damit die Möglichkeit verbunden, Daten über ein Netzwerk ohne Interaktionen Mensch-zu-Mensch oder Mensch-zu-Computer zu übertragen. Ein Ding im Internet der Dinge kann zum Beispiel eine Person mit einem Herzschrittmacher, ein Nutztier auf einem Bauernhof mit einem Biochip-Transponder oder ein Automobil mit eingebauten Sensoren sein. Letzteres könnte eine Warnung auslösen, wenn der Reifendruck zu niedrig ist. Im Prinzip ist jedes vom Menschen geschaffene Objekt ein Kandidat, das sich mit einer IP-Adresse ausstatten lässt und Daten via Netzwerk übertragen kann. Bisher wurde das Internet der Dinge am häufigsten mit Maschine-zu-Maschine-Kommunikation bei einer Fertigungsstraße in Verbindung gebracht. Sind Produkte mit M2M-Kommunikation ausgestattet, werden sie häufig als \textit{intelligent} oder \textit{smart} bezeichnet. Der durch IPv6 wesentlich größere Adressraum ist ein wichtiger Faktor bei der Entwicklung des Internets der Dinge. Durch die wachsende Anzahl an intelligenten Knoten (Nodes) erwartet man, dass es neue Bedenken für Privatsphäre, Datenhoheit und Sicherheit gibt. \cite{iot} \clearpage
+
+\subsection{Realisierung von entfernten Prozeduren, Methoden, Objekten zur Interkommunikation}
+
+Dieses Kapitel bezieht sich auf die Implementierungen für die Programmiersprache Java.
+
+\subsubsection{Interprozesskommunikation}
+
+Interprozesskommunikation (IPC) ist eine Sammlung von Programmierinterfaces, die einem erlauben koordinierte Aktivitäten zwischen verschiedenen Prozessen nebenläufig laufen zu lassen. Dies ermöglicht etwa, dass ein Programm viele Benutzeranfragen gleichzeitig verarbeiten kann. Jede einzelne Useranfrage kann auch mehrere Prozesse generieren, die allesamt miteinander kommunzieren müssen. IPC nimmt sich dieser Problematik an. Jede einzelne Umsetzungsmethode hat seine eigenen Vor- und Nachteile, so ist es nicht selten, dass auch mehrere Methoden gleichzeitig zum Einsatz kommen. \cite{ipc}
+
+\subsubsection{Wie werden Informationen ausgetauscht?}
+
+In der Interprozesskommunikation empfiehlt es sich, ein 'Protokoll' zu definieren, sprich, wie Nachrichten untereinander weitergegeben werden. Beispielsweise ist SOAP ein standardisiertes Verpackungsprotokoll für Nachrichten. Die Spezifikation definiert einen XML-basierten Umschlag (Envelope) für die zu übertragenden Informationen sowie Regeln für die Umsetzung von Anwendungs- und plattformspezifischen Datentypen in XML-Darstellung. Der Nachrichtenaustausch über XML stellt eine flexible Methode zur Kommunikation zwischen Anwendungen dar. Eine Nachricht kann alles mögliche enthalten z.B. Warenbestellungen, Suchanfragen oder ähnliches. Da XML an keine bestimmte Programmiersprache oder ein bestimmtes Betriebssystem gebunden ist, können XML-Nachrichten in allen Umgebungen verwendet werden. Aufgrund der Einfachheit empfiehlt sich in Java der Einsatz sogenannter POJOs. Das sind schlicht und einfach 'plain old java objects' mit Methoden und Attributen. Dieses Objekt kann in verteilten Systemen serialisiert übertragen werden. \cite{ausarbeitungsoa}
+
+\subsubsection{Sockets}
+
+Sockets sind wahrscheinlich die einfachste Möglichkeit, um Prozesse 'miteinander reden zu lassen'. Ein Socket ist ein Kommunikationsendpunkt, und wird über eine IP-Adresse und einen Port eindeutig identifiziert. Er nimmt eingehende Verbindungen entgegen, und verbindet sich mit seinem Gegenstück. Unter einer IP-Adresse können mehrere Sockets erreichbar sein! Sowohl Server als auch Client
+benötigen einen eindeutigen Kommunikationsendpunkt, wir unterscheiden zwischen
+Server-Socket und Client-Socket. Der Server-Socket wartet und 'horcht' auf eingehende
+Verbindungen durch Clients, wird daher auch passiver Socket genannt. Er muss einer IP-Adresse und einem Port zugeteilt sein ('Binding'). Er empfängt Daten von Clients, führt Berechnungen
+durch und sendet das Ergebnis zurück, der Aufbau geschieht typischerweise multithreaded. Der Client-Socket verbindet sich mit Server-Socket und initiiert den Verbindungsaufbau, wird daher aktiver Socket genannt. Er muss IP und Port des Servers wissen, und sendet single- oder multithreaded Daten an den Server und erhält Resultate. \cite{socketslides}
+
+\subsubsection{RPC}
+
+Der Remote Procedure Call (RPC) ist ein Protokoll, das die Implementierung verteilter Anwendungen - also Netzwerkdienste - vereinfachen soll. Die dahinter steckende Idee ist, dass ein Programm eine Funktion eines Programms, das auf einem anderen Rechner läuft, nutzen kann, ohne sich um die zu Grunde liegenden Netzwerkdetails kümmern zu müssen. Der RPC arbeitet nach dem Client-Server-Modell. Ein RPC-Aufruf arbeitet in den meisten Fällen synchron. Das lokale Programm, der Client, sendet eine Anforderung an das entfernte Programm, den Server, und unterbricht seine Arbeit bis zum Eintreffen der Antwort. In Verbindung mit Threads ist allerdings eine asynchrone Realisierung eines entfernten Funktionsaufrufs möglich. Die Programmierung eines Programms, das RPC-Aufrufe verwendet, gestaltet sich recht einfach. In dem der Sprache C sehr ähnlichen Programmcode wird eine so genannte Stub-Routine verwendet, die als Platzhalter für den kompletten Code zur Realisierung des Netzwerkzugriffs dient. Später wird mit Hilfe des Programms rpcgen aus der Datei ein vollständiges C-Programm erzeugt. \citep{rpc}
+
+\subsubsection{Java RMI}
+
+Während RPC C-basiert ist, liegt bei RMI (Remote Method Invocation) der Fokus voll und ganz auf Java, und setzt dieses objektorientiert um. Objekte, die sich auf unterschiedlichen Rechnern befinden, können mit Hilfe von RMI über Methodenaufrufe miteinander kommunizieren. Das Prinzip von RMI ist denkbar einfach: Ein Client-Objekt sendet dabei
+eine Nachricht an den Server, die die aufzurufende Methode sowie die dafür
+benötigten Parameter enthält. Das Server-Objekt führt die entsprechende
+Methode aus und schickt das Resultat wieder an den Client zurück. Zur Realisierung dieses Konzepts kapselt Java die Daten, die über das Netzwerk
+übermittelt werden sollen, auf dem Client-Rechner in sogenannten
+'Stubs'. Die Parameter müssen dafür zuerst in einem passenden Format
+zusammengefasst werden. Komplizierter ist diese Aktion bei Objekten, beispielsweise bei Strings oder
+eigenen Klassen. Da Objektreferenzen im Grunde nichts anderes sind als
+Zeiger auf bestimmte lokale Speicherstellen, kann der Server damit natürlich
+nicht viel anfangen. Es muß also das komplette Objekt übermittelt werden,
+wozu Object Serialization, also der gleiche Mechanismus verwendet
+wird, der mit dem auch Objekte beziehungsweise Objektreferenzen auf
+einer Diskette oder Festplatte gespeichert werden. Um das zu ermöglichen,
+müssen Objekte, die als Parameter für RMI-Aufrufe dienen, das Interface
+'Serializable' aus dem Package 'java.io' implementieren. \citep{rmi}
+
+\subsection{Grundlagen Messaging-Dienste}
+
+Message Oriented Middleware (MOM) ist die Basis für eine asynchrone Kommunikation zwischen Client und Server in einer verteilten Anwendung. Diese Form der Kommunikation steht im Gegensatz dazu, wenn Client und Server direkt und zeitgleich - also synchron - miteinander in Verbindung stehen und sich damit ebenso blockieren können. MOM wird daher auch als eine lose Kopplung zwischen den Teilnehmern bezeichnet. Der MOM-Server übernimmt die Verwaltung der asynchronen Nachrichten in Regel in Form einer Warteschlange. Dadurch kann der Empfänger die Nachrichten zu einem beliebigen Zeitpunkt aus dieser Warteschlange abholen. Der zentrale Gesichtspunkt eines MOM-Servers ist die unabhängige Vermittlung von Nachrichten. Damit steht ein MOM-Server im Vorteil gegenüber klassischen verteilten Systemen, die auf Remote Procedure Call (RPC) basieren. Message Oriented Middleware bietet damit ein Konzept zum Austausch von Nachrichten unabhängig von Programmiersprachen und Plattformen. Jedoch existieren Programmierschnittstellen (API) für verschiedene Programmiersprachen, zum Beispiel der Java Message Service (JMS). In der Regel wird dabei die Technik der Warteschlangen (Queue) eingesetzt:
+
+\begin{itemize}
+	\item Der Sender stellt eine Nachricht in die Queue des Empfängers.
+	\item Dabei wirken Sender und Empfänger immer unabhängig voneinander.
+	\item Der Sender agiert weiter, ohne dass er Kenntnis vom Status seiner Nachricht hat.
+	\item Der Empfänger holt die Nachricht zu einem beliebigen Zeitpunkt aus seiner Queue. \cite{mom}
+\end{itemize}
+
+\section{Automatisierung, Regelung und Steuerung}
+
+Themengebiet wird ausgelassen (1 von 1)
+
+\clearpage
+
+\section{Security, Safety, Availability}
+
+Im Allgemeinen kann man die vier folgenden wichtigen Schutzziele definieren:
+
+\begin{itemize}
+	\item Vertraulichkeit – Schutz vor unautorisiertem Zugang zu Informationen.
+	\item Integrität - Schutz vor unautorisierter unbemerkter Änderung von Informationen.
+	\item Verfügbarkeit - Schutz vor unautorisiertem Beschlagnehmen von Informationen
+oder Ressourcen.
+	\item Zurechenbarkeit – für Aktionen und Ereignisse Verantwortliche müssen ermittelbar
+sein.
+\end{itemize}
+
+\subsection{Grundlegende Sicherheitskonzepte}
+
+\subsubsection{Intrusion Detection-Systeme}
+
+Ein IPS (Intrusion Prevention System) hat sich in der Vergangenheit als nicht wirksam gezeigt. Die Bedrohungen können oft sehr vielfältig sein, ohne ein IDS hat man keine Möglichkeit herauszufinden
+wie lange ein Eindringling unbemerkt blieb, wie und wann er seinen Angriff
+ausführte oder welcher Schaden dadurch entstand. Die Hauptziele eines IDS sind also:
+
+\begin{itemize}
+	\item Benachrichtigung des Admins/Sicherheitsbeauftragten im Falle eines Angriffs oder
+das Ergreifen von aktiven Gegenmaßnahmen
+	\item eine juristische Verwertbarkeit der gesammelten Daten (den Angriff betreffend)
+	\item die Erkennung von Verlusten(Daten z.B.)
+	\item der Schutz vor zukünftigen Angriffen durch die Auswertung der gesammelten Daten
+bei einem (simulierten) Angriff.
+\end{itemize}
+
+Wie oben schon erwähnt ist das Ziel des Einsatzes von IDS
+ist eine frühzeitige Erkennung von Attacken, um den möglichen Schaden zu minimieren
+und Angreifer identifizieren zu können. Nachdem etwaige Sicherheitsverletzungen durch die Analysekomponenten erkannt wurden,
+werden die Reaktionskomponenten des Intrusion Detection Systems veranlasst entsprechende
+Reaktionen durchzuführen. Es wird grundlegend zwischen passiven und aktiven
+Reaktionen unterschieden. Passive Reaktionen liefern lediglich Informationen an
+den Nutzer des IDS und überlassen diesem dann die Ergreifung weiterer Maßnahmen.
+Aktive Reaktionen umfassen aber das automatische oder halbautomatische Auslösen
+von Aktionen. Hierbei sind zum Beispiel gezielte Aktionen gegen den Angreifer wie das
+Blockieren von Netzwerkdiensten, die Benachrichtigung umgebender Systeme oder die
+Sammlung zusätzlicher Informationen möglich. \\
+Es gibt auch Unterscheidungen, ein Network-based IDS versucht den Paketverkehr im Netz aufzuzeichnen und zu analysieren, während Host-based IDS nur für einen Rechner operieren, beides mit Vor- und Nachteilen. \cite{ausarbeitungsec}
+
+\subsubsection{Honey Pot-Systeme}
+
+Ein Honigtopf oder englisch honeypot ist eine Einrichtung, die einen Angreifer vom
+eigentlichen Ziel ablenken soll und ihn in einen Bereich hineinziehen soll, der ihn sonst
+nicht interessiert hätte. Ein Honeypot ist also
+konkret ein schlecht abgesicherter Server, der bestimmte Netzwerkdienste eines Rechnernetzes simuliert, jedoch aus Sicht des Betreibers 'nicht nötig' ist und keine richtigen Daten oder Dienste bereithält. Honeypots werden vorrangig dazu eingesetzt, um Informationen
+über das Angriffsmuster und das Angreiferverhalten zu erhalten. Erfolgt durch
+den Angreifer ein Zugriff auf so einen Honey Pot, werden alle damit verbundenen Aktionen
+protokolliert und ggf. ein Alarm ausgelöst. Das abgekapselte reale Netzwerk
+bleibt vom Angriff möglichst verschont, da es besser gesichert ist als der Honeypot. Die Idee hinter dem Einsatz von Honeypot-Systemen ist in einem Netzwerk einen
+oder am besten mehrere Honeypots zu installieren, die keine vom Anwender oder anderen
+Kommunikationspartnern benötigten Dienste bieten und so im Normalfall niemals
+angesprochen werden. Ein Angreifer, der das Netzwerk auf Sicherheitslücken untersucht, wird den schlecht gesicherten Honeypot als Angriffsziel bevorzugen, und so kaum Schaden anrichten. \cite{ausarbeitungsec}
+
+\subsubsection{Application Firewall}
+
+Eine Application Firewall ist eine spezielle Art einer Firewall die Input, Output und/oder
+Zugriff zu oder von einer Applikation oder eines Dienstes kontrolliert. Eine Application
+Firewall arbeitet indem sie den Input, Output oder Zugriffe auf Systemdienste protokolliert
+und diese gegebenenfalls blockiert falls ein Verstoß gegen die Firewall-Policy
+vorliegt. Die Firewall ist dafür ausgerichtet den ganzen Netzwerkverkehr (bis zum Application
+Layer) zu kontrollieren. Wieder gibt es die Unterscheidung Network-/Host-based. \cite{ausarbeitungsec}
+
+\subsection{Dezentrale Systeme sicherer machen}
+
+An sich lässt sich diese Frage so beantworten: Mit Authentifikation, Autorisierung, Verschlüsselung und Session Management lässt sich der Sicherheitsgrad einer Anwendung allgemein werhöhen. Diese Themen werden genauer in späteren Punkten besprochen. \\
+Ein Framework, dass die genannten Punkte vereint ist etwa Apache Shiro. Hier wird eine umfassend API bereitgestellt. Der Fokus liegt hierbei natürlich auf Webanwendungen, aber auch auf mobilen Applikationen (App-Entwicklung). Vergleichlich ist etwa Spring Security, welches als Teil des bekannten Spring-Frameworks Features wie etwa Authentifikation/Autorisierung und Schutz vor den häufigsten Angriffen im Enterprise-Bereich.
+
+\clearpage
+
+\section{Authentication, Authorization, Accounting}
+
+Damit eine sichere Kommunikation gewährleistet werden kann, ist eine Authentifizierung der kommunizierenden Parteien erforderlich. In vielen Fällen erfordert sie auch die Sicherstellung der Nachrichtenintegrität und unter Umständen auch der Vertraulichkeit. \cite{ausarbeitungauth}
+
+\subsection{Beschreibung der Grundlagen}
+
+\subsubsection{Authentisierung}
+
+Unter Authentisierung versteht man den Nachweis der eigenen Identität. Dabei kann es sich um die Identität einer Person (eines Anwenders) oder auch um die eines Computerprogramms handeln. Wird dagegen eine angegebene Identität überprüft, so spricht man von Authentifizierung. Auch hier kann es um die Identität eines Menschen oder eines Programms gehen. Ein Beispiel: Ein Anwender, der sich an einem Computer anmeldet, gibt dazu seinen Nutzernamen und zusätzliche Informationen (typischerweise ein Passwort) an. Damit authentisiert er sich gegenüber dem Anmeldeprogramm und dieses authentifiziert den Anwender. \cite{ausarbeitungauth}
+
+\begin{center}
+	Ich gebe vor, die Person xy zu sein.
+\end{center}
+
+\subsubsection{Authentifizierung}
+
+Die eigene Identität zu belegen oder die Identität eines anderen zu überprüfen, stellt eine einfache Aufgabe dar. Auch wenn alle anderen Merkmale unbekannt sein sollten, so können sich zwei Menschen immer noch anhand eines gemeinsamen Geheimnisses (Shared Secret) gegenseitig ihre Identität nachweisen. Solch ein gemeinsames Geheimnis kann bei zwei Personen beispielsweise ein Losungs- bzw. Passwort sein. \\
+Authentifizierung und Nachrichtenintegrität sind aufeinander angewiesen. Um in der Folge die Integrität der Datennachrichten sicherzustellen, die nach der Authentifizierung ausgetauscht werden, ist es gängige Praxis, Kryptografie mit geheimen Schlüsseln zu verwenden, indem zufällige Schlüssel (Sitzungsschlüssel) generiert werden. Ein Sitzungsschlüssel ist ein gemeinsamer (geheimer) Schlüssel, der aus Gründen der Integrität und möglicherweise auch der Vertraulichkeit zur Verschlüsselung von Nachrichten verwendet wird. Ein derartiger Schlüssel wird im Allgemeinen nur benutzt solange es den Kanal gibt. Bei der Schließung des Kanals wird sein zugehöriger Schlüssel verworfen (bzw. auf sichere Art zerstört). \\
+Die Authentifizierung kann wie genannt auf Grundlage eines gemeinsamen geheimen Schlüssels basieren, oder auch über den Ansatz eines KDC, eines Key Distribution Centers. Eines der Probleme bei der Verwendung eines gemeinsamen geheimen Schlüssels zur Authentifizierung ist die Skalierbarkeit. Bei vielen Hosts in einem verteilten System müssen diese eine unnötige Vielzahl an geheimen Schlüsseln nutzen. Eine Alternative ist ein zentralisierter Ansatz wie ein Key Distribution Center. Dieses KDC nutzt gemeinsam mit jedem der Hosts einen geheimen Schlüssel, aber die Hosts untereinander benötigen nicht mehr paarweise geheime Schlüssel, was klar ersichtlich eine Verbesserung darstellt. \clearpage
+Eine andere Art der Authentifizierung läuft über öffentliche Schlüssel. Hierbei brauchen die kommunizierenden Parteien keinen gemeinsamen Schlüssel zu kennen. Ein Benutzer erzeugt ein Schlüsselpaar, welches aus einem öffentlichen und einem privaten Schlüssel besteht. Der Öffentliche dient zur Verschlüsselung und der Private zur Entschlüsselung. \cite{ausarbeitungauth}
+
+\begin{center}
+	Ich bestätige, dass die Person xy ist.
+\end{center}
+
+\subsubsection{Autorisierung}
+
+Neben der Authentisierung und Authentifizierung sind auch die Begriffe Autorisierung und Zugriffskontrolle wesentlich für jedes Sicherheitskonzept. Beim Vorgang der Autorisierung wird festgelegt, mit welchen Berechtigungen Benutzer auf Ressourcen im Netzwerk zugreifen dürfen. Netzwerkdienste, die diese Ressourcen anbieten, führen im Allgemeinen eine Zugriffskontrolle durch. Dabei prüfen sie, ob der zugreifende Benutzer autorisiert ist. Dementsprechend wird der Zugriff auf die Ressource erlaubt, verweigert oder nur eingeschränkt gewährt. Damit das funktioniert, muss ein Dienst wissen, welchem Anwender er auf welches Objekt welche Art von Zugriff erlauben kann. Welche Autorisierungsinformationen ein Dienst dafür benötigt und wo diese hinterlegt sind, hängt von dem betrachteten Dienst ab. \cite{ausarbeitungauth}
+
+\begin{center}
+In meinem System hat Person xy die erforderlichen Rechte, um auf den Bereich zugreifen zu können. (oder ggf. nicht)
+\end{center}
+
+\subsection{Was ist LDAP?}
+
+Lightweight Directory Access Protocol (LDAP) ist ein TCP/IP-basiertes Directory-Zugangsprotokoll, das sich im Internet und in Intranets als Standardlösung für den Zugriff auf Netzwerk-\newline Verzeichnisdienste für Datenbanken, E-Mails, Speicherbereiche und andere Ressourcen etabliert hat. Das LDAP-Protokoll unterstützt die für die Kommunikation erforderlichen Funktionen zwischen LDAP-Client und LDAP-Server. Dazu gehören die Anmeldung am Server, die Suchabfrage nach allen Informationen zu einem bestimmten Benutzer, die Modifikation der Daten wie beispielsweise die Änderung eines Passworts und die Replikation der Daten zwischen verschiedenen Directories. Zu den Authentifizierungs- und Kontrolloperationen gehören das Anmelden, Abfragen und das Abbrechen der Abfrage, zu den Abfrageoperationen die Suchabfrage, das Lesen und Vergleichen und zu den Update-Operationen das Hinzufügen, Löschen und Ändern der Eintragungen. LDAP setzt direkt auf TCP/IP auf und arbeitet auf Client-Server-Basis. Ein Verzeichnis in diesem
+Sinne ist mit einer Datenbank zu vergleichen, jedoch mit einem speziellen Aufbau. Die
+abgelegten Daten werden in den meisten Fällen um ein Vielfaches öfter gelesen als
+geschrieben, sprich das Protokoll ist optimiert auf schnelle Lesezugrife. \cite{LDAPInfo}
+
+\clearpage
+
+\subsection{Benutzerverwaltung mit LDAP}
+
+Viele verschiedene Hersteller bieten ihre eigene Implementierung eines LDAP-Servers
+an, jeder mit Unterschieden in der Speicherung der Daten und der Zugrif darauf, sowie
+andere Funktionen, die je nach Ausrichtung variieren. Bekannte Namen sind hier etwa Microsoft Active Directory, Novell eDirectory sowie das freie OpenLDAP. OpenLDAP ist der bekannteste Open Source-LDAP-Server, und verfügt über eine lange
+Historie in der Unix-Welt und ist weitgehend plattformunabhängig. \\
+
+Wie erwähnt ist LDAP ein Client-Server-Protokoll, ein oder mehrere (Failover zwecks
+Ausfallsicherheit) LDAP-Server beinhalten die Daten des LDAP-Verzeichnisbaums. Viele
+kleine bis mittelgroße Netzwerke verwenden eine solche Lösung um ihr zentrales
+Userverzeichnis aufzubauen. Ein Client verbindet sich mit einem LDAP-Server und
+stellt eine Anfrage, ob die eingegebenen Benutzerdaten valide sind, auch BIND Request
+genannt. Dieser BIND-Request wird übertragen, um den Autorisierungsstatus
+der Clientverbindung zu verändern oder die Anfrage an einen anderen LDAP-Server
+weiterzuleiten. \cite{ce}
+
+\subsection{Möglichkeiten zur Implementierung/alternative verteilte Authentifizierungsdienste}
+
+\subsubsection{Kerberos}
+
+Bei Kerberos handelt es sich um eine sichere Methode, mit der sich Anfragen an einen Service im Netzwerk authentifizieren lassen. Kerberos stellt Nutzern ein verschlüsseltes 'Ticket' zur Verfügung, mit dem sich Nutzer wiederum an einem bestimmten Service anmelden können. Der Vorteil: Das Passwort des Nutzers muss nicht über das Netzwerk geschickt werden. Im Rahmen einer sicheren Umgebung sollte daher eine Mischung aus Kerberos/LDAP bevorzugt werden, wobei Kerberos die Authentifizierung übernimmt. Eine kurze Beschreibung, wie Kerberos funktioniert:
+
+\begin{itemize}
+	\item Der User möchte auf einen Server zugreifen. Man weiß, dass der entsprechende Dienst ein Kerberos-Ticket benötigt.
+	\item Um dieses Ticket zu erhalten, muss sich der User zunächst beim Authentication-Server (AS) authentifizieren. Der AS erstellt einen Session Key (zugleich ein sogenannten Verschlüsselungschlüssel), der auf dem Passwort und einer zufälligen Zeichenfolge (die den jeweils angefragten Service darstellt) basiert. Der Session Key ist im Grund ein 'Ticket für das Ticket'.
+	\item Diesen Session Key wird anschließend an den Ticket-Granting-Server (TGS) weitergeschickt. Der TGS kann ein anderer  Server als der AS sein – muss es aber nicht. In jedem Fall handelt es sich um einen anderen Service. Der TGS liefert anschließend das eigentliche Ticket, das wiederum an den ursprünglichen Service geschickt werden kann.
+	\item Der jeweilige Service nimmt das Ticket an oder lehnt es ab. Bei einer Annahme kann der Nutzer auf den entsprechenden Dienst zugreifen. \clearpage
+	\item Das erhaltene Ticket ist mit einem Zeitstempel versehen. Solange die vorgegebene Nutzungdauer nicht abläuft, kann der Nutzer zusätzliche Anfragen über dieses Ticket stellen, ohne dass er sich erneut am AS und TGS authentifizieren muss. Je kürzer dieser Zeitraum ist, desto geringer ist die Chance, dass ein Ticket missbraucht werden kann. Kürzere Zeiträume bedeuten aber auch einen Mehraufwand beim Verlängern.
+\end{itemize}
+
+Der tatsächliche Ablauf ist deutlich komplizierter, je nach Implementierung kann das Vorgehen für den Nutzer abweichen. \cite{kerberos}
+
+\clearpage
+
+\section{Disaster Recovery}
+
+Disaster Recovery (dt. auch Katastrophenwiederherstellung), im Folgenden auch DR genannt, beschreibt
+die Vorbereitung und Reaktion auf sogenannte Katastrophen, die abgespeicherte Daten
+und Lauffähigkeit eines IT-Systems betreffen. In diesem Bereich der Sicherheitsplanung ist mit
+negativen Ereignissen all das gemeint, was den Betrieb eines Unternehmens gefährdet. Hierzu gehören
+Cyberattacken, Infrastrukturausfälle ebenso wie Naturkatastrophen. DR umfasst beispielsweise
+Schritte zur Wiederherstellung von Server oder Mainframes mit Backups oder ferner die
+Bereitstellung von LANs für die unmittelbaren geschäftlichen Bedürfnisse. \\
+eine Katastrophe kann vielerlei Ausmaß haben. Jede einzelne davon hat
+primäre und sekundäre Auswirkungen, die sich in direkte Schäden, korrumpierte oder unzugängliche
+Daten niederschlägt. Das eigene IT-Netzwerk ist verschiedensten Gefahren ausgesetzt, die in
+den schlimmsten Fällen auch ohne jegliche Vorwarnung auftreten können.
+Einige Beispiele:
+
+\begin{itemize}
+	\item Feuer, Brand im Serverraum, Wasserrohrbruch
+	\item Sonstige Naturkatastrophen \\
+Sind ebenso zu berücksichtigen, speziell bei hoher Sicherheitsstufe!
+	\item Sicherheitsprobleme, Viren, Cyberattacken, Datendiebstahl
+	\item Hardware- und Softwareausfälle
+	\item Stromausfall, ...
+\end{itemize}
+
+Ein geeignetes Maß an Fehlertoleranz ist zu wählen, damit das System nicht beim kleinsten Problem ausfällt. Mit Fehlertoleranz bekommt der Administrator nichts vom Fehler mit, da er selbsständig ausgebessert wird. \cite{ausarbeitungdis}
+
+\subsection{Sicherheitslevels \& Backup-Strategien}
+
+Die SHARE-Gruppe hat im Zuge der Definition des 'Traditional Disaster Recovery' sieben verschiedene Stufen ausgewiesen.
+
+\subsubsection{Tier 0: No off-site data – Possibly no recovery}
+
+Unternehmen mit einer Tier 0-Lösung haben keinen Disaster Recovery Plan. Es gibt keine Backups, auch keine Informationen über das System und keine Dokumentation. Die Zeit, die benötigt wird um ein solches System wiederherzustellen ist unvorhersehbar, es kann sogar
+sein, dass es unmöglich ist zum Normalzustand zurückzukehren.
+
+\subsubsection{Tier 1: Data backup with no hot site}
+
+Tier 1-Systeme erhalten regelmäßig ein Backup, und lagern diese an einem sicheren Ort, der sich
+außerhalb des eigenen Hauses befindet. Diese Methode
+Backups zu transportieren heißt PTAM, ausgeschrieben ’Pick-up Truck Access Method’. Einige Tage bzw.
+Wochen Datenverlust müssen befürchtet werden, dafür sind die Sicherungsdateien geschützt außerhalb des
+Geländes aufbewahrt.
+
+\subsubsection{Tier 2: Data backup with a hot site}
+
+Bei Verwendung von Tier 2 werden ebenso regelmäßige Sicherungen vorgenommen, auf langlebigen
+Speichermedien wie etwa Tapes. Das wird kombiniert mit eigener Infrastruktur außerhalb des
+eigenen Geländes (genannt ’Hot Side’). Diese Lösung benötigt immer noch einige Stunden oder Tage zur Wiederherstellung,
+jedoch ist die Gesamtdauer besser vorhersehbar.
+
+\subsubsection{Tier 3: Electronic vaulting}
+
+Der Ansatz Tier 3 baut auf Tier 2 auf. Hinzufügend dazu werden kritische Daten elektronisch abgekapselt
+von den weniger prioren. Als Ergebnis ist hier weniger Dateiverlust, sollte eine Katastrophe
+eintreten.
+
+\subsubsection{Tier 4: Point-in-time copies}
+
+Tier 4-Lösungen werden oft von Unternehmen verwendet, die hohen Wert auf Datenkorrektheit
+und schneller Wiederherstellung legen als die unteren Stufen bereitstellen. Eher als das Auslagern
+von Speichertapes wie bei 0-3 gegeben, integriert diese Stufe Sicherungen auf Basis von
+Festplatten. Immer noch sind mehrere Stunden Datenverlust möglich.
+
+\subsubsection{Tier 5: Transaction integrity}
+
+Tier 5 wird verwendet, wenn es zwingend erforderlich ist, dass Daten konsistent sind zwischen
+Produktivsystem und dem Wiederherstellungs-Remoteserver. 
+
+\subsubsection{Tier 6: Zero or near-Zero data loss}
+
+Tier 6 hält das höchste Maß an Datenrichtigkeit aufrecht. Dieser Ansatz wird eingesetzt von Systemen,
+in denen wenig oder gar kein Datenverlust vertretbar ist, und wo Daten für den weiteren
+Gebrauch schnell wiederhergesellt werden müssen. Tier 6 erfordert eine Form von Disk Mirroring zu einem Remoteserver.
+
+\subsubsection{Tier 7: Highly automated, business integrated solution}
+
+Das höchste Level nimmt all die Hauptkomponenten von Tier 6 zusammen und fügt Automation hinzu. Desaster werden automatisch erkannt von Geräten außerhalb des eigenen Computersystems.
+Außerdem wird die Wiederherstellung automatisch ausgeführt, was sozusagen den kompletten
+Wiederherstellungsprozess beschleunigt. Die Ausfälle
+belaufen sich auf wenige Minuten oder Sekunden. \cite{ausarbeitungdis}
+
+\subsection{Disaster Recovery Plan}
+
+Ein Disaster Recovery Plan, im Folgenden auch DRP genannt, dokumentiert
+konkret Richtlinien, Verfahren und Maßnahmen, um die Störung eines Unternehmens im Falle eines
+Desasters zu begrenzen, und möglichst innerhalb eines bestimmten Zeitrahmens wieder zurück
+zum Normalzustand überzugehen. Wie bei einer Katastrophe macht das Ereignis die Fortführung
+des normalen Geschäftsbetriebs unmöglich. Genannter Plan sollte ein Teil eines jeden Standard-
+Projektmanagementsprozess sein. Ein Disaster Recovery Plan muss Desasteridentifikation, Kommunikationsrichtlinien, das Koordinieren
+der Prozesse, etwaige Ausweichmöglichkeiten, Prozesse, um so schnell wie möglich wieder
+zum Normalzustand zurückzukehren und einen Feldtest des Plans sowie Wartungsroutinen beinhalten.
+Es muss kurz ein funktioneller Plan sein, der alle Prozessketten richtig adressiert, um die
+Systeme wiederherzustellen, inkl. eines Zuständigen zur stetigen Wartung des Plans. \cite{ausarbeitungdis}
+
+\subsection{Best Practice für die vorgegebenen Anforderungen}
+
+Wenn Systeme 24/7 verfügbar sein müssen, wird oft eine Clusterlösung herangezogen. Hier unterscheidet
+man zwischen zwei Varianten, Failover-Clustering und ’echtem’ Clustering. Bei der
+Failover-Technologie mit zwei oder mehreren Netzwerkdiensten übernimmt ein Zweitsystem bei
+einseitigem Ausfall des Primärsystems. Echtes Clustering, sprich ein Aktiv/Aktiv-Cluster, wird
+bezeichnet einen Rechnerverbund, in dem mehrere (meistens > 2) Nodes gleichzeitig aktiv sind. Da sie '100\% der Zeit' verfügbar sind (aus Sicht des Kunden), gibt es per se keine Katastrophen, die die Business Continuity beeinträchtigen. Der einzige Nachteil:
+Solche Lösungen sind meistens sehr teuer in Aufbau und Wartung, und daher eher nur von
+großen Unternehmen mit großem Budget zu bewerkstelligen. \\
+Für Systeme, die keine 100\%-ige Verfügbarkeit benötigen, oder das Budget es nicht anders vorsieht,
+ist DR die bessere Wahl. Eine typische Lösung ist es ein identes System aufzubauen, es für etwaige
+Einsatzfälle zu warten und es als Failover zu verwenden. Der Wechsel auf dieses System verlangt
+einen Eingriff des Administrators, während dieser Zeit bis zur Inbetriebnahme ’steht der Betrieb’. Dies kann auch über eine Heartbeat-Anfrage geschehen, die überprüft, ob Server verfügbar sind. 
+Die Rückkehr auf den Normalzustand kann mithilfe dieser Methode relativ schnell wiedererlangt
+werden, und generiert weniger Kosten als eine vollständige Cluster-Lösung. Die billigste Variante (aus Hardware-Sicht) ist es auf Fehler zu reagieren, nachdem sie passiert
+sind. Eine USV (Unterbrechungsfreie Stromversorgung) oder ein RAID-System (Redundant Array Of Independent Disks) sind jedoch relativ kostengünstige Maßnahmen, um ein System vor Katastrophen zu schützen. Zur weiteren Definition der verschiedenen Failover: 
+\begin{itemize}
+	\item Active/Active: \newline Maximale Ausfallsicherheit, Cluster
+	\item Hot Site: \newline Sogenannter 'Failover', gleicher Datenstand auf allen Servern, erfordert Synchronisation.
+	\item Warm Site: \newline Ebenso ein Failover, Synchronisierung jedoch nur nach einiger Zeit in regelmäßigen Abständen, was Datenverlust von z.B. einem Tag mit sich bringt.
+	\item Cold Site: Ein Failover, der händisch gestartet werden muss, Neuheitsgrad der Daten kann auch länger zurückliegen. Nur als Notfallplan! \cite{ausarbeitungdis}
+\end{itemize}
+
+\clearpage
+
+\section{Algorithmen und Protokolle}
+
+\subsection{Techniken zur Prüfung und Erhöhung der Sicherheit von dezentralen Systemen}
+
+\subsubsection{Verschlüsselung}
+
+Um nicht die eigentliche Nachricht zu übertragen, wendet man einen Schlüssel an, der aus
+der Nachricht einen sogennannten Chiffretext generiert. Der Empfänger dieses codierten
+Textes besitzt einen Dechiffrierschlüssel, um die Nachricht in ihren Ursprung zurück zu
+verwandeln. Der Standard wäre die symmetrische Verschlüsselung, wo das gleiche
+Geheimzweichen für das Ver- und Entschlüsseln benutzt wird. Ein Problem beim Austausch
+des symmetrischen Schlüssel ist, dass Mitlauschen anderer Teilnehmer.
+Für dieses Problem gibt es eine Lösung, die sogennannte asymmetrische Verschlüsselung.
+Hier gibt es für das En- und Decoding einen eigene Chiffre. Wobei der Verschlüsselungskey
+für jeden zugänglich ist aber nur der, der den Entschlüsselungkey besitzt, ist in der
+Lage, die Nachricht zu entschlüsseln. \cite{ausarbeitungsec}
+
+\subsubsection{Symmetrische Verschlüsselung}
+Die Verschlüsselungsverfahren, die mit \textit{einem} geheimen Schlüssel arbeiten, der zum Ver- und Entschlüsseln dient, nennt man symmetrische Verfahren oder Secret-Key-Verfahren. Fast alle symmetrischen Verfahren sind auf ressourcenschonende Umgebungen optimiert. Sie zeichnen sich durch geringe Hardwareanforderungen, geringen Energieverbrauch und einfache Implementierung in Hardware aus. \\
+Die Verschlüsselungsverfahren der symmetrischen Kryptografie arbeiten mit einem einzigen Schlüssel, der bei der Ver- und Entschlüsselung vorhanden sein muss. Diese Verfahren sind schnell und bei entsprechend langen Schlüsseln bieten sie auch eine hohe Sicherheit.
+Der Knackpunkt liegt in der Schlüsselübergabe zwischen den Kommunikationspartnern. Vor der sicheren Datenübertragung mit Verschlüsselung müssen sich die Kommunikationspartner auf den Schlüssel einigen und austauschen. Wenn der Schlüssel den selben Kommunikationspfad nimmt, wie die anschließend verschlüsselten Daten, dann besteht die Gefahr, dass ein Angreifer in Besitz des Schlüssels gelangt, wenn er die Kommunikation abhört. Wenn der Angreifer den Schlüssel hat, dann kann er nicht nur die Daten entschlüsseln, sondern auch selber Daten verschlüsseln, ohne das es die Kommunikationspartner bemerken. Knackpunkt ist der unsichere Schlüsselaustausch und die Authentifizierung.
+Sicher ist die Schlüsselübergabe nur dann, wenn sich zwei Personen persönlich treffen und den Schlüssel austauschen oder der Schlüssel einen anderen Weg nimmt. \\
+Advanced Encryption Standard, kurz AES, ist eine symmetrische Block-Chiffre mit flexibler Block- und Schlüssellänge.
+AES besitzt eine Standardmäßige Blocklänge von 128 Bit und Schlüssellängen
+von 128 Bit, 192 Bit und 256 Bit. Wieviele Runden absolviert werden hängt von der
+Schlüssellänge ab. Derzeitiger Standard 10 Runden bei einer Schlüssellänge von 128 Bit,
+12 Runden bei 192 Bit und 14 Runden bei 256 Bit. \cite{ausarbeitungsec}
+
+\subsubsection{Asymmetrische Verschlüsselung}
+
+In der asymmetrischen Kryptografie arbeitet man nicht mit einem einzigen Schlüssel, sondern mit einem Schlüsselpaar. Bestehend aus einem öffentlichen und einem privaten Schlüssel. Man bezeichnet diese Verfahren als asymmetrische Verfahren oder Public-Key-Verfahren. Üblich sind auch die Bezeichnungen Public-Key-Kryptografie und Public-Key-Verschlüsselung. \\
+Ein fundamentales Problem der Kryptografie ist, dass sich die Kommunikationspartner auf einen gemeinsamen Schlüssel verständigen müssen. Man bezeichnet das als Schlüsselaustauschproblem. Asymmetrische Verschlüsselungsverfahren arbeiten mit Schlüsselpaaren. Ein Schlüssel ist der öffentliche Schlüssel (Public Key), der andere ist der private Schlüssel (Private Key). Dieses Schlüsselpaar hängt über einen mathematischen Algorithmus eng zusammen. Daten, die mit dem öffentlichen Schlüssel verschlüsselt werden, können nur mit dem privaten Schlüssel entschlüsselt werden. Deshalb muss der private Schlüssel vom Besitzer des Schlüsselpaares geheim gehalten werden. Der konkrete Anwendungsfall sieht so aus: Will der Sender Daten verschlüsselt an den Empfänger senden, benötigt er den öffentlichen Schlüssel des Empfängers. Mit dem öffentlichen Schlüssel können die Daten verschlüsselt, aber nicht mehr entschlüsselt werden (Einwegfunktion). Nur noch der Besitzer des privaten Schlüssels, also der richtige Empfänger kann die Daten entschlüsseln. Wichtig bei diesem Verfahren ist, dass der private Schlüssel vom Schlüsselbesitzer absolut geheim gehalten wird. Kommt eine fremde Person an den privaten Schlüssel muss sich der Schlüsselbesitzer ein neues Schlüsselpaar besorgen. \\
+An RSA kommt man im Zusammenhang mit asymmetrischen Verfahren einfach nicht vorbei. Im Vergleich zum Diffie-Hellman-Schlüsselaustausch eignet sich RSA auch für die Verschlüsselung und als Signaturverfahren. Der RSA-Algorithmus (Ron Rivest, Adi Shamir und Leonard Adleman) basiert auf dem Faktorisierungsproblem.
+Asymmetrische Verfahren benötigen viel mehr Rechenleistung als symmetrische Verfahren. Wenn man RSA und AES miteinander vergleicht, dann ist RSA ungefähr um den Faktor 1.000 langsamer als AES. \cite{ausarbeitungsec}
+
+\subsubsection{SSL/TLS-Protokoll}
+
+SSL ist ein Protokoll, das der Authentifizierung und Verschlüsselung von Internetverbindungen dient. SSL schiebt sich zwischen die Anwendungsprotokolle und den Transportprotokollen. Ein typisches Beispiel für den Einsatz von SSL ist der gesicherte Abruf von vertraulichen Daten über HTTP und die gesicherte Übermittlung von vertraulichen Daten an den HTTP-Server. In der Regel geht es darum, die Echtheit des kontaktierten Servers durch ein Zertifikat zu garantieren und die Verbindung zwischen Client und Server zu verschlüsseln.
+SSL ist äußerst beliebt und das Standard-Protokoll bzw. die Erweiterung für Anwendungsprotokolle, die keine Verschlüsselung für sichere Verbindungen mitbringen. Das ursprüngliche SSL ist inzwischen veraltet und in TLS aufgegangen. Obwohl man heute in der Regel TLS verwendet spricht man trotzdem immer noch von SSL. \cite{tls}
+
+\subsection{Grundlagen Lastverteilung}
+
+Load Balancing ist kein neues Konzept im Server- und Netzwerkbereich. Viele Produkte, wie z.B.
+Router die Netzwerkverkehr über verschiedene Netzwerk Ressourcen zum gleichen Ziel verteilen,
+können unterschiedliche Arten des Load Balancing durchführen. Im Gegensatz zum Router wird bei
+Server Load Balancing der Netzwerkverkehr über verschiedene Server Ressourcen verteilt. Anfangs
+wurden Load Balancer als reine Lastenverteiler verwendet, doch heute sind Load Balancer schon so
+weit entwickelt, dass sie zusätzliche Funktionen wie Healthchecks, Optimierung von Datenflüssen,
+etc. zur Verfügung stellen. \\
+Im Webhostingbereich wird Load Balancing typischerweise für die Verteilung von http-Verkehr auf
+mehrere Server (Nodes) eingesetzt. Durch die Verteilung des Dienstes auf mehrere Server schützt man
+sich zusätzlich vor Hardwareausfall, da bei Ausfall eines Server Nodes der Netzwerkverkehr einfach
+über andere Nodes erfolgen kann. Das primäre Ziel ist es, den Netzwerkverkehr bei hoher Nachfrage
+auf alle vorhandenen Nodes aufzuteilen, um die bestmögliche Performance zu gewährleisten. Der
+User weiß normalerweise nichts über vorhandene Backend- bzw. Backupserver, für ihn scheint es
+so als ob nur ein Server hinter einem Dienst steht. Durch das Verwenden von
+mehreren Servern für so eine Website entstehen aber Herausforderungen in den Bereichen Skalierbarkeit,
+Verwaltbarkeit und Verfügbarkeit. Load Balancing löst zusätzlich viele dieser Probleme. Durch die besserer Skalierbarkeit können laufend weitere Instanzen hinzugefügt werden, sofern sie benötigt werden. Der Load Balancer delegiert dann je nach Schema die Anfragen einfach auch auf den neuen Server. Die bessere Verwaltbarkeit zeichnet sich dadurch aus, dass einzelne Komponenten offline genommen werden können, ohne dass das System komplett offline gehen muss. Sämtliche Anfragen werden auf die anderen Server weitergeleitet. Wie bereits argumentiert resultiert dass allgemein in einer besseren Verfügbarkeit. \\
+Nach dieser kurzen Einführung mit Webservern wird klar, wieso es auch auf Applikationsebene einer Lastenverteilung bedarf. Das Schema und die Vorgehensweisen bleiben gleich, das genannte Beispiel kann 1:1 auf eine beliebige verteilte Anwendung umgemünzt werden. \cite{ausarbeitunglb}
+
+\subsection{Load Balancing-Algorithmen}
+
+Zur Verwirklichung, wie Anfragen verteilt werden, gibt es unterschiedliche Schemen.
+
+\subsubsection{Round Robin}
+
+Round-Robin ist das einfachste Verfahren zur Lastenverteilung. Ein Load Balancer weist jedem
+Server der Reihe nach eine Verbindung zu. Dieses Verfahren kann eine gleichmäÿige Verteilung der
+Last nicht sicherstellen, da jede Verbindung über unterschiedliche lange Zeiträume bestehen kann.
+Infolgedessen können manche Server mehr gleichzeitig aktive Verbindungen haben, als andere. Da Round-Robin eine sehr einfache Methode zur Lastverteilung ist, werden sehr wenige Ressourcen
+seitens des Load Balancers benötigt. Infolgedessen ist der Algorithmus nur dann sehr effektiv, wenn
+der Lastverteilungsalgorithmus viel Rechenzeit benötigt. \cite{ausarbeitunglb}
+
+\subsubsection{Least Connections}
+
+Jede neue Anfrage wird dem Server mit den geringsten gleichzeitig aktiv vorhandenen Verbindungen
+zugesandt. Der Load Balancer muss hierbei die Anzahl dieser Verbindungen jedes Servers
+jederzeit festhalten. Diese Methode ist eine der effektivsten und beliebtesten in verschiedenen
+Anwendungsbereichen, wie beispielsweise DNS oder dem Web. Der Hauptgrund hierfür sind das
+einfache Verstehen und Anwenden der Methode. Least Connections kann dann von Nutzen sein, wenn zwei oder mehr Server mit gleicher Ausstattung unterschiedlich stark belastet werden. \cite{ausarbeitunglb}
+
+\subsubsection{Weighted Distribution}
+
+Da verschiedene Server hardwaretechnisch verschieden ausgestattet sein können, kann mithilfe dieser
+Methode eine Angabe der Leistung der einzelnen Server in Relation zueinander erfolgen, indem
+jedem Server eine gewisse Gewichtung zugewiesen wird. In der Praxis wird diese Methode in Kombination mit anderen Methoden, wie Least Connections
+oder Round-Robin angewandt. Sollen nun weitere Server hinzugefügt werden im Fall von Weighted
+Round-Robin die Anfragen wie gewohnt der Reihe nach gewichtet verteilt. Im Fall von Weighted
+Least Connections ist lediglich auf die Anzahl der aktuell verbundenen Clients und die Gewichtung zu achten. Diese Methode ist besonders dann geeignet, wenn bereits bestehende, womöglich leistungsschwä-
+chere Hardware mit leistungsstärkerer kombiniert werden soll. \cite{ausarbeitunglb}
+
+\subsubsection{Response Time}
+
+In der Annahme, dass eine schnelle Reaktion eines Servers eine gute Performance zur Folge hat,
+wird die Reaktionszeit eines Servers vom Load Balancer gemessen und anhand dieser ein Server
+ausgewählt. Für eine effiziente Lastenverteilung muss diese Antwortzeit über einen längeren Zeitraum gemessen werden. Aufgrund der Komplexität dieser Methode, könnte diese Methode alleine nicht die beste Möglichkeit
+zur Lastenverteilung bieten. Der Algorithmus kann hingegen in Kombination mit anderen
+Load Balancing-Methoden funktionieren. \cite{ausarbeitunglb}
+
+\subsubsection{Server Probe}
+
+Auf jedem Server rennt im Hintergrund ein Programm, welches die aktuelle Auslastung des Servers
+an den Load Balancer in regelmäßigen Zeitabständen weiterleitet. Auf diese Weise hat der Load
+Balancer stets Zugriff auf Daten, wie die aktuelle Auslastung der CPU, aber auch den verfügbaren
+Arbeits- und Festplattenspeicher. \cite{ausarbeitunglb}
+
+\subsubsection{Kombiniert}
+
+Die Kombination von zwei oder mehreren Methoden kann eine besseres Erfassen der Serverlast
+ermöglichen. Hierzu können beispielsweise die Methoden Response Time und Least Connections
+zusammen verwendet werden. Die Verfahren können vom Load Balancer wieder mit entsprechender
+Gewichtung verwendet werden. \cite{ausarbeitunglb}
+
+\subsubsection{Zufällig}
+
+Der denkbar einfachste Alogrithmus: Der zu verwendende Server wird von einem Zufallszahlengenerator am Load-Balancer festgelegt.
+Sollten nun innerhalb eines kurzen Zeitraumes viele Anfragen zustande kommen, so werden diese
+zufällig verteilt, was in etwa eine gleichmäßige Verteilung der Anfragen gewährleistet. \cite{ausarbeitunglb}
+
+\subsection{Session-basiertes Load Balancing}
+
+Hier wird der Ansatz verfolgt, dass bei mehreren Anfragen vom selben User der bereits zugewiesene Server weiter verwendet wird. Dies spart einen erneuten Rechenaufwand, um die Anfrage einem neuen Server zuzuweisen, kann jedoch darin resultieren, dass aufgrund der 'sticky session' zu viele Anfragen auf einmal zugeteilt werden, sofern der Zeitraum, wie lange eine Session maximal dauern darf zu lange eingestellt ist. \cite{ausarbeitunglb}
+
+\subsection{Load-Balancing-Frameworks}
+
+\subsubsection{Apache Hadoop}
+
+Apache Hadoop ist ein Framework, welches das verteilte Verarbeiten von groÿen Datenmengen,
+die auf vielen Clustern verstreut sein können. Das Design erlaubt es, dass sowohl ein paar wenige,
+aber auch mehrere 1000 Server mühelos verwendet werden können. Das Framework selbst wurde so
+entworfen, dass Fehler auf Applikationsebene entdeckt und beseitigt werden können, was wiederum
+eine hohe Verfügbarkeit des Services auf dem Cluster sicherstellt. Hadoop verfügt über verschiedene Module, die nach Wahl hinzugefügt werden können, etwa das Hadoop Distributed File System oder etwa MapReduce. \cite{ausarbeitunglb}
+
+\clearpage
+
+\section{Konsistenz und Datenhaltung}
+
+\subsection{Grundlagen \& Erklärung}
+
+\subsubsection{CAP-Theorem}
+
+Das CAP-Theorem beschreibt das Verhältnis zwischen Consistency, Availability und Partition Tolerance
+(Konsistenz, Verfügbarkeit und Partitionstoleranz) indem es besagt, dass nur davon zwei in
+einem verteilten System gleichzeitig angeboten werden können. \\
+Consistency zählt zu den Sicherheitseigenschaften und beschreibt im Groben, dass eine Anfrage eine richtige Antwort erhält. Abhängig was Konsistenz im Detail ist liegt von der Service Spezifikationen ab. Als Beispiel für Consistency kann ein Onlineshop gesehen werden. Wenn 2 Personen
+gleichzeitig das letzte Exemplar beantragen, dürfen nicht beide die Antwort bekommen, dass die
+Bestellung erfolgreich war und somit zur Zahlung weiter gelangen. \\
+Availability: In verteilten Systemen muss für eine kontinuierliche Verfügbarkeit, jede Anfrage, die ein nicht fehlerhaften Node erhält, eine Antwort bekommen. \\
+Partition Tolerance: Wenn man jedoch die Daten und Logik auf mehrere
+Nodes verteilt besteht die Gefahr von Partition forming. Dies passiert, wenn sie in verschiedenen
+Gruppen aufgeteilt werden und wegen eines Fehlers nicht
+mehr miteinander kommunizieren können. Keine Fehler außer ein Totalausfall soll eine Antwort
+verfälschen. Wenn man somit eine Partition im Netzwerk hat, verliert man entweder Consistency,
+weil man Änderungen auf beiden Partitionen erlaubt oder Availability, weil man einen
+Fehler entdeckt und man das System abstellen muss um dies zu reparieren. \cite{ausarbeitungtra}
+
+\subsection{Verschiedene Transaktionsprotokolle}
+
+\subsubsection{2-Phase-Commit}
+
+Der Zwei-Phasen-Commit ist eine Methode zur Koordination einer Transaktion zwischen mindestens
+zwei Ressourcenmanager. Es gewährleisten Datenintegrität bei der Sicherstellung, dass entweder
+eine Transaktion von allen Ressourcemanager committed werden oder bei allen ein Rollback
+stattfindet. Die 1. Phase des Zwei-Phasen-Commit wird Abstimmungsphase oder Vorbereitungsphase
+genannt, die 2. Phase Entscheidungsphase oder Commit/Abort-Phase. \cite{ausarbeitungtra}
+
+\subsubsection{3-Phase-Commit}
+
+Der Drei-Phasen-Commit verhindert das Problem des Zwei-Phasen-Commit, dass Teilnehmer nach
+einem Absturz des Koordinators teilweise nicht mehr zu einer eindeutigen Entscheidung
+kommen können. In der Praxis wird der 3PC nicht häufig eingesetzt, da der Zustand bei dem
+2PC selten vorkommen. Beim 3PC genügen die Zustände des Koordinators und der Teilnehmer
+folgender Bedingungen:
+
+\begin{itemize}
+	\item Keinem einzelnen Zustand ist es möglich direkt in COMMIT/ABORT-Zustand zu gelangen.
+	\item Keinem einzelnen Zustand ist es unmöglich eine endgültige Entscheidung zu treffen (Übergang
+in den COMMIT-Zustand) \cite{ausarbeitungtra}
+\end{itemize}
+
+\subsubsection{2-Phase-Lock}
+
+Das Zwei-Phasen-Sperrprotokoll ist eine Methode zur Synchronisierung von Zugriff auf aufgeteilte
+Daten. Bei einer Schreibsperre kann nur der sperrende Prozess auf das Objekt zugreifen und somit dieses auch ändern. Bei einer Lesesperre können mehrere Prozesse das gesperrte Objekt lesen. \\
+Die konservative Art des 2PL verhindert einen Deadlock. Dies wird umgesetzt indem bei Beginn der Transaktion
+alle benötigten Sperren auf einmal gesetzt werden. Die strikte Art ist die häufiger verwendete
+Art von 2PL. Hier werden alle gesetzten Write-Locks erst am Ende der Transaktion freigegeben. \cite{ausarbeitungtra}
+
+\subsubsection{Long-duration Transaction}
+
+Sehr viele Businesstransaktionen sind Long-term-/Long-running-/Long-duration-Tranaktionen. Diese
+laufen meist wie der Name sagt für eine lange Zeit, sogar für Stunden oder Tage. Daher werden
+meistens Timelimits gesetzt. Nach Ablauf des Limits geschieht ein Rollback. \cite{ausarbeitungtra}
+
+\subsection{Transaktionskonflikte}
+
+\subsubsection{ACID}
+
+Das Transaktionsprinzp sollte dem ACID-Schema folgen. 
+
+\begin{itemize}
+	\item Atomicity \\
+		Transaktion wird entweder ganz oder gar nicht
+ausgeführt
+	\item Consistency \\
+		Datenbank ist vor Beginn und nach Beendigung einer
+Transaktion jeweils in einem konsistenten Zustand
+	\item Isolation \\
+		Nutzer, der mit einer Datenbank arbeitet, sollte den
+Eindruck haben, dass er mit dieser Datenbank alleine
+arbeitet
+	\item Durability \\
+		Nach erfolgreichem Abschluss einer Transaktion muss
+das Ergebnis dieser Transaktion 'dauerhaft' in der Datenbank gespeichert werden.
+\end{itemize}
+
+\clearpage
+
+\subsubsection{Probleme im Mehrbenutzerbetrieb und Lösungsansätze}
+
+Folgendes wird durch ACID-konformen Transaktionen verhindert
+
+\begin{itemize}
+	\item Inkonsistentes Lesen: Nonrepeatable Read
+	\item Abhängigkeiten von nicht freigegebenen Daten: Dirty
+Read
+	\item Das Phantom-Problem 
+	\item Verlorengegangenes Ändern: Lost Update
+\end{itemize}
+
+Im 2PC-Betrieb kann wie bereits kurz angesprochen nach dem Vote der Koordinator ausfallen. Die Teilnehmer müssen daraufhin nach einem Timeout aborten. Das ist jedoch quasi Rückgängigmachen einer bereits getroffenen Entscheidung. \\
+Im 3PC-Fehlerfall (Ausfall des Koordinators und k-1 Teilnehmer) sind alle weiteren Teilnehmer im Zustand 'Ready'. Die ausgefallenen Teilnehmer können nur in den Zuständen 'Ready', 'Abort' oder 'Pre-Commit' sein, weswegen die Transaktion abgebrochen werden kann. Sollte einer der Teilnehmer im Zustand 'Pre-Commit' oder 'Commit' sein, so muss ein neuer Koordinator das Protokoll fortsetzen. \cite{error}
+
+\clearpage
+
+\section{Projektumfeld: Smart 3Home-Hersteller Loxone}
+
+Loxone als Smart-Home-Systemhersteller möchte seine Produktpalette mit
+Hilfe eines Partners erweitern. Die Firma Festo will expandieren und
+geht auf das Angebot ein. \\
+Die Idee ist mehr mobile Robotik ins tägliche Leben einzubringen
+(Staubsauger, Rasenmäher, Lasttransporter, etc.). Zur Überwachung werden
+energieautarke Sensoreinheiten benötigt (Funklösung, energiesparend).
+Auch weitere Sensoren sollen miteingebunden werden
+(Ambient-Assisted-Living, Pflege/Gesundheit, etc.).
+Die Steuerung und Datenerfassung soll mittels einer Cloudimplementierung
+erfolgen (IoT, App, etc.).
+Dabei ist die Sicherheit bez. die Datenweitergabe ein wichtiger Aspekt.
+
+Wie ich diese Aufgabenstellung bearbeiten würde:
+
+\subsection{Cloud Computing und IoT}
+
+\subsubsection{Einführung}
+
+Wie bereits der Aufgabenstellung zu entnehmen ist, soll hier eine Cloudimplementierung geschehen. Jeder Client, egal ob Rasenmäher oder Staubsauger, ist ständig mit dem Internet verbunden. Hierfür benötigt es eine möglichst hochverfügbare Internetanbindung seitens des Clients. Ohne Konnektivität können die angebotenen Services nicht gewährleistet werden. Über eine zentrale, firmeneigene Stelle außerhalb des Netzwerks werden alle Clients gesteuert, und deren Daten aufgenommen. Der große Vorteil einer Implementierung mithilfe der 'Cloud' ist die hohe Skalierbarkeit. Sollte Loxone weiter expandieren wollen, so kann innerhalb kürzester Zeit mehr Kapazität zur Verfügung gestellt werden. Auch die bessere Wartbarkeit ist ein positiver Aspekt. Da die Cloudinfrastruktur meist von externen, marktführenden Providern bereitgestellt wird, wird das System als hochverfügbar gelten. Ein Ausfall soll besonders hier nicht passieren, da sonst 'der ganze Betrieb steht' und hunderte, wenn nicht sogar tausende User in Mitleidenschaft zieht, die ihre Heimrobotik nicht mehr verwenden können.
+
+\subsubsection{Wer bietet Cloud-Infrastruktur an?}
+
+\ceparagraph{Amazon Web Services (AWS)}
+
+Amazon ist mit Abstand der Innovationsmotor im Cloud-Computing-Markt. Im Bereich Infrastructure-as-a-Service (IaaS) ist AWS der unangefochtene Marktführer. Es gibt eine Vielzahl von bekannten, weltweit operierenden Unternehmen, die hier auf AWS schwören. Zur Verbesserung der Hochverfügbarkeit haben sie Rechenzentrum rund um den Globus verteilt, um einen möglichst guten Ping zu erzielen. Die Weboberfläche ist intuitiv, und bedarf kaum Einarbeitungszeit. Das AWS-Portfolio umfasst über drei Dutzend verschiedene Web-Services, einige der relevantesten Services zur Implementierung:
+
+\begin{itemize}
+	\item Amazon Elastic Compute Engine (EC2) \\
+		... dient zum Ausführen von Anwendungen auf skalierbaren Rechenkapazitäten. EC2 kann als 'unbegrenzte Anzahl virtueller Maschinen' gesehen werden. 
+	\clearpage
+	\item Amazon Dynamo DB \\
+	... ein vollständig verwalteter NoSQL-DB-Service, mit niederiger Latenz und hoher Skalierbarkeit.
+	\item Amazon Simple Storage Service (S3) \\
+	... ein skalierbarer Speicher für beliebige Datenmengen, zur Absicherung und Archivierung der Daten. \cite{aws}
+\end{itemize}
+
+\ceparagraph{Microsoft Azure}
+
+Microsoft Azure ist ebenso eine Public Cloud-Platform, vergleichlich mit den AWS. Die Unterscheidungen finden eher im Detail statt. Azure wird weitläufig aufgefasst als Anbieter von Platform as a Service (PaaS) und Infrastructure as a Service (IaaS). Microsoft unterscheidet zwischen 11 verschiedenen Produkttypen, die Loxone-Anwendung würde in den Bereich \textit{Internet of Things (IoT)} fallen, da der Fokus der Services darauf liegt, die Daten von Sensoren und anderen Geräten zu erfassen, überwachen und zu analysieren. \cite{azure}
+
+\subsubsection{Konzept zur Realisierung von entfernten Prozeduren}
+
+\ceparagraph{Ansatz SOAP}
+
+\ceparagraph{Java RMI}
+
+\subsection{Security, Safety, Availability}
+
+\subsection{Authentication, Authorization, Accounting}
+
+\subsection{Disaster Recovery}
+
+\subsection{Algorithmen und Protokolle}
+
+\subsection{Konsistenz und Datenhaltung}
+
+\clearpage
+\bibliographystyle{unsrt}
+\bibliography{SYT_DezSys_Weinberger}
+
+\end{document}
