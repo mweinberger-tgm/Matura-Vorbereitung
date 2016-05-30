@@ -94,7 +94,6 @@ Die Bearbeitung dieses Projektumfelds dient als Basis für diese Ausarbeitung.
 
 \section{Cloud Computing und Internet of Things}
 
-\subsection{Einführung}
 
 Wie bereits der Aufgabenstellung zu entnehmen ist, soll hier eine Cloudimplementierung geschehen. Jeder Client, egal ob Rasenmäher oder Staubsauger, ist ständig mit dem Internet verbunden. Hierfür benötigt es eine möglichst hochverfügbare Internetanbindung seitens des Clients. Ohne Konnektivität können die angebotenen Services nicht gewährleistet werden. Über eine zentrale, firmeneigene Stelle außerhalb des Netzwerks werden alle Clients gesteuert, und deren Daten aufgenommen. Der große Vorteil einer Implementierung mithilfe der 'Cloud' ist die hohe Skalierbarkeit. Sollte Loxone weiter expandieren wollen, so kann innerhalb kürzester Zeit mehr Kapazität zur Verfügung gestellt werden. Auch die bessere Wartbarkeit ist ein positiver Aspekt. Da die Cloudinfrastruktur meist von externen, marktführenden Providern bereitgestellt wird, wird das System als hochverfügbar gelten. Ein Ausfall soll besonders hier nicht passieren, da sonst 'der ganze Betrieb steht' und hunderte, wenn nicht sogar tausende User in Mitleidenschaft zieht, die ihre Heimrobotik nicht mehr verwenden können. \citep{ausarbeitungcc}
 
@@ -103,8 +102,9 @@ Wie bereits der Aufgabenstellung zu entnehmen ist, soll hier eine Cloudimplement
 Heutzutage setzen viele Hersteller auf Cloud Computing und bieten dementsprechende Plattformen an, der Trend geht immer mehr in diese Richtung. \begin{center}
 Konkret geht es bei Cloud Computing um die Auslagerung von Anwendungen, Daten und Rechenvorgängen ins Web. \\
 \end{center} 
-Dies könnte zum Beispiel die Auslagerung von Bürosoftware wie Tabellenkalkulation, Textverarbeitung oder CRM-Systemen in die Cloud sein.
-Diese Auslagerung bietet einige Vorteile. Die Synchronisation zwischen mehreren Rechnern wird nicht mehr relevant und gemeinsame Arbeit an Dokumenten durch die zentrale Ablage vereinfacht. Für das Absichern der Datensätze ist die Cloud Computing-Plattform und die Anwendung selbst verantwortlich. Natürlich ist auch der Datenspeicher in der 'Wolke' begrenzt, jedoch in jeder Hinsicht größer als der eines einzelnen Rechners oder Festplattenverbundes im normalen Stil. Verglichen mit traditionellen Systemumgebungen sind Cloud Computing-Plattformen wesentlich einfacher zu verwalten. Der Grund dafür ist der hohe Abstraktionsgrad der Plattformen, denn um typische Administrationsaufgaben wie Load Balancing oder Serverwartung kümmert sich der Anbieter. Bei Rechenvorgängen ist der Vorteil einer besseren Skalierbarkeit gegeben, dass man auf einen großen Pool von Instanzen zurückgreifen kann. Dank Cloud Computing und dessen hoher Flexibilität kann man diese Server beispielsweise auch für wenige Stunden oder Tage, in denen sie benötigt werden, \textit{on demand} mieten und somit Betriebskosten einsparen. Die Bereitstellung erfolgt innerhalb von Minuten, und kommt ohne komplexe Verträge aus.\cite{ausarbeitungcc}
+Diese Auslagerung bietet einige Vorteile. Die Synchronisation zwischen mehreren Rechnern wird nicht mehr relevant und gemeinsame Arbeit an Dokumenten durch die zentrale Ablage vereinfacht. Für das Absichern der Datensätze ist die Cloud Computing-Plattform und die Anwendung selbst verantwortlich. Natürlich ist auch hier der Datenspeicher begrenzt, jedoch in jeder Hinsicht größer als der eines einzelnen Rechners oder Festplattenverbundes im normalen Stil. Verglichen mit traditionellen Systemumgebungen sind Cloud Computing-Plattformen wesentlich einfacher zu verwalten. Der Grund dafür ist der hohe Abstraktionsgrad der Plattformen, denn um typische Administrationsaufgaben wie Load Balancing oder Serverwartung kümmert sich der Anbieter. Bei Rechenvorgängen ist der Vorteil einer besseren Skalierbarkeit gegeben, dass man auf einen großen Pool von Instanzen zurückgreifen kann. Dank Cloud Computing und dessen hoher Flexibilität kann man diese Server beispielsweise auch für wenige Stunden oder Tage, in denen sie benötigt werden, \textit{on demand} mieten und somit Betriebskosten einsparen. Die Bereitstellung erfolgt innerhalb von Minuten, und kommt ohne komplexe Verträge aus.\cite{ausarbeitungcc}
+
+\clearpage
 
 \subsubsection{Wer bietet Cloud-Infrastruktur an?}
 
@@ -112,7 +112,7 @@ Einige der größten Anbieter im Vergleich.
 
 \ceparagraph{Amazon Web Services (AWS)}
 
-Amazon ist mit Abstand der Innovationsmotor im Cloud-Computing-Markt. Im Bereich Infrastructure-as-a-Service (IaaS) ist AWS der unangefochtene Marktführer. Es gibt eine Vielzahl von bekannten, weltweit operierenden Unternehmen, die hier auf AWS schwören. Zur Verbesserung der Hochverfügbarkeit haben sie Rechenzentrum rund um den Globus verteilt, um einen möglichst guten Ping zu erzielen. Die Weboberfläche ist intuitiv, und bedarf kaum Einarbeitungszeit. Das AWS-Portfolio umfasst über drei Dutzend verschiedene Web-Services. Für die Implementierung relevant sind die Komponenten zum skalierbaren Bereitstellen von Rechenkapazität (Elastic Compute Endgine), ein vollständig verwalteter NoSQL-DB-Service (Dynamo DB) genauso wie die allgemeine Bereitstellung von Speicherkapazität (Simple Storage Service)
+Amazon ist mit Abstand der Innovationsmotor im Cloud-Computing-Markt. Im Bereich Infrastructure-as-a-Service (IaaS) ist AWS der unangefochtene Marktführer. Es gibt eine Vielzahl von bekannten, weltweit operierenden Unternehmen, die hier auf AWS schwören. Zur Verbesserung der Hochverfügbarkeit haben sie Rechenzentrum rund um den Globus verteilt, um einen möglichst guten Ping zu erzielen. Die Weboberfläche ist intuitiv, und bedarf kaum Einarbeitungszeit. Das AWS-Portfolio umfasst über drei Dutzend verschiedene Web-Services. Für die Implementierung relevant sind die Komponenten zum skalierbaren Bereitstellen von Rechenkapazität (Elastic Compute Endgine), ein vollständig verwalteter NoSQL-DB-Service (Dynamo DB) genauso wie die allgemeine Bereitstellung von Speicherkapazität (Simple Storage Service).
 
 \ceparagraph{Microsoft Azure}
 
@@ -120,11 +120,11 @@ Microsoft Azure ist ebenso eine Public Cloud-Platform, vergleichlich mit den AWS
 
 \subsubsection{Was versteht man unter IoT?}
 
-Das Internet der Dinge (Internet of Things / IoT) ist ein Gebilde, bei dem Objekte, Tiere oder Menschen mit einem einzigartigen Identifikator ausgestattet sind. Weiterhin ist damit die Möglichkeit verbunden, Daten über ein Netzwerk ohne Interaktionen Mensch-zu-Mensch oder Mensch-zu-Computer zu übertragen. Ein Ding im Internet der Dinge kann zum Beispiel eine Person mit einem Herzschrittmacher, ein Nutztier auf einem Bauernhof mit einem Biochip-Transponder oder ein Automobil mit eingebauten Sensoren sein. Letzteres könnte eine Warnung auslösen, wenn der Reifendruck zu niedrig ist. Im Prinzip ist jedes vom Menschen geschaffene Objekt ein Kandidat, das sich mit einer IP-Adresse ausstatten lässt und Daten via Netzwerk übertragen kann. Bisher wurde das Internet der Dinge am häufigsten mit Maschine-zu-Maschine-Kommunikation bei einer Fertigungsstraße in Verbindung gebracht. Sind Produkte mit M2M-Kommunikation ausgestattet, werden sie häufig als \textit{intelligent} oder \textit{smart} bezeichnet. Der durch IPv6 wesentlich größere Adressraum ist ein wichtiger Faktor bei der Entwicklung des Internets der Dinge. Durch die wachsende Anzahl an intelligenten Knoten (Nodes) erwartet man, dass es neue Bedenken für Privatsphäre, Datenhoheit und Sicherheit gibt. \cite{iot} \clearpage
+Das Internet der Dinge (Internet of Things / IoT) definiert eine Vielzahl von Komponenten, die mit einer IP-Adresse ausgestattet sind und selbstständig kommunizieren könenn. Ein Ding im Internet der Dinge kann im Falle des Projektumfeldes ein Rasenmäher, Temperatursensor oder Staubsaugerroboter sein. Bisher wurde das Internet der Dinge am häufigsten mit Maschine-zu-Maschine-Kommunikation etwa bei einer Fertigungsstraße in Verbindung gebracht. Sind Produkte mit M2M-Kommunikation ausgestattet, werden sie häufig als \textit{intelligent} oder \textit{smart} bezeichnet. Der durch IPv6 wesentlich größere Adressraum ist ein wichtiger Faktor bei der Entwicklung des Internets der Dinge. Durch die wachsende Anzahl an intelligenten Knoten (Nodes) erwartet man, dass es neue Bedenken im Bereich des Datenschutzes und der Datenweitergabe gibt. \cite{iot} \clearpage
 
 \subsection{Realisierung von entfernten Prozeduren, Methoden, Objekten zur Interkommunikation}
 
-Dieses Kapitel bezieht sich auf die Implementierungen für die Programmiersprache Java.
+Zur Interkommunikation der einzelnen Komponenten im Smart Home gibt es verschiedene Herangehensweisen.
 
 \subsubsection{Interprozesskommunikation}
 
@@ -133,14 +133,6 @@ Interprozesskommunikation (IPC) ist eine Sammlung von Programmierinterfaces, die
 \subsubsection{Wie werden Informationen ausgetauscht?}
 
 In der Interprozesskommunikation empfiehlt es sich, ein 'Protokoll' zu definieren, sprich, wie Nachrichten untereinander weitergegeben werden. Beispielsweise ist SOAP ein standardisiertes Verpackungsprotokoll für Nachrichten. Die Spezifikation definiert einen XML-basierten Umschlag (Envelope) für die zu übertragenden Informationen sowie Regeln für die Umsetzung von Anwendungs- und plattformspezifischen Datentypen in XML-Darstellung. Der Nachrichtenaustausch über XML stellt eine flexible Methode zur Kommunikation zwischen Anwendungen dar. Eine Nachricht kann alles mögliche enthalten z.B. Warenbestellungen, Suchanfragen oder ähnliches. Da XML an keine bestimmte Programmiersprache oder ein bestimmtes Betriebssystem gebunden ist, können XML-Nachrichten in allen Umgebungen verwendet werden. Aufgrund der Einfachheit empfiehlt sich in Java der Einsatz sogenannter POJOs. Das sind schlicht und einfach 'plain old java objects' mit Methoden und Attributen. Dieses Objekt kann in verteilten Systemen serialisiert übertragen werden. \cite{ausarbeitungsoa}
-
-\subsubsection{Sockets}
-
-Sockets sind wahrscheinlich die einfachste Möglichkeit, um Prozesse 'miteinander reden zu lassen'. Ein Socket ist ein Kommunikationsendpunkt, und wird über eine IP-Adresse und einen Port eindeutig identifiziert. Er nimmt eingehende Verbindungen entgegen, und verbindet sich mit seinem Gegenstück. Unter einer IP-Adresse können mehrere Sockets erreichbar sein! Sowohl Server als auch Client
-benötigen einen eindeutigen Kommunikationsendpunkt, wir unterscheiden zwischen
-Server-Socket und Client-Socket. Der Server-Socket wartet und 'horcht' auf eingehende
-Verbindungen durch Clients, wird daher auch passiver Socket genannt. Er muss einer IP-Adresse und einem Port zugeteilt sein ('Binding'). Er empfängt Daten von Clients, führt Berechnungen
-durch und sendet das Ergebnis zurück, der Aufbau geschieht typischerweise multithreaded. Der Client-Socket verbindet sich mit Server-Socket und initiiert den Verbindungsaufbau, wird daher aktiver Socket genannt. Er muss IP und Port des Servers wissen, und sendet single- oder multithreaded Daten an den Server und erhält Resultate. \cite{socketslides}
 
 \subsubsection{RPC}
 
