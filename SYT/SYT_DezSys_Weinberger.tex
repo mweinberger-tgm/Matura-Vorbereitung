@@ -74,11 +74,29 @@
 	\textit{'können Programmiertechniken in verteilten Systemen zur Realisierung von entfernten Prozeduren, Methoden und Objekten anwenden sowie webbasierte Dienste und Messaging-Dienste in solchen Systemen implementieren'}
 \end{itemize}
 
+\ceparagraph{Projektumfeld: Smart Home-Hersteller Loxone}
+
+Loxone als Smart-Home-Systemhersteller möchte seine Produktpalette mit
+Hilfe eines Partners erweitern. Die Firma Festo will expandieren und
+geht auf das Angebot ein. \\
+Die Idee ist mehr mobile Robotik ins tägliche Leben einzubringen
+(Staubsauger, Rasenmäher, Lasttransporter, etc.). Zur Überwachung werden
+energieautarke Sensoreinheiten benötigt (Funklösung, energiesparend).
+Auch weitere Sensoren sollen miteingebunden werden
+(Ambient-Assisted-Living, Pflege/Gesundheit, etc.).
+Die Steuerung und Datenerfassung soll mittels einer Cloudimplementierung
+erfolgen (IoT, App, etc.).
+Dabei ist die Sicherheit bez. die Datenweitergabe ein wichtiger Aspekt. \\
+
+Die Bearbeitung dieses Projektumfelds dient als Basis für diese Ausarbeitung.
+
 \clearpage
 
 \section{Cloud Computing und Internet of Things}
 
 \subsection{Einführung}
+
+Wie bereits der Aufgabenstellung zu entnehmen ist, soll hier eine Cloudimplementierung geschehen. Jeder Client, egal ob Rasenmäher oder Staubsauger, ist ständig mit dem Internet verbunden. Hierfür benötigt es eine möglichst hochverfügbare Internetanbindung seitens des Clients. Ohne Konnektivität können die angebotenen Services nicht gewährleistet werden. Über eine zentrale, firmeneigene Stelle außerhalb des Netzwerks werden alle Clients gesteuert, und deren Daten aufgenommen. Der große Vorteil einer Implementierung mithilfe der 'Cloud' ist die hohe Skalierbarkeit. Sollte Loxone weiter expandieren wollen, so kann innerhalb kürzester Zeit mehr Kapazität zur Verfügung gestellt werden. Auch die bessere Wartbarkeit ist ein positiver Aspekt. Da die Cloudinfrastruktur meist von externen, marktführenden Providern bereitgestellt wird, wird das System als hochverfügbar gelten. Ein Ausfall soll besonders hier nicht passieren, da sonst 'der ganze Betrieb steht' und hunderte, wenn nicht sogar tausende User in Mitleidenschaft zieht, die ihre Heimrobotik nicht mehr verwenden können. \citep{ausarbeitungcc}
 
 \subsubsection{Was versteht man unter Cloud Computing?}
 
@@ -87,6 +105,18 @@ Konkret geht es bei Cloud Computing um die Auslagerung von Anwendungen, Daten un
 \end{center} 
 Dies könnte zum Beispiel die Auslagerung von Bürosoftware wie Tabellenkalkulation, Textverarbeitung oder CRM-Systemen in die Cloud sein.
 Diese Auslagerung bietet einige Vorteile. Die Synchronisation zwischen mehreren Rechnern wird nicht mehr relevant und gemeinsame Arbeit an Dokumenten durch die zentrale Ablage vereinfacht. Für das Absichern der Datensätze ist die Cloud Computing-Plattform und die Anwendung selbst verantwortlich. Natürlich ist auch der Datenspeicher in der 'Wolke' begrenzt, jedoch in jeder Hinsicht größer als der eines einzelnen Rechners oder Festplattenverbundes im normalen Stil. Verglichen mit traditionellen Systemumgebungen sind Cloud Computing-Plattformen wesentlich einfacher zu verwalten. Der Grund dafür ist der hohe Abstraktionsgrad der Plattformen, denn um typische Administrationsaufgaben wie Load Balancing oder Serverwartung kümmert sich der Anbieter. Bei Rechenvorgängen ist der Vorteil einer besseren Skalierbarkeit gegeben, dass man auf einen großen Pool von Instanzen zurückgreifen kann. Dank Cloud Computing und dessen hoher Flexibilität kann man diese Server beispielsweise auch für wenige Stunden oder Tage, in denen sie benötigt werden, \textit{on demand} mieten und somit Betriebskosten einsparen. Die Bereitstellung erfolgt innerhalb von Minuten, und kommt ohne komplexe Verträge aus.\cite{ausarbeitungcc}
+
+\subsubsection{Wer bietet Cloud-Infrastruktur an?}
+
+Einige der größten Anbieter im Vergleich.
+
+\ceparagraph{Amazon Web Services (AWS)}
+
+Amazon ist mit Abstand der Innovationsmotor im Cloud-Computing-Markt. Im Bereich Infrastructure-as-a-Service (IaaS) ist AWS der unangefochtene Marktführer. Es gibt eine Vielzahl von bekannten, weltweit operierenden Unternehmen, die hier auf AWS schwören. Zur Verbesserung der Hochverfügbarkeit haben sie Rechenzentrum rund um den Globus verteilt, um einen möglichst guten Ping zu erzielen. Die Weboberfläche ist intuitiv, und bedarf kaum Einarbeitungszeit. Das AWS-Portfolio umfasst über drei Dutzend verschiedene Web-Services. Für die Implementierung relevant sind die Komponenten zum skalierbaren Bereitstellen von Rechenkapazität (Elastic Compute Endgine), ein vollständig verwalteter NoSQL-DB-Service (Dynamo DB) genauso wie die allgemeine Bereitstellung von Speicherkapazität (Simple Storage Service)
+
+\ceparagraph{Microsoft Azure}
+
+Microsoft Azure ist ebenso eine Public Cloud-Platform, vergleichlich mit den AWS. Die Unterscheidungen finden eher im Detail statt. Azure wird weitläufig aufgefasst als Anbieter von Platform as a Service (PaaS) und Infrastructure as a Service (IaaS). Microsoft unterscheidet zwischen 11 verschiedenen Produkttypen, die Loxone-Anwendung würde in den Bereich \textit{Internet of Things (IoT)} fallen, da der Fokus der Services darauf liegt, die Daten von Sensoren und anderen Geräten zu erfassen, überwachen und zu analysieren. \cite{azure}
 
 \subsubsection{Was versteht man unter IoT?}
 
@@ -651,66 +681,6 @@ Read
 
 Im 2PC-Betrieb kann wie bereits kurz angesprochen nach dem Vote der Koordinator ausfallen. Die Teilnehmer müssen daraufhin nach einem Timeout aborten. Das ist jedoch quasi Rückgängigmachen einer bereits getroffenen Entscheidung. \\
 Im 3PC-Fehlerfall (Ausfall des Koordinators und k-1 Teilnehmer) sind alle weiteren Teilnehmer im Zustand 'Ready'. Die ausgefallenen Teilnehmer können nur in den Zuständen 'Ready', 'Abort' oder 'Pre-Commit' sein, weswegen die Transaktion abgebrochen werden kann. Sollte einer der Teilnehmer im Zustand 'Pre-Commit' oder 'Commit' sein, so muss ein neuer Koordinator das Protokoll fortsetzen. \cite{error}
-
-\clearpage
-
-\section{Projektumfeld: Smart Home-Hersteller Loxone}
-
-Loxone als Smart-Home-Systemhersteller möchte seine Produktpalette mit
-Hilfe eines Partners erweitern. Die Firma Festo will expandieren und
-geht auf das Angebot ein. \\
-Die Idee ist mehr mobile Robotik ins tägliche Leben einzubringen
-(Staubsauger, Rasenmäher, Lasttransporter, etc.). Zur Überwachung werden
-energieautarke Sensoreinheiten benötigt (Funklösung, energiesparend).
-Auch weitere Sensoren sollen miteingebunden werden
-(Ambient-Assisted-Living, Pflege/Gesundheit, etc.).
-Die Steuerung und Datenerfassung soll mittels einer Cloudimplementierung
-erfolgen (IoT, App, etc.).
-Dabei ist die Sicherheit bez. die Datenweitergabe ein wichtiger Aspekt.
-
-Wie ich diese Aufgabenstellung bearbeiten würde:
-
-\subsection{Cloud Computing und IoT}
-
-\subsubsection{Einführung}
-
-Wie bereits der Aufgabenstellung zu entnehmen ist, soll hier eine Cloudimplementierung geschehen. Jeder Client, egal ob Rasenmäher oder Staubsauger, ist ständig mit dem Internet verbunden. Hierfür benötigt es eine möglichst hochverfügbare Internetanbindung seitens des Clients. Ohne Konnektivität können die angebotenen Services nicht gewährleistet werden. Über eine zentrale, firmeneigene Stelle außerhalb des Netzwerks werden alle Clients gesteuert, und deren Daten aufgenommen. Der große Vorteil einer Implementierung mithilfe der 'Cloud' ist die hohe Skalierbarkeit. Sollte Loxone weiter expandieren wollen, so kann innerhalb kürzester Zeit mehr Kapazität zur Verfügung gestellt werden. Auch die bessere Wartbarkeit ist ein positiver Aspekt. Da die Cloudinfrastruktur meist von externen, marktführenden Providern bereitgestellt wird, wird das System als hochverfügbar gelten. Ein Ausfall soll besonders hier nicht passieren, da sonst 'der ganze Betrieb steht' und hunderte, wenn nicht sogar tausende User in Mitleidenschaft zieht, die ihre Heimrobotik nicht mehr verwenden können.
-
-\subsubsection{Wer bietet Cloud-Infrastruktur an?}
-
-\ceparagraph{Amazon Web Services (AWS)}
-
-Amazon ist mit Abstand der Innovationsmotor im Cloud-Computing-Markt. Im Bereich Infrastructure-as-a-Service (IaaS) ist AWS der unangefochtene Marktführer. Es gibt eine Vielzahl von bekannten, weltweit operierenden Unternehmen, die hier auf AWS schwören. Zur Verbesserung der Hochverfügbarkeit haben sie Rechenzentrum rund um den Globus verteilt, um einen möglichst guten Ping zu erzielen. Die Weboberfläche ist intuitiv, und bedarf kaum Einarbeitungszeit. Das AWS-Portfolio umfasst über drei Dutzend verschiedene Web-Services, einige der relevantesten Services zur Implementierung:
-
-\begin{itemize}
-	\item Amazon Elastic Compute Engine (EC2) \\
-		... dient zum Ausführen von Anwendungen auf skalierbaren Rechenkapazitäten. EC2 kann als 'unbegrenzte Anzahl virtueller Maschinen' gesehen werden. 
-	\clearpage
-	\item Amazon Dynamo DB \\
-	... ein vollständig verwalteter NoSQL-DB-Service, mit niederiger Latenz und hoher Skalierbarkeit.
-	\item Amazon Simple Storage Service (S3) \\
-	... ein skalierbarer Speicher für beliebige Datenmengen, zur Absicherung und Archivierung der Daten. \cite{aws}
-\end{itemize}
-
-\ceparagraph{Microsoft Azure}
-
-Microsoft Azure ist ebenso eine Public Cloud-Platform, vergleichlich mit den AWS. Die Unterscheidungen finden eher im Detail statt. Azure wird weitläufig aufgefasst als Anbieter von Platform as a Service (PaaS) und Infrastructure as a Service (IaaS). Microsoft unterscheidet zwischen 11 verschiedenen Produkttypen, die Loxone-Anwendung würde in den Bereich \textit{Internet of Things (IoT)} fallen, da der Fokus der Services darauf liegt, die Daten von Sensoren und anderen Geräten zu erfassen, überwachen und zu analysieren. \cite{azure}
-
-\subsubsection{Konzept zur Realisierung von entfernten Prozeduren}
-
-\ceparagraph{Ansatz SOAP}
-
-\ceparagraph{Java RMI}
-
-\subsection{Security, Safety, Availability}
-
-\subsection{Authentication, Authorization, Accounting}
-
-\subsection{Disaster Recovery}
-
-\subsection{Algorithmen und Protokolle}
-
-\subsection{Konsistenz und Datenhaltung}
 
 \clearpage
 \bibliographystyle{unsrt}
