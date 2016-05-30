@@ -88,7 +88,7 @@ Die Steuerung und Datenerfassung soll mittels einer Cloudimplementierung
 erfolgen (IoT, App, etc.).
 Dabei ist die Sicherheit bez. die Datenweitergabe ein wichtiger Aspekt. \\
 
-Die Bearbeitung dieses Projektumfelds dient als Basis für diese Ausarbeitung.
+In dieser Ausarbeitung findet sich Theorie, die die Kompetenzen abdeckt sowie Praxis, die auf das Projektumfeld eingeht.
 
 \clearpage
 
@@ -108,7 +108,7 @@ Diese Auslagerung bietet einige Vorteile. Die Synchronisation zwischen mehreren 
 
 \subsubsection{Wer bietet Cloud-Infrastruktur an?}
 
-Einige der größten Anbieter im Vergleich.
+Zwei der größten Anbieten im direkten Vergleich.
 
 \ceparagraph{Amazon Web Services (AWS)}
 
@@ -120,11 +120,11 @@ Microsoft Azure ist ebenso eine Public Cloud-Platform, vergleichlich mit den AWS
 
 \subsubsection{Was versteht man unter IoT?}
 
-Das Internet der Dinge (Internet of Things / IoT) definiert eine Vielzahl von Komponenten, die mit einer IP-Adresse ausgestattet sind und selbstständig kommunizieren könenn. Ein Ding im Internet der Dinge kann im Falle des Projektumfeldes ein Rasenmäher, Temperatursensor oder Staubsaugerroboter sein. Bisher wurde das Internet der Dinge am häufigsten mit Maschine-zu-Maschine-Kommunikation etwa bei einer Fertigungsstraße in Verbindung gebracht. Sind Produkte mit M2M-Kommunikation ausgestattet, werden sie häufig als \textit{intelligent} oder \textit{smart} bezeichnet. Der durch IPv6 wesentlich größere Adressraum ist ein wichtiger Faktor bei der Entwicklung des Internets der Dinge. Durch die wachsende Anzahl an intelligenten Knoten (Nodes) erwartet man, dass es neue Bedenken im Bereich des Datenschutzes und der Datenweitergabe gibt. \cite{iot} \clearpage
+Das Internet der Dinge (Internet of Things / IoT) definiert eine Vielzahl von Komponenten, die mit einer IP-Adresse ausgestattet sind und selbstständig kommunizieren können. Ein Ding im Internet der Dinge kann im Falle des Projektumfeldes ein Rasenmäher, Temperatursensor oder Staubsaugerroboter sein. Die Anfrage wird von Node zu Node weitergereicht, bis das Ziel erreicht ist, mit zunehmender Anzahl lernt das Netzwerk die effizientesten Routen dazu. Informationen werden untereinander oder mit einer zentralen Servereinheit (hier: Cloud) ausgetauscht. Bisher wurde das Internet der Dinge am häufigsten mit Maschine-zu-Maschine-Kommunikation etwa bei einer Fertigungsstraße in Verbindung gebracht. Die Kommunikation hierbei kann kabelgebunden oder wireless geschehen. Sind Produkte mit M2M-Kommunikation ausgestattet, werden sie häufig als \textit{intelligent} oder \textit{smart} bezeichnet. Durch die wachsende Anzahl an verbundenen Nodes erwartet man, dass es neue Bedenken im Bereich des Datenschutzes und der Datenweitergabe gibt. \cite{iot} \clearpage
 
 \subsection{Realisierung von entfernten Prozeduren, Methoden, Objekten zur Interkommunikation}
 
-Zur Interkommunikation der einzelnen Komponenten im Smart Home gibt es verschiedene Herangehensweisen.
+Interkommunikation ist bei einem Smart Home ein großes Thema. Im Bereich Internet of Things ist es ein entscheidender Faktor, dass einzelne Komponenten mit Anderen kommunizieren können, ebenso wie mit einer zentralen Serverstelle. Wie dies geschieht, wird hier beschrieben.
 
 \subsubsection{Interprozesskommunikation}
 
