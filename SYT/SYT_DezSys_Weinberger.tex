@@ -187,7 +187,7 @@ sein. \cite{ausarbeitungsec}
 
 \subsection{Grundlegende Sicherheitskonzepte}
 
-Im gegebenen Projektumfeld ist eine Cloud-Implementierung gefragt - Cloud-Systeme erfüllen grundlegende, wenn nicht sogar erweiterte Sicherheitskonzepte bereits von Anfang an. Welche Möglichkeiten es gibt, die Firma und deren sensiblen IoT-Daten noch besser vor fremden Zugriff zu schützen auch auf Cloud-Ebene, wird hier erklärt.
+Im gegebenen Projektumfeld ist eine Cloud-Implementierung gefragt - Cloud-Systeme erfüllen grundlegende, wenn nicht sogar erweiterte Sicherheitskonzepte bereits von Anfang an. Welche Möglichkeiten es gibt, die Firma und deren sensiblen IoT-Daten noch besser vor fremden Zugriff zu schützen auch auf Cloud-Ebene, wird hier erklärt. Wichtig ist ebenso, dass verwendete IoT-Komponenten über ihre ID-Zertifikate identifiziert werden, welche sie zum Herstellungszeitpunkt bekommen haben. Wie die Kommunikation abgesichert werden sollte, ist einem späteren Punkt zu entnehmen. \cite{iotsec}
 
 \subsubsection{Intrusion Detection-Systeme}
 
@@ -247,13 +247,13 @@ Ein Framework, dass die genannten Punkte vereint ist etwa Apache Shiro. Hier wir
 
 \section{Authentication, Authorization, Accounting}
 
-Damit eine sichere Kommunikation gewährleistet werden kann, ist eine Authentifizierung der kommunizierenden Parteien erforderlich. In vielen Fällen erfordert sie auch die Sicherstellung der Nachrichtenintegrität und unter Umständen auch der Vertraulichkeit. \cite{ausarbeitungauth}
+Damit eine sichere Kommunikation gewährleistet werden kann, ist eine Authentifizierung der kommunizierenden Parteien erforderlich. In vielen Fällen erfordert sie auch die Sicherstellung der Nachrichtenintegrität und unter Umständen auch der Vertraulichkeit. Da es in der Umfeld-Firma Loxone mehr > 1 Kunden mit n IoT-Komponenten, die diesem unterliegen, verwalten wird, muss es klare Zuweisungen geben, welchem User welche Sensoren, Roboter, etc. gehören. \cite{ausarbeitungauth}
 
 \subsection{Beschreibung der Grundlagen}
 
 \subsubsection{Authentisierung}
 
-Unter Authentisierung versteht man den Nachweis der eigenen Identität. Dabei kann es sich um die Identität einer Person (eines Anwenders) oder auch um die eines Computerprogramms handeln. Wird dagegen eine angegebene Identität überprüft, so spricht man von Authentifizierung. Auch hier kann es um die Identität eines Menschen oder eines Programms gehen. Ein Beispiel: Ein Anwender, der sich an einem Computer anmeldet, gibt dazu seinen Nutzernamen und zusätzliche Informationen (typischerweise ein Passwort) an. Damit authentisiert er sich gegenüber dem Anmeldeprogramm und dieses authentifiziert den Anwender. \cite{ausarbeitungauth}
+Unter Authentisierung versteht man den Nachweis der eigenen Identität. Dabei kann es sich um die Identität einer Person (eines Benutzers, Clients) oder auch um die einer Programminstanz handeln. Wird dagegen eine angegebene Identität überprüft, so spricht man von Authentifizierung, welche anschließend erklärt wird. Auch hier kann es um die Identität eines Menschen oder eines Programms gehen. Ein Beispiel: Ein Anwender, der sich an einem Computer anmeldet, gibt dafür seinen Nutzernamen und zusätzliche, eindeutig unterscheidbare Informationen (typischerweise ein Passwort) an. Damit authentisiert er sich gegenüber dem Anmeldeprogramm und dieses authentifiziert infolgedessen den Anwender. \cite{ausarbeitungauth}
 
 \begin{center}
 	Ich gebe vor, die Person xy zu sein.
@@ -261,9 +261,9 @@ Unter Authentisierung versteht man den Nachweis der eigenen Identität. Dabei ka
 
 \subsubsection{Authentifizierung}
 
-Die eigene Identität zu belegen oder die Identität eines anderen zu überprüfen, stellt eine einfache Aufgabe dar. Auch wenn alle anderen Merkmale unbekannt sein sollten, so können sich zwei Menschen immer noch anhand eines gemeinsamen Geheimnisses (Shared Secret) gegenseitig ihre Identität nachweisen. Solch ein gemeinsames Geheimnis kann bei zwei Personen beispielsweise ein Losungs- bzw. Passwort sein. \\
-Authentifizierung und Nachrichtenintegrität sind aufeinander angewiesen. Um in der Folge die Integrität der Datennachrichten sicherzustellen, die nach der Authentifizierung ausgetauscht werden, ist es gängige Praxis, Kryptografie mit geheimen Schlüsseln zu verwenden, indem zufällige Schlüssel (Sitzungsschlüssel) generiert werden. Ein Sitzungsschlüssel ist ein gemeinsamer (geheimer) Schlüssel, der aus Gründen der Integrität und möglicherweise auch der Vertraulichkeit zur Verschlüsselung von Nachrichten verwendet wird. Ein derartiger Schlüssel wird im Allgemeinen nur benutzt solange es den Kanal gibt. Bei der Schließung des Kanals wird sein zugehöriger Schlüssel verworfen (bzw. auf sichere Art zerstört). \\
-Die Authentifizierung kann wie genannt auf Grundlage eines gemeinsamen geheimen Schlüssels basieren, oder auch über den Ansatz eines KDC, eines Key Distribution Centers. Eines der Probleme bei der Verwendung eines gemeinsamen geheimen Schlüssels zur Authentifizierung ist die Skalierbarkeit. Bei vielen Hosts in einem verteilten System müssen diese eine unnötige Vielzahl an geheimen Schlüsseln nutzen. Eine Alternative ist ein zentralisierter Ansatz wie ein Key Distribution Center. Dieses KDC nutzt gemeinsam mit jedem der Hosts einen geheimen Schlüssel, aber die Hosts untereinander benötigen nicht mehr paarweise geheime Schlüssel, was klar ersichtlich eine Verbesserung darstellt. \clearpage
+Die eigene Identität zu belegen oder die Identität eines anderen zu überprüfen, stellt eine einfache Aufgabe dar. Auch wenn alle anderen Merkmale unbekannt sein sollten, so können sich zwei Menschen immer noch anhand eines gemeinsamen Geheimnisses (Shared Secret) gegenseitig ihre Identität nachweisen. Solch ein gemeinsames Geheimnis kann bei zwei Personen beispielsweise ein Losungs- bzw. in den meisten Fällen ein Passwort sein. \\
+Authentifizierung und Nachrichtenintegrität sind aufeinander angewiesen. Um in der Folge die Integrität der Datennachrichten sicherzustellen, die nach der Authentifizierung ausgetauscht werden, ist es gängige Praxis, Kryptografie mit geheimen Schlüsseln zu verwenden, indem zufällige Schlüssel, sogenannte Sitzungsschlüssel generiert werden. Ein Sitzungsschlüssel ist ein gemeinsamer, geheimer Schlüssel, der aus Gründen der Integrität und möglicherweise auch der Vertraulichkeit zur Verschlüsselung von Nachrichten verwendet wird. Ein derartiger Schlüssel wird im Allgemeinen nur benutzt, solange es den Kanal gibt. Bei der Schließung des Kanals wird sein zugehöriger Schlüssel verworfen (bzw. auf sichere Art zerstört). \\
+Die Authentifizierung kann wie genannt auf Grundlage eines gemeinsamen geheimen Schlüssels basieren, oder auch über den Ansatz eines KDC, eines Key Distribution Centers, in späteren Punkten genauer erklärt. Eines der Probleme bei der Verwendung eines gemeinsamen geheimen Schlüssels zur Authentifizierung ist die Skalierbarkeit. Bei vielen Hosts in einem verteilten System müssen diese eine unnötige Vielzahl an geheimen Schlüsseln nutzen. Eine gerade angesprochene Alternative ist ein zentralisierter Ansatz wie ein Key Distribution Center. Dieses KDC nutzt gemeinsam mit jedem der Hosts einen geheimen Schlüssel, aber die Hosts untereinander benötigen nicht mehr paarweise geheime Schlüssel, was klar ersichtlich eine Verbesserung darstellt. \clearpage
 Eine andere Art der Authentifizierung läuft über öffentliche Schlüssel. Hierbei brauchen die kommunizierenden Parteien keinen gemeinsamen Schlüssel zu kennen. Ein Benutzer erzeugt ein Schlüsselpaar, welches aus einem öffentlichen und einem privaten Schlüssel besteht. Der Öffentliche dient zur Verschlüsselung und der Private zur Entschlüsselung. \cite{ausarbeitungauth}
 
 \begin{center}
@@ -272,22 +272,18 @@ Eine andere Art der Authentifizierung läuft über öffentliche Schlüssel. Hier
 
 \subsubsection{Autorisierung}
 
-Neben der Authentisierung und Authentifizierung sind auch die Begriffe Autorisierung und Zugriffskontrolle wesentlich für jedes Sicherheitskonzept. Beim Vorgang der Autorisierung wird festgelegt, mit welchen Berechtigungen Benutzer auf Ressourcen im Netzwerk zugreifen dürfen. Netzwerkdienste, die diese Ressourcen anbieten, führen im Allgemeinen eine Zugriffskontrolle durch. Dabei prüfen sie, ob der zugreifende Benutzer autorisiert ist. Dementsprechend wird der Zugriff auf die Ressource erlaubt, verweigert oder nur eingeschränkt gewährt. Damit das funktioniert, muss ein Dienst wissen, welchem Anwender er auf welches Objekt welche Art von Zugriff erlauben kann. Welche Autorisierungsinformationen ein Dienst dafür benötigt und wo diese hinterlegt sind, hängt von dem betrachteten Dienst ab. \cite{ausarbeitungauth}
+Neben Authentisierung und Authentifizierung sind auch die Begriffe Autorisierung und Zugriffskontrolle wesentlich für jedes Sicherheitskonzept. Beim Vorgang der Autorisierung wird festgelegt, mit welchen Berechtigungen Benutzer auf Ressourcen im Netzwerk zugreifen dürfen. Netzwerkdienste, die diese Ressourcen anbieten, führen im Allgemeinen eine Zugriffskontrolle durch. Dabei prüfen sie, ob der zugreifende Benutzer autorisiert ist. Dementsprechend wird der Zugriff auf die Ressource erlaubt, verweigert oder nur eingeschränkt gewährt. Damit das funktioniert, muss ein Dienst wissen, welchem Anwender er auf welches Objekt welche Art von Zugriff erlauben kann. Welche Autorisierungsinformationen ein Dienst dafür benötigt und wo diese hinterlegt sind, hängt von dem betrachteten Dienst ab. \cite{ausarbeitungauth}
 
 \begin{center}
 In meinem System hat Person xy die erforderlichen Rechte, um auf den Bereich zugreifen zu können. (oder ggf. nicht)
 \end{center}
 
-\subsection{Was ist LDAP?}
+\subsection{Benutzerverwaltung mit LDAP}
 
-Lightweight Directory Access Protocol (LDAP) ist ein TCP/IP-basiertes Directory-Zugangsprotokoll, das sich im Internet und in Intranets als Standardlösung für den Zugriff auf Netzwerk-\newline Verzeichnisdienste für Datenbanken, E-Mails, Speicherbereiche und andere Ressourcen etabliert hat. Das LDAP-Protokoll unterstützt die für die Kommunikation erforderlichen Funktionen zwischen LDAP-Client und LDAP-Server. Dazu gehören die Anmeldung am Server, die Suchabfrage nach allen Informationen zu einem bestimmten Benutzer, die Modifikation der Daten wie beispielsweise die Änderung eines Passworts und die Replikation der Daten zwischen verschiedenen Directories. Zu den Authentifizierungs- und Kontrolloperationen gehören das Anmelden, Abfragen und das Abbrechen der Abfrage, zu den Abfrageoperationen die Suchabfrage, das Lesen und Vergleichen und zu den Update-Operationen das Hinzufügen, Löschen und Ändern der Eintragungen. LDAP setzt direkt auf TCP/IP auf und arbeitet auf Client-Server-Basis. Ein Verzeichnis in diesem
+Lightweight Directory Access Protocol (LDAP) ist ein TCP/IP-basiertes Directory-Zugangsprotokoll, das sich im Internet und auch in lokalen LANs als Standardlösung für den Zugriff auf Netzwerk-Verzeichnisdienste für Datenbanken, E-Mails, Speicherbereiche und andere Ressourcen etabliert hat. Das LDAP-Protokoll unterstützt die für die Kommunikation erforderlichen Funktionen zwischen LDAP-Client und LDAP-Server. Dazu gehören die Anmeldung am Server, die Suchabfrage nach allen Informationen zu einem bestimmten Benutzer, die Modifikation der Daten wie beispielsweise die Änderung eines Passworts und die Replikation der Daten zwischen verschiedenen Directories. Zu den Authentifizierungs- und Kontrolloperationen gehören das Anmelden, Abfragen und das Abbrechen der Abfrage, zu den Abfrageoperationen die Suchabfrage, das Lesen und Vergleichen und zu den Update-Operationen das Hinzufügen, Löschen und Ändern der Eintragungen. LDAP setzt direkt auf TCP/IP auf und arbeitet auf Client-Server-Basis. Ein Verzeichnis in diesem
 Sinne ist mit einer Datenbank zu vergleichen, jedoch mit einem speziellen Aufbau. Die
 abgelegten Daten werden in den meisten Fällen um ein Vielfaches öfter gelesen als
-geschrieben, sprich das Protokoll ist optimiert auf schnelle Lesezugrife. \cite{LDAPInfo}
-
-\clearpage
-
-\subsection{Benutzerverwaltung mit LDAP}
+geschrieben, sprich das Protokoll ist optimiert auf schnelle Lesezugrife. \cite{LDAPInfo} \clearpage
 
 Viele verschiedene Hersteller bieten ihre eigene Implementierung eines LDAP-Servers
 an, jeder mit Unterschieden in der Speicherung der Daten und der Zugrif darauf, sowie
@@ -307,7 +303,7 @@ weiterzuleiten. \cite{ce}
 
 \subsubsection{Kerberos}
 
-Bei Kerberos handelt es sich um eine sichere Methode, mit der sich Anfragen an einen Service im Netzwerk authentifizieren lassen. Kerberos stellt Nutzern ein verschlüsseltes 'Ticket' zur Verfügung, mit dem sich Nutzer wiederum an einem bestimmten Service anmelden können. Der Vorteil: Das Passwort des Nutzers muss nicht über das Netzwerk geschickt werden. Im Rahmen einer sicheren Umgebung sollte daher eine Mischung aus Kerberos/LDAP bevorzugt werden, wobei Kerberos die Authentifizierung übernimmt. Eine kurze Beschreibung, wie Kerberos funktioniert:
+Bei Kerberos handelt es sich um eine sichere Methode, mit der sich Anfragen an ein Service im Netzwerk authentifizieren lassen. Kerberos stellt Nutzern ein verschlüsseltes \textit{Ticket} zur Verfügung, mit dem sich Nutzer wiederum an einem bestimmten Service anmelden können. Der Vorteil besteht darin, dass das Passwort des Nutzers nicht über das Netzwerk geschickt werden muss. Im Rahmen einer sicheren Umgebung sollte daher eine Mischung aus Kerberos/LDAP bevorzugt werden, wobei Kerberos die Authentifizierung übernimmt. Eine kurze Beschreibung, wie Kerberos funktioniert: \cite{kerberos}
 
 \begin{itemize}
 	\item Der User möchte auf einen Server zugreifen. Man weiß, dass der entsprechende Dienst ein Kerberos-Ticket benötigt.
@@ -349,12 +345,12 @@ Ein geeignetes Maß an Fehlertoleranz ist zu wählen, damit das System nicht bei
 
 \subsection{Sicherheitslevels \& Backup-Strategien}
 
-Die SHARE-Gruppe hat im Zuge der Definition des 'Traditional Disaster Recovery' sieben verschiedene Stufen ausgewiesen.
+Die SHARE-Gruppe hat im Zuge der Definition des 'Traditional Disaster Recovery' sieben verschiedene Stufen ausgewiesen. \cite{ausarbeitungdis}
 
 \subsubsection{Tier 0: No off-site data – Possibly no recovery}
 
 Unternehmen mit einer Tier 0-Lösung haben keinen Disaster Recovery Plan. Es gibt keine Backups, auch keine Informationen über das System und keine Dokumentation. Die Zeit, die benötigt wird um ein solches System wiederherzustellen ist unvorhersehbar, es kann sogar
-sein, dass es unmöglich ist zum Normalzustand zurückzukehren.
+sein, dass es unmöglich ist zum Normalzustand zurückzukehren. \cite{ausarbeitungdis}
 
 \subsubsection{Tier 1: Data backup with no hot site}
 
@@ -362,38 +358,38 @@ Tier 1-Systeme erhalten regelmäßig ein Backup, und lagern diese an einem siche
 außerhalb des eigenen Hauses befindet. Diese Methode
 Backups zu transportieren heißt PTAM, ausgeschrieben ’Pick-up Truck Access Method’. Einige Tage bzw.
 Wochen Datenverlust müssen befürchtet werden, dafür sind die Sicherungsdateien geschützt außerhalb des
-Geländes aufbewahrt.
+Geländes aufbewahrt. \cite{ausarbeitungdis}
 
 \subsubsection{Tier 2: Data backup with a hot site}
 
 Bei Verwendung von Tier 2 werden ebenso regelmäßige Sicherungen vorgenommen, auf langlebigen
 Speichermedien wie etwa Tapes. Das wird kombiniert mit eigener Infrastruktur außerhalb des
 eigenen Geländes (genannt ’Hot Side’). Diese Lösung benötigt immer noch einige Stunden oder Tage zur Wiederherstellung,
-jedoch ist die Gesamtdauer besser vorhersehbar.
+jedoch ist die Gesamtdauer besser vorhersehbar. \cite{ausarbeitungdis}
 
 \subsubsection{Tier 3: Electronic vaulting}
 
 Der Ansatz Tier 3 baut auf Tier 2 auf. Hinzufügend dazu werden kritische Daten elektronisch abgekapselt
 von den weniger prioren. Als Ergebnis ist hier weniger Dateiverlust, sollte eine Katastrophe
-eintreten.
+eintreten. \cite{ausarbeitungdis}
 
 \subsubsection{Tier 4: Point-in-time copies}
 
 Tier 4-Lösungen werden oft von Unternehmen verwendet, die hohen Wert auf Datenkorrektheit
 und schneller Wiederherstellung legen als die unteren Stufen bereitstellen. Eher als das Auslagern
 von Speichertapes wie bei 0-3 gegeben, integriert diese Stufe Sicherungen auf Basis von
-Festplatten. Immer noch sind mehrere Stunden Datenverlust möglich.
+Festplatten. Immer noch sind mehrere Stunden Datenverlust möglich. \cite{ausarbeitungdis}
 
 \subsubsection{Tier 5: Transaction integrity}
 
 Tier 5 wird verwendet, wenn es zwingend erforderlich ist, dass Daten konsistent sind zwischen
-Produktivsystem und dem Wiederherstellungs-Remoteserver. 
+Produktivsystem und dem Wiederherstellungs-Remoteserver. \cite{ausarbeitungdis}
 
 \subsubsection{Tier 6: Zero or near-Zero data loss}
 
 Tier 6 hält das höchste Maß an Datenrichtigkeit aufrecht. Dieser Ansatz wird eingesetzt von Systemen,
 in denen wenig oder gar kein Datenverlust vertretbar ist, und wo Daten für den weiteren
-Gebrauch schnell wiederhergesellt werden müssen. Tier 6 erfordert eine Form von Disk Mirroring zu einem Remoteserver.
+Gebrauch schnell wiederhergesellt werden müssen. Tier 6 erfordert eine Form von Disk Mirroring zu einem Remoteserver. \cite{ausarbeitungdis}
 
 \subsubsection{Tier 7: Highly automated, business integrated solution}
 
@@ -401,6 +397,8 @@ Das höchste Level nimmt all die Hauptkomponenten von Tier 6 zusammen und fügt 
 Außerdem wird die Wiederherstellung automatisch ausgeführt, was sozusagen den kompletten
 Wiederherstellungsprozess beschleunigt. Die Ausfälle
 belaufen sich auf wenige Minuten oder Sekunden. \cite{ausarbeitungdis}
+
+\clearpage
 
 \subsection{Disaster Recovery Plan}
 
@@ -417,20 +415,20 @@ Systeme wiederherzustellen, inkl. eines Zuständigen zur stetigen Wartung des Pl
 
 \subsection{Best Practice für die vorgegebenen Anforderungen}
 
-Wenn Systeme 24/7 verfügbar sein müssen, wird oft eine Clusterlösung herangezogen. Hier unterscheidet
+Wenn Systeme 24/7 verfügbar sein müssen, wird wie hier eine Clusterlösung herangezogen. Hier unterscheidet
 man zwischen zwei Varianten, Failover-Clustering und ’echtem’ Clustering. Bei der
 Failover-Technologie mit zwei oder mehreren Netzwerkdiensten übernimmt ein Zweitsystem bei
 einseitigem Ausfall des Primärsystems. Echtes Clustering, sprich ein Aktiv/Aktiv-Cluster, wird
 bezeichnet einen Rechnerverbund, in dem mehrere (meistens > 2) Nodes gleichzeitig aktiv sind. Da sie '100\% der Zeit' verfügbar sind (aus Sicht des Kunden), gibt es per se keine Katastrophen, die die Business Continuity beeinträchtigen. Der einzige Nachteil:
 Solche Lösungen sind meistens sehr teuer in Aufbau und Wartung, und daher eher nur von
 großen Unternehmen mit großem Budget zu bewerkstelligen. \\
-Für Systeme, die keine 100\%-ige Verfügbarkeit benötigen, oder das Budget es nicht anders vorsieht,
+Für Systeme, die keine 100\%-ige Verfügbarkeit benötigen, also nicht den hier gegebenen Anforderungen entsprechen, oder das Budget es nicht anders vorsieht,
 ist DR die bessere Wahl. Eine typische Lösung ist es ein identes System aufzubauen, es für etwaige
 Einsatzfälle zu warten und es als Failover zu verwenden. Der Wechsel auf dieses System verlangt
 einen Eingriff des Administrators, während dieser Zeit bis zur Inbetriebnahme ’steht der Betrieb’. Dies kann auch über eine Heartbeat-Anfrage geschehen, die überprüft, ob Server verfügbar sind. 
 Die Rückkehr auf den Normalzustand kann mithilfe dieser Methode relativ schnell wiedererlangt
 werden, und generiert weniger Kosten als eine vollständige Cluster-Lösung. Die billigste Variante (aus Hardware-Sicht) ist es auf Fehler zu reagieren, nachdem sie passiert
-sind. Eine USV (Unterbrechungsfreie Stromversorgung) oder ein RAID-System (Redundant Array Of Independent Disks) sind jedoch relativ kostengünstige Maßnahmen, um ein System vor Katastrophen zu schützen. Zur weiteren Definition der verschiedenen Failover: 
+sind. Eine USV (Unterbrechungsfreie Stromversorgung) oder ein RAID-System (Redundant Array Of Independent Disks) sind jedoch relativ kostengünstige Maßnahmen, um ein System vor Katastrophen zu schützen. \clearpage Zur weiteren Definition der verschiedenen Failover: \cite{ausarbeitungdis}
 \begin{itemize}
 	\item Active/Active: \newline Maximale Ausfallsicherheit, Cluster
 	\item Hot Site: \newline Sogenannter 'Failover', gleicher Datenstand auf allen Servern, erfordert Synchronisation.
@@ -444,23 +442,25 @@ sind. Eine USV (Unterbrechungsfreie Stromversorgung) oder ein RAID-System (Redun
 
 \subsection{Techniken zur Prüfung und Erhöhung der Sicherheit von dezentralen Systemen}
 
+Im Rahmen des Projektumfelds gibt es gewisse Risiken, und eine davon ist das Verändern von ungesicherten Nachrichten, die innerhalb des Netzwerks durch unbefugten Zugriff abgefangen \& manipuliert werden. Hier greift eindeutig der Ansatz, die Kommunikation zu verschlüsseln. \cite{iotsec}
+
 \subsubsection{Verschlüsselung}
 
-Um nicht die eigentliche Nachricht zu übertragen, wendet man einen Schlüssel an, der aus
-der Nachricht einen sogennannten Chiffretext generiert. Der Empfänger dieses codierten
-Textes besitzt einen Dechiffrierschlüssel, um die Nachricht in ihren Ursprung zurück zu
-verwandeln. Der Standard wäre die symmetrische Verschlüsselung, wo das gleiche
-Geheimzweichen für das Ver- und Entschlüsseln benutzt wird. Ein Problem beim Austausch
-des symmetrischen Schlüssel ist, dass Mitlauschen anderer Teilnehmer.
+Um nicht die eigentliche Nachricht im abfangbaren Klartext zu übertragen, wendet man einen Schlüssel an, der aus
+der Nachricht einen sogenannten Chiffretext generiert. Der Empfänger dieses codierten
+Textes besitzt einen Dechiffrierschlüssel, um die Nachricht in ihren Ausgangszustand zurück zu
+verwandeln. Der Standard entspricht der symmetrische Verschlüsselung, wo das gleiche
+Geheimzweichen für das Ver- und Entschlüsseln benutzt wird. Das Problem beim Austausch
+des symmetrischen Schlüssel ist, dass andere Teilnehmer dieses abfangen können, und daraufhin den Chiffretext ohne Probleme ebenso entschlüsseln können.
 Für dieses Problem gibt es eine Lösung, die sogennannte asymmetrische Verschlüsselung.
-Hier gibt es für das En- und Decoding einen eigene Chiffre. Wobei der Verschlüsselungskey
+Hier gibt es für das En- und Decoding einen eigene Schlüssel. Wobei der Verschlüsselungskey
 für jeden zugänglich ist aber nur der, der den Entschlüsselungkey besitzt, ist in der
 Lage, die Nachricht zu entschlüsseln. \cite{ausarbeitungsec}
 
 \subsubsection{Symmetrische Verschlüsselung}
-Die Verschlüsselungsverfahren, die mit \textit{einem} geheimen Schlüssel arbeiten, der zum Ver- und Entschlüsseln dient, nennt man symmetrische Verfahren oder Secret-Key-Verfahren. Fast alle symmetrischen Verfahren sind auf ressourcenschonende Umgebungen optimiert. Sie zeichnen sich durch geringe Hardwareanforderungen, geringen Energieverbrauch und einfache Implementierung in Hardware aus. \\
-Die Verschlüsselungsverfahren der symmetrischen Kryptografie arbeiten mit einem einzigen Schlüssel, der bei der Ver- und Entschlüsselung vorhanden sein muss. Diese Verfahren sind schnell und bei entsprechend langen Schlüsseln bieten sie auch eine hohe Sicherheit.
-Der Knackpunkt liegt in der Schlüsselübergabe zwischen den Kommunikationspartnern. Vor der sicheren Datenübertragung mit Verschlüsselung müssen sich die Kommunikationspartner auf den Schlüssel einigen und austauschen. Wenn der Schlüssel den selben Kommunikationspfad nimmt, wie die anschließend verschlüsselten Daten, dann besteht die Gefahr, dass ein Angreifer in Besitz des Schlüssels gelangt, wenn er die Kommunikation abhört. Wenn der Angreifer den Schlüssel hat, dann kann er nicht nur die Daten entschlüsseln, sondern auch selber Daten verschlüsseln, ohne das es die Kommunikationspartner bemerken. Knackpunkt ist der unsichere Schlüsselaustausch und die Authentifizierung.
+Die Verschlüsselungsverfahren, die mit \textit{einem} geheimen Schlüssel arbeiten, der zum Ver- und Entschlüsseln dient, nennt man symmetrische Verfahren oder Secret Key-Verfahren. Fast alle symmetrischen Verfahren sind auf ressourcenschonende Umgebungen optimiert. Sie zeichnen sich durch geringe Hardwareanforderungen, geringen Energieverbrauch und einfache Implementierung aus. \\
+Dieser eine Schlüssel in der symmetrischen Kryptografie muss bei der Ver- und Entschlüsselung vorhanden sein. Diese Verfahren sind schnell und bei entsprechend langen Schlüsseln bieten sie auch eine relativ hohe Sicherheit.
+Der schwierigste Aspekt liegt in der Schlüsselübergabe zwischen den beiden Kommunikationspartnern. Vor der sicheren Datenübertragung mit Verschlüsselung müssen sich die Kommunikationspartner auf den Schlüssel einigen und austauschen. Wenn der Schlüssel den selben Kommunikationspfad nimmt, wie die anschließend verschlüsselten Daten, dann besteht die Gefahr, dass ein Angreifer in Besitz des Schlüssels gelangt, wenn er die Kommunikation abhört. Wenn der Angreifer den Schlüssel hat, dann kann er nicht nur die Daten entschlüsseln, sondern auch selber Daten verschlüsseln, ohne das es die Kommunikationspartner bemerken. Knackpunkt ist der unsichere Schlüsselaustausch und die Authentifizierung.
 Sicher ist die Schlüsselübergabe nur dann, wenn sich zwei Personen persönlich treffen und den Schlüssel austauschen oder der Schlüssel einen anderen Weg nimmt. \\
 Advanced Encryption Standard, kurz AES, ist eine symmetrische Block-Chiffre mit flexibler Block- und Schlüssellänge.
 AES besitzt eine Standardmäßige Blocklänge von 128 Bit und Schlüssellängen
@@ -470,7 +470,7 @@ Schlüssellänge ab. Derzeitiger Standard 10 Runden bei einer Schlüssellänge v
 
 \subsubsection{Asymmetrische Verschlüsselung}
 
-In der asymmetrischen Kryptografie arbeitet man nicht mit einem einzigen Schlüssel, sondern mit einem Schlüsselpaar. Bestehend aus einem öffentlichen und einem privaten Schlüssel. Man bezeichnet diese Verfahren als asymmetrische Verfahren oder Public-Key-Verfahren. Üblich sind auch die Bezeichnungen Public-Key-Kryptografie und Public-Key-Verschlüsselung. \\
+In der asymmetrischen Kryptografie arbeitet man nicht mit einem einzigen Schlüssel, sondern mit einem Schlüsselpaar. Bestehend aus einem öffentlichen und einem privaten Schlüssel. Man bezeichnet diese Verfahren als asymmetrische Verfahren oder Public-Key-Verfahren. Üblich sind auch die Bezeichnungen Public Key-Kryptografie und Public Key-Verschlüsselung. \\
 Ein fundamentales Problem der Kryptografie ist, dass sich die Kommunikationspartner auf einen gemeinsamen Schlüssel verständigen müssen. Man bezeichnet das als Schlüsselaustauschproblem. Asymmetrische Verschlüsselungsverfahren arbeiten mit Schlüsselpaaren. Ein Schlüssel ist der öffentliche Schlüssel (Public Key), der andere ist der private Schlüssel (Private Key). Dieses Schlüsselpaar hängt über einen mathematischen Algorithmus eng zusammen. Daten, die mit dem öffentlichen Schlüssel verschlüsselt werden, können nur mit dem privaten Schlüssel entschlüsselt werden. Deshalb muss der private Schlüssel vom Besitzer des Schlüsselpaares geheim gehalten werden. Der konkrete Anwendungsfall sieht so aus: Will der Sender Daten verschlüsselt an den Empfänger senden, benötigt er den öffentlichen Schlüssel des Empfängers. Mit dem öffentlichen Schlüssel können die Daten verschlüsselt, aber nicht mehr entschlüsselt werden (Einwegfunktion). Nur noch der Besitzer des privaten Schlüssels, also der richtige Empfänger kann die Daten entschlüsseln. Wichtig bei diesem Verfahren ist, dass der private Schlüssel vom Schlüsselbesitzer absolut geheim gehalten wird. Kommt eine fremde Person an den privaten Schlüssel muss sich der Schlüsselbesitzer ein neues Schlüsselpaar besorgen. \\
 An RSA kommt man im Zusammenhang mit asymmetrischen Verfahren einfach nicht vorbei. Im Vergleich zum Diffie-Hellman-Schlüsselaustausch eignet sich RSA auch für die Verschlüsselung und als Signaturverfahren. Der RSA-Algorithmus (Ron Rivest, Adi Shamir und Leonard Adleman) basiert auf dem Faktorisierungsproblem.
 Asymmetrische Verfahren benötigen viel mehr Rechenleistung als symmetrische Verfahren. Wenn man RSA und AES miteinander vergleicht, dann ist RSA ungefähr um den Faktor 1.000 langsamer als AES. \cite{ausarbeitungsec}
@@ -478,26 +478,25 @@ Asymmetrische Verfahren benötigen viel mehr Rechenleistung als symmetrische Ver
 \subsubsection{SSL/TLS-Protokoll}
 
 SSL ist ein Protokoll, das der Authentifizierung und Verschlüsselung von Internetverbindungen dient. SSL schiebt sich zwischen die Anwendungsprotokolle und den Transportprotokollen. Ein typisches Beispiel für den Einsatz von SSL ist der gesicherte Abruf von vertraulichen Daten über HTTP und die gesicherte Übermittlung von vertraulichen Daten an den HTTP-Server. In der Regel geht es darum, die Echtheit des kontaktierten Servers durch ein Zertifikat zu garantieren und die Verbindung zwischen Client und Server zu verschlüsseln.
-SSL ist äußerst beliebt und das Standard-Protokoll bzw. die Erweiterung für Anwendungsprotokolle, die keine Verschlüsselung für sichere Verbindungen mitbringen. Das ursprüngliche SSL ist inzwischen veraltet und in TLS aufgegangen. Obwohl man heute in der Regel TLS verwendet spricht man trotzdem immer noch von SSL. \cite{tls}
+SSL ist äußerst beliebt und das Standard-Protokoll bzw. die Erweiterung für Anwendungsprotokolle, die keine Verschlüsselung für sichere Verbindungen mitbringen. Das ursprüngliche SSL ist inzwischen veraltet und in TLS aufgegangen. Obwohl man heute in der Regel TLS verwendet spricht man trotzdem immer noch von SSL. \\
+Es ist jedoch ein Fakt, dass, wie das Projektumfeld vorgibt, das Internet der Dinge vorrangig auf unzuverlässige Datenübertragung via UDP aufsetzt, um möglichst schnell und in kurzen Abständen Daten liefern zu können ohne möglichst Rechenaufwand bzw. um Overhead zu sparen. Die Nachrichten sollen jedoch trotzdem sicher ankommen, hierfür gibt es DTLS, ein Ansatz, der TLS über UDP implementiert. Hier wird dafür gesorgt, dass alle Datenpakete sicher und integer ankommen, großer Overhead wird hier vermieden. \cite{tls, dtls}
 
 \subsection{Grundlagen Lastverteilung}
 
-Load Balancing ist kein neues Konzept im Server- und Netzwerkbereich. Viele Produkte, wie z.B.
-Router die Netzwerkverkehr über verschiedene Netzwerk Ressourcen zum gleichen Ziel verteilen,
-können unterschiedliche Arten des Load Balancing durchführen. Im Gegensatz zum Router wird bei
-Server Load Balancing der Netzwerkverkehr über verschiedene Server Ressourcen verteilt. Anfangs
+Load Balancing ist kein neues Konzept im Server- und Netzwerkbereich, und besonders wie hier im Firmenbereich mit vielen unterschiedlichen, gleichzeitigen Usern eine wichtige Technologie. Bei
+Server Load Balancing wird der Netzwerkverkehr über verschiedene Server Ressourcen verteilt. Anfangs
 wurden Load Balancer als reine Lastenverteiler verwendet, doch heute sind Load Balancer schon so
 weit entwickelt, dass sie zusätzliche Funktionen wie Healthchecks, Optimierung von Datenflüssen,
 etc. zur Verfügung stellen. \\
-Im Webhostingbereich wird Load Balancing typischerweise für die Verteilung von http-Verkehr auf
+Im Webhostingbereich wird Load Balancing typischerweise für die Verteilung von HHTP-Verkehr auf
 mehrere Server (Nodes) eingesetzt. Durch die Verteilung des Dienstes auf mehrere Server schützt man
-sich zusätzlich vor Hardwareausfall, da bei Ausfall eines Server Nodes der Netzwerkverkehr einfach
-über andere Nodes erfolgen kann. Das primäre Ziel ist es, den Netzwerkverkehr bei hoher Nachfrage
-auf alle vorhandenen Nodes aufzuteilen, um die bestmögliche Performance zu gewährleisten. Der
+sich zusätzlich vor Hardwareausfall, da bei Ausfall eines Servers der Netzwerkverkehr einfach
+über Andere erfolgen kann. Das Hauptziel ist es, den Netzwerkverkehr bei hoher Nachfrage
+auf alle vorhandenen Server aufzuteilen, um die bestmögliche Performance zu gewährleisten. Der
 User weiß normalerweise nichts über vorhandene Backend- bzw. Backupserver, für ihn scheint es
-so als ob nur ein Server hinter einem Dienst steht. Durch das Verwenden von
+so als ob nur ein einziger Server hinter einem Dienst steht. Durch das Verwenden von
 mehreren Servern für so eine Website entstehen aber Herausforderungen in den Bereichen Skalierbarkeit,
-Verwaltbarkeit und Verfügbarkeit. Load Balancing löst zusätzlich viele dieser Probleme. Durch die besserer Skalierbarkeit können laufend weitere Instanzen hinzugefügt werden, sofern sie benötigt werden. Der Load Balancer delegiert dann je nach Schema die Anfragen einfach auch auf den neuen Server. Die bessere Verwaltbarkeit zeichnet sich dadurch aus, dass einzelne Komponenten offline genommen werden können, ohne dass das System komplett offline gehen muss. Sämtliche Anfragen werden auf die anderen Server weitergeleitet. Wie bereits argumentiert resultiert dass allgemein in einer besseren Verfügbarkeit. \\
+Verwaltbarkeit und Verfügbarkeit. Load Balancing löst zusätzlich viele dieser Probleme. Durch die bessere Skalierbarkeit können laufend weitere Instanzen hinzugefügt werden, sofern sie benötigt werden. Der Load Balancer delegiert dann je nach Schema die Anfragen einfach auch auf den neuen Server. Die bessere Verwaltbarkeit zeichnet sich dadurch aus, dass einzelne Komponenten offline genommen werden können, ohne dass das System komplett offline gehen muss. Sämtliche Anfragen werden auf die anderen Server weitergeleitet. Wie bereits argumentiert resultiert dass allgemein in einer besseren Verfügbarkeit. \\
 Nach dieser kurzen Einführung mit Webservern wird klar, wieso es auch auf Applikationsebene einer Lastenverteilung bedarf. Das Schema und die Vorgehensweisen bleiben gleich, das genannte Beispiel kann 1:1 auf eine beliebige verteilte Anwendung umgemünzt werden. \cite{ausarbeitunglb}
 
 \subsection{Load Balancing-Algorithmen}
@@ -506,38 +505,37 @@ Zur Verwirklichung, wie Anfragen verteilt werden, gibt es unterschiedliche Schem
 
 \subsubsection{Round Robin}
 
-Round-Robin ist das einfachste Verfahren zur Lastenverteilung. Ein Load Balancer weist jedem
-Server der Reihe nach eine Verbindung zu. Dieses Verfahren kann eine gleichmäÿige Verteilung der
+Round-Robin ist eines der einfachsten Verfahren zur Lastenverteilung. Ein Load Balancer weist jedem
+Server der Reihe nach eine Verbindung zu. Dieses Verfahren kann eine gleichmäßige Verteilung der
 Last nicht sicherstellen, da jede Verbindung über unterschiedliche lange Zeiträume bestehen kann.
 Infolgedessen können manche Server mehr gleichzeitig aktive Verbindungen haben, als andere. Da Round-Robin eine sehr einfache Methode zur Lastverteilung ist, werden sehr wenige Ressourcen
-seitens des Load Balancers benötigt. Infolgedessen ist der Algorithmus nur dann sehr effektiv, wenn
+seitens des Load Balancers benötigt. Als Ergebnis davon ist der Algorithmus nur dann sehr effektiv, wenn
 der Lastverteilungsalgorithmus viel Rechenzeit benötigt. \cite{ausarbeitunglb}
 
 \subsubsection{Least Connections}
 
 Jede neue Anfrage wird dem Server mit den geringsten gleichzeitig aktiv vorhandenen Verbindungen
 zugesandt. Der Load Balancer muss hierbei die Anzahl dieser Verbindungen jedes Servers
-jederzeit festhalten. Diese Methode ist eine der effektivsten und beliebtesten in verschiedenen
-Anwendungsbereichen, wie beispielsweise DNS oder dem Web. Der Hauptgrund hierfür sind das
-einfache Verstehen und Anwenden der Methode. Least Connections kann dann von Nutzen sein, wenn zwei oder mehr Server mit gleicher Ausstattung unterschiedlich stark belastet werden. \cite{ausarbeitunglb}
+zu jeder Zeit festhalten. Diese Methode ist eine der effektivsten und öftesten verwendet in verschiedenen
+Anwendungsbereichen, wie beispielsweise DNS oder dem Web. Der Hauptgrund hierfür sind die
+einfache Verständlichkeit und Anwendbarkeit der Methode. Least Connections kann dann von Nutzen sein, wenn zwei oder mehr Server mit gleicher Ausstattung unterschiedlich stark belastet werden. \cite{ausarbeitunglb}
 
 \subsubsection{Weighted Distribution}
 
-Da verschiedene Server hardwaretechnisch verschieden ausgestattet sein können, kann mithilfe dieser
+Da unterschiedliche Server von der Hardware her unterschiedliche ausgestattet sein können, kann mithilfe dieser
 Methode eine Angabe der Leistung der einzelnen Server in Relation zueinander erfolgen, indem
 jedem Server eine gewisse Gewichtung zugewiesen wird. In der Praxis wird diese Methode in Kombination mit anderen Methoden, wie Least Connections
 oder Round-Robin angewandt. Sollen nun weitere Server hinzugefügt werden im Fall von Weighted
-Round-Robin die Anfragen wie gewohnt der Reihe nach gewichtet verteilt. Im Fall von Weighted
-Least Connections ist lediglich auf die Anzahl der aktuell verbundenen Clients und die Gewichtung zu achten. Diese Methode ist besonders dann geeignet, wenn bereits bestehende, womöglich leistungsschwä-
-chere Hardware mit leistungsstärkerer kombiniert werden soll. \cite{ausarbeitunglb}
+Round Robin die Anfragen wie gewohnt der Reihe nach gewichtet verteilt. Im Fall von Weighted
+Least Connections ist lediglich auf die Anzahl der aktuell verbundenen Clients und die Gewichtung zu achten. Diese Methode ist besonders dann geeignet, wenn bereits bestehende, womöglich leistungsschwächere Hardware mit leistungsstärkerer kombiniert werden soll. \cite{ausarbeitunglb}
 
 \subsubsection{Response Time}
 
 In der Annahme, dass eine schnelle Reaktion eines Servers eine gute Performance zur Folge hat,
-wird die Reaktionszeit eines Servers vom Load Balancer gemessen und anhand dieser ein Server
-ausgewählt. Für eine effiziente Lastenverteilung muss diese Antwortzeit über einen längeren Zeitraum gemessen werden. Aufgrund der Komplexität dieser Methode, könnte diese Methode alleine nicht die beste Möglichkeit
-zur Lastenverteilung bieten. Der Algorithmus kann hingegen in Kombination mit anderen
-Load Balancing-Methoden funktionieren. \cite{ausarbeitunglb}
+wird die Reaktionszeit eines Servers vom Load Balancer gemessen und anhand dieser dann ein Server
+ausgewählt. Für eine effiziente Lastenverteilung muss diese Antwortzeit über einen längeren Zeitraum gemessen werden, was eine kurze Verzögerung mit sich bringt. Aufgrund des hohen Komplexitätgrades dieser Methode, könnte diese alleine nicht die beste Möglichkeit
+zur Lastenverteilung bieten. Der Algorithmus funktioniert hingegen in Kombination mit anderen
+Load Balancing-Methoden sehr annehmbar. \cite{ausarbeitunglb}
 
 \subsubsection{Server Probe}
 
@@ -555,9 +553,9 @@ Gewichtung verwendet werden. \cite{ausarbeitunglb}
 
 \subsubsection{Zufällig}
 
-Der denkbar einfachste Alogrithmus: Der zu verwendende Server wird von einem Zufallszahlengenerator am Load-Balancer festgelegt.
+Der denkbar einfachste Alogrithmus ist, dass der zu verwendende Server von einem Zufallszahlengenerator am Load-Balancer festgelegt wird.
 Sollten nun innerhalb eines kurzen Zeitraumes viele Anfragen zustande kommen, so werden diese
-zufällig verteilt, was in etwa eine gleichmäßige Verteilung der Anfragen gewährleistet. \cite{ausarbeitunglb}
+zufällig verteilt, was in etwa eine grobe gleichmäßige Verteilung der Anfragen gewährleistet. \cite{ausarbeitunglb}
 
 \subsection{Session-basiertes Load Balancing}
 
@@ -567,51 +565,50 @@ Hier wird der Ansatz verfolgt, dass bei mehreren Anfragen vom selben User der be
 
 \subsubsection{Apache Hadoop}
 
-Apache Hadoop ist ein Framework, welches das verteilte Verarbeiten von groÿen Datenmengen,
-die auf vielen Clustern verstreut sein können. Das Design erlaubt es, dass sowohl ein paar wenige,
+Apache Hadoop ist ein Framework, dass das verteilte Verarbeiten von großen Datenmengen in vielen Clustern bereitstellt. Das gut skalierbare Design erlaubt es, dass sowohl ein paar wenige,
 aber auch mehrere 1000 Server mühelos verwendet werden können. Das Framework selbst wurde so
-entworfen, dass Fehler auf Applikationsebene entdeckt und beseitigt werden können, was wiederum
-eine hohe Verfügbarkeit des Services auf dem Cluster sicherstellt. Hadoop verfügt über verschiedene Module, die nach Wahl hinzugefügt werden können, etwa das Hadoop Distributed File System oder etwa MapReduce. \cite{ausarbeitunglb}
+entworfen, dass Fehler auf Applikationsebene entdeckt und beseitigt werden können, was infolgedessen
+eine hohe Verfügbarkeit des Services im Cluster sicherstellt. Hadoop verfügt über verschiedene Module, die nach Wahl hinzugefügt werden können, etwa das Hadoop Distributed File System oder etwa MapReduce. \cite{ausarbeitunglb}
 
 \clearpage
 
 \section{Konsistenz und Datenhaltung}
 
+Um bei der Firma Loxone die Smart Homes verlässlich steuern lassen zu können, sind Inkonsistenzen bei den gesammelten Daten tabu, diese wirken sich direkt auf den Kunden aus. Wie man diesem Problem mit Transaktionen entgegenwirken kann, ist hier beschrieben.
+
 \subsection{Grundlagen \& Erklärung}
 
 \subsubsection{CAP-Theorem}
 
-Das CAP-Theorem beschreibt das Verhältnis zwischen Consistency, Availability und Partition Tolerance
-(Konsistenz, Verfügbarkeit und Partitionstoleranz) indem es besagt, dass nur davon zwei in
+Das CAP-Theorem beschreibt das Verhältnis zwischen Konsistenz, Verfügbarkeit und Partitionstoleranz indem es besagt, dass nur davon zwei in
 einem verteilten System gleichzeitig angeboten werden können. \\
-Consistency zählt zu den Sicherheitseigenschaften und beschreibt im Groben, dass eine Anfrage eine richtige Antwort erhält. Abhängig was Konsistenz im Detail ist liegt von der Service Spezifikationen ab. Als Beispiel für Consistency kann ein Onlineshop gesehen werden. Wenn 2 Personen
-gleichzeitig das letzte Exemplar beantragen, dürfen nicht beide die Antwort bekommen, dass die
-Bestellung erfolgreich war und somit zur Zahlung weiter gelangen. \\
-Availability: In verteilten Systemen muss für eine kontinuierliche Verfügbarkeit, jede Anfrage, die ein nicht fehlerhaften Node erhält, eine Antwort bekommen. \\
+Consistency zählt zu den Sicherheitseigenschaften und beschreibt zusammengefasst, dass eine Anfrage auch eine integere Antwort erhält. Als Beispiel für Consistency können aus dem Umfeld zwei Staubsaugerroboter genommen werden. Wenn zwei Roboter
+gleichzeitig eine Stelle am Boden bearbeiten wollen, dürfen nicht beide die Antwort bekommen, dass der Weg frei ist und somit losfahren darf. \\
+Availability: In verteilten Systemen muss für eine kontinuierliche Verfügbarkeit, jede Anfrage, die ein nicht fehlerhaften Server erhält, eine Antwort bekommen. \\
 Partition Tolerance: Wenn man jedoch die Daten und Logik auf mehrere
-Nodes verteilt besteht die Gefahr von Partition forming. Dies passiert, wenn sie in verschiedenen
+Server verteilt besteht die Gefahr von \textit{partition forming}. Dies passiert, wenn sie in verschiedenen
 Gruppen aufgeteilt werden und wegen eines Fehlers nicht
-mehr miteinander kommunizieren können. Keine Fehler außer ein Totalausfall soll eine Antwort
+mehr miteinander kommunizieren können. Kein Fehler, außer ein Totalausfall, soll eine Antwort
 verfälschen. Wenn man somit eine Partition im Netzwerk hat, verliert man entweder Consistency,
 weil man Änderungen auf beiden Partitionen erlaubt oder Availability, weil man einen
-Fehler entdeckt und man das System abstellen muss um dies zu reparieren. \cite{ausarbeitungtra}
+Fehler entdeckt und das System offline gehen muss, um den Fehler zu beheben. \cite{ausarbeitungtra}
 
 \subsection{Verschiedene Transaktionsprotokolle}
 
 \subsubsection{2-Phase-Commit}
 
-Der Zwei-Phasen-Commit ist eine Methode zur Koordination einer Transaktion zwischen mindestens
-zwei Ressourcenmanager. Es gewährleisten Datenintegrität bei der Sicherstellung, dass entweder
+Der Zwei-Phasen-Commit ist eine Methode zum Koordinieren und Sicherstellen einer Transaktion zwischen mindestens
+zwei Ressourcenmanagern. Es gewährleistet Datenintegrität bei der Sicherstellung, dass entweder
 eine Transaktion von allen Ressourcemanager committed werden oder bei allen ein Rollback
 stattfindet. Die 1. Phase des Zwei-Phasen-Commit wird Abstimmungsphase oder Vorbereitungsphase
 genannt, die 2. Phase Entscheidungsphase oder Commit/Abort-Phase. \cite{ausarbeitungtra}
 
 \subsubsection{3-Phase-Commit}
 
-Der Drei-Phasen-Commit verhindert das Problem des Zwei-Phasen-Commit, dass Teilnehmer nach
+Der Drei-Phasen-Commit verhindert das große Problem des Zwei-Phasen-Commit, dass Teilnehmer nach
 einem Absturz des Koordinators teilweise nicht mehr zu einer eindeutigen Entscheidung
 kommen können. In der Praxis wird der 3PC nicht häufig eingesetzt, da der Zustand bei dem
-2PC selten vorkommen. Beim 3PC genügen die Zustände des Koordinators und der Teilnehmer
+2PC nicht sehr oft vorkommt. Beim 3PC genügen die Zustände des Koordinators und der Teilnehmer
 folgender Bedingungen:
 
 \begin{itemize}
@@ -638,7 +635,7 @@ meistens Timelimits gesetzt. Nach Ablauf des Limits geschieht ein Rollback. \cit
 
 \subsubsection{ACID}
 
-Das Transaktionsprinzp sollte dem ACID-Schema folgen. 
+Das Transaktionsprinzp sollte dem ACID-Schema folgen. \cite{ausarbeitungtra}
 
 \begin{itemize}
 	\item Atomicity \\
