@@ -1,0 +1,82 @@
+\documentclass[letterpaper, 12pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEFINITIONS
+% Change those informations
+% If you need umlauts you have to escape them, e.g. for an ü you have to write \"u
+\gdef\mytitle{Ausarbeitung}
+\gdef\mythema{Pool 1a}
+
+\gdef\mysubject{GGP-Matura}
+\gdef\mycourse{5BHIT 2015/16}
+\gdef\myauthor{Michael Weinberger}
+
+\gdef\myversion{1.0}
+\gdef\mybegin{17. Mai 2016}
+\gdef\myfinish{20. Mai 2016}
+
+\gdef\mygrade{}
+\gdef\myteacher{Betreuer: Kraus}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input special/preamble.tex
+
+\let\tempsection\section
+\renewcommand\section[1]{\vspace{-0.3cm}\tempsection{#1}\vspace{-0.3cm}}
+\WithSuffix\newcommand\section*[1]{\tempsection*{#1}}
+
+\let\tempsubsection\subsection
+\renewcommand\subsection[1]{\vspace{0cm}\tempsubsection{#1}\vspace{0cm}}
+
+\let\tempsubsubsection\subsubsection
+\renewcommand\subsubsection[1]{\vspace{0cm}\tempsubsubsection{#1}\vspace{0cm}}
+
+\linespread{0.94}
+
+\lhead{\mysubject}
+\chead{}
+\rhead{\bfseries\mythema}
+\lfoot{\mycourse}
+\cfoot{\thepage}
+% Creative Commons license BY
+% http://creativecommons.org/licenses/?lang=de
+\rfoot{\ccby\hspace{2mm}\myauthor}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+\parindent 0pt
+\parskip 6pt
+
+\pagenumbering{Roman} 
+\input{special/title}
+
+\clearpage
+\thispagestyle{empty}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\pagestyle{fancy}
+
+%\vspace{-0.5cm}
+
+\section{Pool 1a - Europa im Wandel \cite{buch}}
+
+\subsection{Entstehung und Entwicklung der EU}
+
+\subsubsection{Der Europagedanke in der Nachkriegszeit}
+
+Ein Jahr vor
+Kriegsende, im Frühjahr und Sommer 1944, arbeiteten Widerstandsgruppen aus neun europäischen Staaten, darunter
+Deutschland, eine gemeinsame Erklärung aus. Sie beriefen sieh
+auf die Ziele, die 1941 in der Atlantik—Charta vom britischen
+Premierminister Winston Churchill und dem amerikanischen
+Präsidenten Franklin D. Roosevelt wurden waren:
+
+\clearpage
+\bibliographystyle{unsrt}
+\bibliography{Pool1_Weinb_5BHIT}
+
+\end{document}
