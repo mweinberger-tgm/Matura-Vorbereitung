@@ -1,0 +1,79 @@
+\documentclass[letterpaper, 12pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEFINITIONS
+% Change those informations
+% If you need umlauts you have to escape them, e.g. for an ü you have to write \"u
+\gdef\mytitle{Ausarbeitung}
+\gdef\mythema{Pool 8b}
+
+\gdef\mysubject{GGP-Matura}
+\gdef\mycourse{5BHIT 2015/16}
+\gdef\myauthor{Michael Weinberger}
+
+\gdef\myversion{1.0}
+\gdef\mybegin{17. Mai 2016}
+\gdef\myfinish{20. Mai 2016}
+
+\gdef\mygrade{}
+\gdef\myteacher{Betreuer: Kraus}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input special/preamble.tex
+
+\let\tempsection\section
+\renewcommand\section[1]{\vspace{-0.3cm}\tempsection{#1}\vspace{-0.3cm}}
+\WithSuffix\newcommand\section*[1]{\tempsection*{#1}}
+
+\let\tempsubsection\subsection
+\renewcommand\subsection[1]{\vspace{0cm}\tempsubsection{#1}\vspace{0cm}}
+
+\let\tempsubsubsection\subsubsection
+\renewcommand\subsubsection[1]{\vspace{0cm}\tempsubsubsection{#1}\vspace{0cm}}
+
+\linespread{0.94}
+
+\lhead{\mysubject}
+\chead{}
+\rhead{\bfseries\mythema}
+\lfoot{\mycourse}
+\cfoot{\thepage}
+% Creative Commons license BY
+% http://creativecommons.org/licenses/?lang=de
+\rfoot{\ccby\hspace{2mm}\myauthor}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+\parindent 0pt
+\parskip 6pt
+
+\pagenumbering{Roman} 
+\input{special/title}
+
+\clearpage
+\thispagestyle{empty}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\pagestyle{fancy}
+
+%\vspace{-0.5cm}
+
+\section{Pool 8b - Politische Ideologien, Systeme und Akteure \cite{buch}}
+
+\subsection{Nationalsozialismus und Verbündete, Gedankengut, Historie}
+
+\begin{abstract}
+
+Nationalsozialismus bezeichnet eine politische Bewegung, die in Deutschland in den Krisen nach dem Ersten Weltkrieg entstand, 1933 die Weimarer Demokratie beendete und eine Diktatur (das sogenannte Dritte Reich) errichtete. Der Nationalsozialismus verfolgte extrem nationalistische, antisemitische, rassistische und imperialistische Ziele, die bereits in Hitlers Buch 'Mein Kampf' (erschienen 1925) niedergelegt worden waren. Politisch schloss der Nationalsozialismus an die radikale Kritik und Ablehnung der demokratischen Prinzipien an (die auch in konservativen Kreisen üblich waren) und bekämpfte den Friedensvertrag von Versailles. Der Nationalsozialismus war keine geschlossene Lehre, sondern begründete eine 'Weltanschauung', in deren Mittelpunkt die Idee des 'arischen Herrenvolkes' stand, das sich aller Mittel zu bedienen hat, um sich 'Lebensraum' zu schaffen, andere (angeblich minderwertige) Völker und Nationen zu unterdrücken und die Welt vom (angeblich einzig Schuldigen, dem) Judentum zu befreien. Zum 'Rasse'- und 'Lebensraum'-Gedanken trat als drittes Element ein fanatischer Antibolschewismus. Die Verachtung des Menschen im Nationalsozialismus fand Ausdruck in der fabrikmäßigen Tötung von Millionen wehrloser Opfer (vor allem Juden, 'Fremdvölkische', aber auch 'Asoziale'/Andersdenkende u. a.) in den Konzentrationslagern und in einem bis dahin unbekannten Vernichtungsfeldzug gegen die europäischen Nachbarn. Die nationalsozialistische Diktatur etablierte ein Herrschaftssystem, in dem sich autoritäres Führerprinzip (Befehl und Unterwerfung), hemmungsloser Aktionismus, ein ungeregeltes Nebeneinander von Staat und Partei (NSDAP), planvolle Kriegswirtschaft und 'perfekte Improvisationen' miteinander verbanden und durch eine Kombination von Überzeugung und Unterdrückung, Mitläufertum und Terror zusammengehalten wurden. Politisches Resultat der Diktatur des Nationalsozialismus war die völlige Neuordnung der Gewichte zwischen den Staaten Europas (und der Welt) und die Verkleinerung und die Teilung Deutschlands.
+
+\end{abstract}
+
+\clearpage
+\bibliographystyle{unsrt}
+\bibliography{Pool8_Weinb_5BHIT}
+
+\end{document}
