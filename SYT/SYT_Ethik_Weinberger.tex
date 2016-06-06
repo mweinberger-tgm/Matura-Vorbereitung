@@ -225,10 +225,6 @@ werden. Sie haben das Gesetz gebrochen für eine (vermeintlich?) gute Handlung, 
 wird als eine klassische Güterabwägung in Gewissensentscheidungen bewertet.
 
 \begin{itemize}
-	\item Bin ich als ausreichend abgesicherte Firma direkt verantwortlich für durch Datendiebstahl
-entstandenen Schaden?
-(Ja: Ich bin verantwortlich für alle Daten, die bei mir gespeichert werden, Nein: Ich habe
-genügend Vorsorge getroffen, Geldtransporter ist bei Raub auch nicht als Täter angesehen)
 	\item Ist es vertretbar, dass der Staat mithilfe von ‚Bundestrojanern‘ bei Personen Online-
 Durchsuchungen durchzuführen
 (Ja: Sie haben einen richterlichen Beschluss dazu, dürften ja auch die Wohnung durchsuchen,
@@ -421,21 +417,47 @@ Hier wird versucht, zur oben genannten Frage kurz und bündig ein entsprechendes
 
 begriffserklärungen, anwendungsfälle, beispiel, notwendigkeit hervorheben, erklärung inkonsistenzen, wieso datenbanken, kundendaten konsisten sein sollen, fehlertoleranz, schutz vor missbrauch oder verlust (lost update bei bankdaten?)
 
+Konsistenz bedeutet, dass die Daten widerspruchsfrei in der Datenbank abgelegt werden. Eine Transaktion muss immer vollständig abgeschlossen werden, jede Transaktion muss mit den aktuellsten Daten geschehen, welche sich während des gesamten Prozesses nicht verändern dürfen. \\
+Eine sogenannte Inkonsistenz ist beispielsweise wie oben genannt, dass bei einer Banktransaktion eine Überweisung geschieht. Es wird ein Betrag aufaddiert. Doch zum selben Zeitpunkt findet eine gleichzeitige Überweisung statt, die den alten Kontostand nimmt. Die erste Transaktion wird fertig, und speichert den neuen Stand ab. Die zweite Transaktion addiert nun den alten Wert mit dem eigenen, und legt diesen in der Datenbank neu ab. Die erste Transaktion ist somit verlorengegangen. Die gesamte Datenbank ist nun nicht mehr widerspruchsfrei. In der Informatik allgemein bedeutet Inkonsistenz von Daten wie genannt Widersprüchlichkeit zwischen den Daten. So können in einer Datenbank beispielsweise Verknüpfungen zwischen Tabelleneinträgen nicht mehr eindeutig sein, weil der Verbindungsschlüssel auf keinen oder mehrere Einträge in einer anderen Tabelle verweist. \\
+Wieder muss ein gewisses Maß an Fehlertoleranz gegeben sein, um etwaige Fehler selbstständig auszubessern und nicht inkonsistent zu werden. \\
+Konsistenz bzw. Datenhaltung an sich ist auch einer guter Schutz vor Missbrauch oder Verlust, da der angezeigte Wert Bestand hat. \cite{dezsys}
+
 \subsection{Bedenken}
 
-sammeln von fakten \newline
-wo liegt die verantwortung? kunde, der daten freigibt oder unternehmer, der daten ablegt. was passiert bei datendiebstählen? habe ich die vollständige einsicht, was auf den servern abgelegt ist?
+Wer hat die Verantwortung vor Missbrauch? Ist der Benutzer, der seine Daten freigibt verantwortlich, oder haftet der übernehmende Unternehmer, der die Daten ablegt? Bei Datendiebstahl gilt es diese Frage zu klären, im Sinne der Verantwortungsethik. Fraglich ist auch, ob der Benutzer immer die vollständige Einsicht hat, was auf den Servern abgelegt ist.
 
 \subsection{Formulierung ethischer Fragestellungen}
 
-diskutieren anhand der bedenken auf grundlage der theorie \newline
-aufstellen einiger wichtiger fragen und versuch einer ethischen urteilsfindung
+Die angesprochene Verantwortungsethik ist wieder Thema der Darstellung.
+
+\begin{itemize}
+	\item Bin ich als ausreichend abgesicherte Firma direkt verantwortlich für durch Datendiebstahl
+entstandenen Schaden?
+\end{itemize}
+
+\subsubsection{Ethische Urteilsfindung}
+
+Hier wird versucht, zur oben genannten Frage kurz und bündig ein entsprechendes Urteil zu finden.
+
+\begin{itemize}
+	\item Sachverhaltsdarstellung \\
+	Bei der Firma Dropbox kommen durch einen Hacker die abgelegten Daten eines Benutzers abhanden. Der Benutzer hat auch sensible Daten in die Obhut des Unternehmens gegeben.
+	\item Problemfeststellung \\
+	Bin ich als ausreichend abgesicherte Firma direkt verantwortlich für durch Datendiebstahl
+entstandenen Schaden?
+	\item Situationsanalyse \\
+	Ja: Ich bin verantwortlich für alle Daten, die bei mir gespeichert werden, Nein: Ich als Unternehmer habe genügend Vorsorge getroffen, Geldtransporter ist bei Raub auch nicht als Täter angesehen
+	\item Prüfung der Verhaltensalternativen \\
+	Der User nimmt den Verlust hin, und zieht keine rechtlichen Schritte in Betracht.
+	\item Normenprüfung \\
+	Das Verantwortungsprinzip lässt darauf schließen, dass eine bestimmte Haftung gegenüber des Users in Sachen Datenhaltung besteht. 
+	\item Entscheidung \\
+	Meine Antwort lautet: Das Unternehmen als Verwalter muss den verschmähten Benutzer entschädigen, egal, ob der Hacker zur Rechenschaft gezogen wird oder nicht. Es fand eine Unterbrechung der Dienstleistung statt für die der Benutzer im Zweifelsfall auch bezahlt, und er seine Arbeit nicht fortsetzen konnte.
+\end{itemize}
 
 \clearpage
 
 \bibliographystyle{unsrt}
 \bibliography{SYT_Ethik_Weinberger}
-\lstlistoflistings
-\listoffigures
 
 \end{document}
