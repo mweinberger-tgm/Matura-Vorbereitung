@@ -355,13 +355,15 @@ Diese Argumentation bezüglich Whistleblowing wurde bereits im Bereich 'Hacking'
 
 \subsubsection{Ethische Urteilsfindung}
 
+Hier wird versucht, zur zweiten genannten Frage kurz und bündig ein entsprechendes Urteil zu finden.
+
 \begin{itemize}
 	\item Sachverhaltsdarstellung \\
 	Edward Snowden deutet durch seine Arbeit auf grobe Missstände hin, die die ganze Welt betreffen. Snowden durfte auf diese Informationen zugreifen, jedoch ist eine Veröffentlichung verständlicherweise untersagt und illegal.
 	\item Problemfeststellung \\
 	Ist Snowden nun ein Verbrecher und gehört vor ein Gericht, oder ist er der Held des einfachen Bürgers?
 	\item Situationsanalyse \\
-	An sich hat sich an der Weltlage seitem nicht sehr viel verändert. Die USA und Großbritannien führen ihre Praxis fort, unter vom Parlament nachträglich legalisierten Rahmenbedingungen. Das Bewusstsein der Bürger ist jedoch gestiegen, vermehrt darauf zu achten, im Internet sicherer unterwegs zu sein.
+	An sich hat sich an der Weltlage seitdem nicht sehr viel verändert. Die USA und Großbritannien führen ihre Praxis fort, unter vom Parlament nachträglich legalisierten Rahmenbedingungen. Das Bewusstsein der Bürger ist jedoch gestiegen, vermehrt darauf zu achten, im Internet sicherer unterwegs zu sein.
 	\item Prüfung der Verhaltensalternativen \\
 	Die veröffentlichten Daten sind wahr, das ist nicht zu leugnen und wurde von vielen Seiten bestätigt. Nach geltendem Recht ist Snowden jedoch ein gesuchter Verbrecher, der sich bei Bruch eines Gesetzes wie jeder andere Bürger auch vor einem Strafgericht verantworten soll.
 	\item Normenprüfung \\
@@ -376,17 +378,40 @@ Diese Argumentation bezüglich Whistleblowing wurde bereits im Bereich 'Hacking'
 
 \subsection{Einführung}
 
-begriffserklärungen, anwendungsfälle, beispiel, notwendigkeit hervorheben, verschlüsselung, sicherheitszertifizierungen, was ist standard in der it, vertrauensproblem bei ungesicherten verbindungen, rechtslage bis von zu gesetzen zum verbot von verschlüsselung
+Im Bereich Ethik trifft dies am besten auf den Bereich der Verschlüsselung in der Informationstechnologie zu. Mithilfe von AES oder RSA, nur um Beispiele zu nennen, ist es möglich, dass beide Teilnehmer des Kommunikationskanals ungestört miteinander kommunizieren können. Ein Dritter hat keinen Zugriff auf die Kommunikation der Teilnehmer. Es gab bereits Pläne einiger Regierungen, die verschlüsselte Kommunikation vollständig zu verbieten, oder ein Backdoor einzubauen für Regierungsbehörden, alles unter dem Vorwand der Terrorismusbekämpfung. \\
+Sicherheitszertifikate bei Webservern sind ebenso beliebt, damit einem der User mehr Vertrauen entgegenbringt. Ein Webserver-Zertifikat bedeutet, dass eine neutrale Stelle dafür bürgt, dass die Webseite auch die ist, die sie anpreist zu sein. Es gibt ein Vertrauensproblem bei ungesicherter Kommunikation im Internet, daher hat sich dieser Trend entwickelt. Bei normaler HTTP-Kommunikation können die Datenpakete am Weg unbemerkt abgefangen und mitgelesen werden, was durch SSL/TLS (Verschlüsselung als Grundlage) nicht mehr der Fall ist. \cite{cam}
 
 \subsection{Bedenken}
 
-sammeln von fakten \newline
-sicherheitslücken in verschlüsselungsalgorithmen, unverschlüsselte kommunikation kann abgefangen werden, schüre ich durch verschlüsselung terrorismus? wenn alle daten verschlüsselt sind, können verbrechen geplant werden und behörden haben keine handhabe.
+Kein System der Welt ist vollständig sicher. In den letzten Jahren machte Heartbleed auf sich aufmerksam, ein schwerwiegender Bug im genannten SSL/TLS-Protokoll, der auf allen Stellen ausgebessert werden musste. Wie man sieht, kann es auch über längere Zeiträume unbekannte Bugs geben, die Verschlüsselungstechniken ad absurdum führen. \\
+Ebenso angesprochen: Schüre ich durch Verschlüsselung tatsächlich den Terrorismus? Wenn alle Daten verschlüsselt sind, kann ich Verbrechen planen, und Behörden haben keine Handhabe? \cite{hb}
 
 \subsection{Formulierung ethischer Fragestellungen}
 
-diskutieren anhand der bedenken auf grundlage der theorie \newline
-aufstellen einiger wichtiger fragen und versuch einer ethischen urteilsfindung
+Verschlüsselung ist ebenso ein Verantwortungs-Begriff. Ich muss sicherstellen, dass meine private Kommunikation ohne Umwege zum Empfänger gelangt. Doch wieder drängt sich die utilitaristische Frage auf: Wieso sollen unbescholtene Bürger draufzahlen, wenn eine kleine Gruppe Krimineller die Technik für ihre Zwecke missbraucht? Es gilt das Utilitätsprinzip: Der Nutzen arbeitet auf in sich Gutes hin, und zwar, dass zwei Menschen ungestört von ihrer Privatsphäre Gebrauch machen.
+
+\begin{itemize}
+	\item Ist es zum Verhindern von terroristischer Aktivität ein Mittel, Verschlüsselung zu verbieten?
+\end{itemize}
+
+\subsubsection{Ethische Urteilsfindung}
+
+Hier wird versucht, zur oben genannten Frage kurz und bündig ein entsprechendes Urteil zu finden.
+
+\begin{itemize}
+	\item Sachverhaltsdarstellung \\
+	Die österreichische Regierung verbietet von heute auf morgen alle Verschlüsselungsarten bzw. zwingt Hersteller, für Regierungsbehörden einen Kanal einzurichten, um im Zweifelsfall mitlesen zu können. 
+	\item Problemfeststellung \\
+	Ist es zum Verhindern von terroristischer Aktivität ein Mittel, Verschlüsselung zu verbieten?
+	\item Situationsanalyse \\
+	Wieder einmal wird die Bevölkerung unter Generalverdacht gestellt. Ja, Verschlüsselung wird auch für terroristische Zwecke verwendet und nein, auch ein solcher Schritt wird das Risiko nicht minimieren. Man könnte das Spiel immer weiterspielen: Für unsere Freiheit dürfen wir unsere Privatsphäre nicht aufgeben.
+	\item Prüfung der Verhaltensalternativen \\
+	Alles beim Alten belassen. Es gibt weder Studien, noch praktische Fälle, wo belegt wird, dass der Ansatz in welcher Hinsicht auch immer gerechtfertigt ist.
+	\item Normenprüfung \\
+	Das Prinzip des Utilitarismus findet wieder einmal Anwendung: Der Vorteil der Bevölkerung ist gewichtiger als die Interessen weniger Kriminalisten. Ein Verbot würde den Kommunikationskanal/-ort bloß verlagern.
+	\item Entscheidung \\
+	Meine Antwort lautet: Verschlüsselung zu verbieten ist keine Lösung. Die Rechte eines unbescholten Bürgers dürfen nicht aufgrund einer kleiner Gruppe beschnitten werden.
+\end{itemize}
 
 \clearpage
 
