@@ -105,7 +105,7 @@ Hier wird versucht, zur zweiten oben genannten Frage kurz und bündig ein entspr
 	\item Sachverhaltsdarstellung \\
 	Der IT-Unternehmer stellt dem Benutzer einen Fitness-Tracker zur Verfügung, unter Zustimmung der AGB. Diese synchronisiert die gesammelten Daten mit den firmeneigenen Servern (Cloud), und liefert dem Benutzer täglich aktuelle Ergebnisse in Hinblick auf seinen Trainingsfortschritt. Der Benutzer leidet unter den Vorzeichen einiger gesundheitlicher Probleme, die in Zukunft mit etlichen Behandlungen tragend werden. Der Tracker registriert dies im Gesamtbild.
 	\item Problemfeststellung \\
-	Dürfen IT-Unternehmen (die Datenhoheit über die Daten besitzen) gesammelte Gesundheitsdaten mit Krankenkassen, Hausärzten oder Bankinstituten austauschen?
+	Dürfen IT-Unternehmen (die Datenhoheit über die Daten besitzen) gesammelte Gesundheitsdaten mit Krankenkassen, Hausärzten oder Bankinstituten austauschen? \clearpage
 	\item Situationsanalyse \\
 	Das Unternehmen kann durch die rechtlich legale Weitergabe seinen Erhalt finanzieren und den Mehrwert für den Kunden aufrecht erhalten. Der Kunde jedoch könnte von seiner Versicherung schlechter eingestuft werden, und vielleicht auf Basis falscher Messungen mehr bezahlen. Möglich ist, dass der Benutzer keinen Kredit bewilligt bekommt, wenn ihn auch seine Bank schlechter einstuft.
 	\item Prüfung der Verhaltensalternativen \\
@@ -197,9 +197,6 @@ Availability bedeutet: Ein Server, eine Anwendung soll immer und überall verfü
 
 \subsection{Bedenken}
 
-sammeln von fakten \newline
-datendiebstahl, hacking, ... sicherheits- und überwachungstechnik (auch kameras, massenüberwachung, vorratsdatenspeicherung), verlust der privatsphäre durch totale sicherheit, wie viele daten darf ein unternehmen von mir sammeln, social engineering als zugang zu sensiblen daten, mensch = schwachstelle
-
 Wieder gibt es ein essentielles Problem mit dem Datenschutz und der Privatsphäre, wie so oft in der Informationstechnologie. Ein Mindestmaß an Vorsorge ist immer nötig, aber man kann keineswegs kollektiv ausschließen, dass man einem Internetverbrechen zum Opfer fällt. Kann man jedoch ein 'gutes' von einem 'bösen' Hacking unterscheiden? \\
 Auch die Sicherheits- und Überwachungstechnik wird in letzter Zeit immer mehr zum Thema. Viele Staaten setzen auf Kameras zur Massenüberwachung. Sämtliches Material live auszuwerten ist nicht möglich, nur ein Einblick retrospektiv ist möglich. Macht das dann Sinn, den gesamten öffentlichen Raum aufzunehmen? Was, wenn die Rohdaten in falsche Hände gelangen? Fraglich ist, ob der Verlust der Privatsphäre die totale Sicherheit mit sich bringt. Wie viele Daten darf ein Unternehmen oder der Staat von mir sammeln? Social Engineering ist bekanntlich die einfachste Art, um an Informationen zu kommen. Der Mensch ist die größte Schwachstelle, und das sollte in der Überwachungstechnik bei der Planung bedacht werden.
 
@@ -239,6 +236,8 @@ Nein: Haben in den meisten Fällen keinen direkten Beschluss dazu, Einbruch in d
 Privatsphäre, Überwachung, unbefugter Zugriff, was ist, wenn ich unschuldig bin?)
 \end{itemize}
 
+\clearpage
+
 \subsubsection{Cyber Crime}
 
 An sich sind hier die gleichen Gegebenheiten beheimatet wie bereits beim Hacking. Bei illegalen
@@ -274,7 +273,7 @@ Hier wird versucht, zur fünften oben genannten Frage kurz und bündig ein entsp
 	Ist eine Vorratsdatenspeicherung für den späteren gerichtlichen Beweis zur Eindämmung der
 Internetkriminalität gerechtfertigt?
 	\item Situationsanalyse \\
-	Die Vorratsdatenspeicherung hat womöglich einen abschreckenden Effekt. Doch es gibt Mittel und Wege, diese zu umgehen, es ist mehr eine Verdrängung des Problems. Ein stichhaltiges Beweismittel vor Gericht ist ein großer Vorteil, doch es ist unverhältnismäßig, unbescholtene Bürger rund um die Uhr zu überwachen, 'weil sie ja etwas kriminelles machen können'. Ganz zu schweigen vom Kosten- und Datenaufwand.
+	Die Vorratsdatenspeicherung hat womöglich einen abschreckenden Effekt. Doch es gibt Mittel und Wege, diese zu umgehen, es ist mehr eine Verdrängung des Problems. Ein stichhaltiges Beweismittel vor Gericht ist ein großer Vorteil, doch es ist unverhältnismäßig, unbescholtene Bürger rund um die Uhr zu überwachen, 'weil sie ja etwas kriminelles machen können'. Ganz zu schweigen vom Kosten- und Datenaufwand. \clearpage
 	\item Prüfung der Verhaltensalternativen \\
 	Die Vorratsdatenspeicherung kippen! Es gibt andere Wege zur Kriminalitätsprävention, und am Beispiel Frankreichs, wo der Geheimdienst die weitesten Rechte in ganz Europa hat, konnte der Terror bekanntlich nicht verhindert werden. Die Massenüberwachung in Relation zum aktiven Zugriff auf die Daten steht in keinem Verhältnis, sie wurde nur spärlich verwendet für andere Gerichtsurteile, die allesamt eher der Kleinkriminalität einzuordnen waren. Ist es nicht sinnvoller, nur diejenigen Personen zu überwachen, wenn ein dringender Tatverdacht besteht? Man könnte wieder argumentieren bezüglich Fehlbeschuldigungen.
 	\item Normenprüfung \\
@@ -290,17 +289,38 @@ geringstes Leid für die geringste Anzahl von Menschen? Das muss den Nationalrat
 
 \subsection{Einführung}
 
-begriffserklärungen, anwendungsfälle, beispiel, hilft die identität zu bestätigen und zu wahren
+Authentication ist die Vorgabe einer Identität. Man gibt vor, die Person zu sein, die auf dem Ausweis steht, oder durch Angabe eines Benutzernamens. Authorization ist die Bestätigung dieser Identität durch eine vertrauenswürdige Stelle, auf Basis eines gemeinsamen Schlüssels. Das kann im Internet beispielweise Benutzername und Passwort sein, die die Stelle mit seinen Daten abgleicht und bestätigt im Normalfall. Accounting beschreibt grob die Verwaltung der (Anmelde-) Daten. Die drei AAAs helfen, die Identität zu bestätigen und diese zu wahren. \cite{auth}
 
 \subsection{Bedenken}
 
-sammeln von fakten \newline
-wegfallen der anonymität, wie unsicher ist mein passwort, hacking, identitätsdiebstahl, wie sicher ist mein system / sicherheitslücken
+Ein großer Punkt besonders im Internet ist der damit verbundene Wegfall der Anonymität. Jede Tätigkeit kann eindeutig einer Person im System zugeordnet werden. Um wieder auf Hacking Bezug zu nehmen, im Sinne der Authentifikation ist bspw. ein unsicheres Passwort sehr einfach zu knacken. Besonders bedenklich ist hier der Identitätsdiebstahl, wo ich durch Vorgabe einer falschen Persönlichkeit etwa durch Social Engineering sehr einfach an sensible Daten gelangen kann. 
 
 \subsection{Formulierung ethischer Fragestellungen}
 
-diskutieren anhand der bedenken auf grundlage der theorie \newline
-aufstellen einiger wichtiger fragen und versuch einer ethischen urteilsfindung
+Das Prinzip AAA spiegelt sich sehr gut im Begriff Verantwortung wider. Ein authentifizierter Account ist die Zuständigkeit von Personen für übernommene Aufgaben bzw. für das eigene Tun und Lassen vor einer Instanz, die Rechenschaft fordert. Hier hat man natürlich retrospektive und prospektive Verantwortung 'von jemandem - für etwas - vor einer Instanz'. Auch die juristische Verwertbarkeit der eigenen Taten ist ein Faktor.
+
+\begin{itemize}
+	\item Hafte ich als User einer Website für den Schaden, den ein Hacker mit meiner Identität am Server angerichtet hat?
+\end{itemize}
+
+\subsubsection{Ethische Urteilsfindung}
+
+Hier wird versucht, zur oben genannten Frage kurz und bündig ein entsprechendes Urteil zu finden.
+
+\begin{itemize}
+	\item Sachverhaltsdarstellung \\
+	Ein Hacker hat mein User-Passwort (mit Adminrechten ausgestattet) geknackt, und hat damit einen Ausfall der Dienste herbeigeführt. Wer haftet für den entstandenen Schaden? 
+	\item Problemfeststellung \\
+	Hafte ich als User einer Website für den Schaden, den ein Hacker mit meiner Identität am Server angerichtet hat?
+	\item Situationsanalyse \\
+	Als Unbeteiligter sollte ich davon ausgehen, dass ich nicht verantwortlich bin für den entstandenen Schaden. Ich hätte aber auch mein Passwort besser absichern können, oder kritische Sicherheitslücken bei der Authentifizierung beheben.
+	\item Prüfung der Verhaltensalternativen \\
+	Als Bevollmächtigter, das System zu verändern habe ich auch ein gewisses Risiko. Ich bin schuld, weil ein unbekannter Täter sich nicht festmachen lässt.
+	\item Normenprüfung \\
+	Hier werden die Grenzen der Verantwortungsfähigkeit aufgezeigt. Ich habe individuelle Verantwortung, meinen Account abzusichern, aber keine Handlungsmacht, wenn jemand anderes (als Straftat) darauf zugreift.
+	\item Entscheidung \\
+	Meine Antwort lautet: Nein. Täter und Opfer umzukehren ist der falsche Ansatz. In so einem Fall bleibt zu überdenken, etwaige Sicherheitsbestimmungen noch weiter zu verschärfen, um einem ähnlichen Fall vorzubeugen.
+\end{itemize}
 
 \clearpage
 
@@ -308,17 +328,47 @@ aufstellen einiger wichtiger fragen und versuch einer ethischen urteilsfindung
 
 \subsection{Einführung}
 
-begriffserklärungen, anwendungsfälle, beispiel, notwendigkeit hervorheben, gutes level mit hohen kosten verbunden
+Disaster Recovery (dt. auch Katastrophenwiederherstellung) beschreibt
+die Vorbereitung und Reaktion auf sogenannte Katastrophen, die abgespeicherte Daten
+und Lauffähigkeit eines IT-Systems betreffen. In diesem Bereich der Sicherheitsplanung ist mit
+negativen Ereignissen all das gemeint, was den Betrieb eines Unternehmens gefährdet. Hierzu gehören
+Cyberattacken, Infrastrukturausfälle ebenso wie Naturkatastrophen. Ein geeignetes Maß an Fehlertoleranz ist zu wählen, damit das System nicht beim kleinsten Problem ausfällt. \\
+Oft können sich Firmen, deren Fokus auf Hochverfügbarkeit liegt, keinen Ausfall leisten. Jeder Ausfall ist auch ein Kostenausfall, ein Nichtausliefern des Produktes. Ein gutes Level an Disaster Recovery ist jedoch auch mit sehr hohen Kosten verbunden (Cluster-Lösung). Wo es das Budget nicht anders erlaubt, muss mit (mehr oder weniger langen) Ausfällen rechnen. Das bringt wie angesprochen Finanzierungsprobleme mit sich, jedoch ist Datenverlust auch ein großer Faktor. \cite{dezsys}
 
 \subsection{Bedenken}
 
-sammeln von fakten \newline
-leaks, whistleblowing bis hin zu wikileaks, panama papers als folge schlechter disasterplanung oder übersehen von sicherheitslücken, datenverlust für unternehmen nicht tragbar, wie weit hafte ich für datenverlust
+Ein typisches Disaster kann aber auch nicht technisch verursacht sein. Sogenannte Leaks oder Whistleblowing ist in den letzten Jahren ein großes Thema. Whistleblowing ist der Verrat von innerbetrieblichen Missständen. Bei diesen Missstanden handelt es sich um sensible Informationen deren Veröffentlichung zu Rufschädigung führt. Es wird zwischen internen und externen Whistleblowing unterschieden. Bei internen Whistleblowing hat der Adressat das Recht, die Informationen zu kennen. Beim externen Whistleblowing kommen als Adressanten Personen oder Organisationen in Betracht. \\
+Beispielsweise WikiLeaks ist eine Website auf der Dokumente anonym veröffentlicht werden, die wegen Geheimhaltung, Zensur oder einem sonstigen Grund nicht so einfach zugänglich sind. 2009 hatte sich WikiLeaks inzwischen zu einer zentralen Sammelstelle mit 1,2 Millionen Dokumenten von Regimekritikern und anonymen Quellen entwickelt. Der Kerngedanke ist die Idee des freien Zugangs zu Informationen, die öffentliche Angelegenheiten betreffen.
+Für große Aufregung sorgte 2010 die Veröffentlichung von Geheimdokumenten des US-Militärs. Die als 'Afghan War Diarys' und 'Iraq War Logs' genannten Dokumente zeigten zahlreiche Verbrechen und Missstände des US-Kriegs im Nahen Osten auf. WikiLeaks ist weiterhin sehr von Spendengeldern abhängig, was die Veröffentlichung weiterer Dokumente erschwert. \\
+Ebenso erwähnenswert ist Edward Snowden, der ehemalige NSA-Mitarbeiter Edward Snowden deckte 2013 auf, wie die USA und GB in großem Umfang und seit mehreren Jahren die Telekommunikation und besonders das Internet global und verdachtsunabhängig überwachen. Auch Gebäude und Vertretungen der Europäischen Union sowie die Vereinten Nationen sollen mit Hilfe von Wanzen ausspioniert worden sein. Die Geheimdienste begründen die umfassende Überwachung damit, dass man dadurch terroristischen Anschlägen vorbeuge.
+Edward Snowden, der von zahlreichen NGOs ausgezeichnet und für den Friedensnobelpreis nominiert wurde, hat inzwischen Asyl in Russland bekommen. \\
+Disaster Recovery beschreibt eigentlich im Grunde genommen, wie man sich vor Whistleblowing schützen kann, oder was man tun kann, um den Schaden möglichst gering zu halten. Aber ist es so schlecht, Missstände aufzudecken? \cite{wb} \clearpage
 
 \subsection{Formulierung ethischer Fragestellungen}
 
-diskutieren anhand der bedenken auf grundlage der theorie \newline
-aufstellen einiger wichtiger fragen und versuch einer ethischen urteilsfindung
+Diese Argumentation bezüglich Whistleblowing wurde bereits im Bereich 'Hacking' erklärt. Whistleblowing ist eine Güterabwägung in Gewissensentscheidungen. Sie handeln utilitaristisch, wollen der größten Anzahl der Menschen das größte Glück bringen.
+
+\begin{itemize}
+	\item Hat Snowden mit seinen Taten wirklich das größte Glück für die größte Anzahl der Menschen gebracht, oder sind sie nur noch mehr verunsichert?
+	\item Sind Whistleblower Verräter oder Helden?
+\end{itemize}
+
+\subsubsection{Ethische Urteilsfindung}
+
+\begin{itemize}
+	\item Sachverhaltsdarstellung \\
+	Edward Snowden deutet durch seine Arbeit auf grobe Missstände hin, die die ganze Welt betreffen. Snowden durfte auf diese Informationen zugreifen, jedoch ist eine Veröffentlichung verständlicherweise untersagt und illegal.
+	\item Problemfeststellung \\
+	Ist Snowden nun ein Verbrecher und gehört vor ein Gericht, oder ist er der Held des einfachen Bürgers?
+	\item Situationsanalyse \\
+	An sich hat sich an der Weltlage seitem nicht sehr viel verändert. Die USA und Großbritannien führen ihre Praxis fort, unter vom Parlament nachträglich legalisierten Rahmenbedingungen. Das Bewusstsein der Bürger ist jedoch gestiegen, vermehrt darauf zu achten, im Internet sicherer unterwegs zu sein.
+	\item Prüfung der Verhaltensalternativen \\
+	Die veröffentlichten Daten sind wahr, das ist nicht zu leugnen und wurde von vielen Seiten bestätigt. Nach geltendem Recht ist Snowden jedoch ein gesuchter Verbrecher, der sich bei Bruch eines Gesetzes wie jeder andere Bürger auch vor einem Strafgericht verantworten soll.
+	\item Normenprüfung \\
+	Das Prinzip des Utilitarismus findet Anwendung: Der Vorteil der Weltbevölkerung ist gewichtiger als die blanken Interessen weniger Regierungsbeamten. Es wäre ein Verbrechen, ein anderes Verbrechen nicht anzuzeigen.
+	\item Entscheidung \\
+	Meine Antwort lautet: Snowden ist ein Held, wenn auch ein zweifelhafter in vielen Augen. Er hat sein Leben aufs Spiel gesetzt und seinen Wohlstand aufgegeben, um anderen Menschen die Augen zu öffnen. 
+\end{itemize}
 
 \clearpage
 
