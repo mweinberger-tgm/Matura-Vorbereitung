@@ -415,8 +415,6 @@ Hier wird versucht, zur oben genannten Frage kurz und bündig ein entsprechendes
 
 \subsection{Einführung}
 
-begriffserklärungen, anwendungsfälle, beispiel, notwendigkeit hervorheben, erklärung inkonsistenzen, wieso datenbanken, kundendaten konsisten sein sollen, fehlertoleranz, schutz vor missbrauch oder verlust (lost update bei bankdaten?)
-
 Konsistenz bedeutet, dass die Daten widerspruchsfrei in der Datenbank abgelegt werden. Eine Transaktion muss immer vollständig abgeschlossen werden, jede Transaktion muss mit den aktuellsten Daten geschehen, welche sich während des gesamten Prozesses nicht verändern dürfen. \\
 Eine sogenannte Inkonsistenz ist beispielsweise wie oben genannt, dass bei einer Banktransaktion eine Überweisung geschieht. Es wird ein Betrag aufaddiert. Doch zum selben Zeitpunkt findet eine gleichzeitige Überweisung statt, die den alten Kontostand nimmt. Die erste Transaktion wird fertig, und speichert den neuen Stand ab. Die zweite Transaktion addiert nun den alten Wert mit dem eigenen, und legt diesen in der Datenbank neu ab. Die erste Transaktion ist somit verlorengegangen. Die gesamte Datenbank ist nun nicht mehr widerspruchsfrei. In der Informatik allgemein bedeutet Inkonsistenz von Daten wie genannt Widersprüchlichkeit zwischen den Daten. So können in einer Datenbank beispielsweise Verknüpfungen zwischen Tabelleneinträgen nicht mehr eindeutig sein, weil der Verbindungsschlüssel auf keinen oder mehrere Einträge in einer anderen Tabelle verweist. \\
 Wieder muss ein gewisses Maß an Fehlertoleranz gegeben sein, um etwaige Fehler selbstständig auszubessern und nicht inkonsistent zu werden. \\
