@@ -1,0 +1,3 @@
+Wieso pyhton-ldap?
+
+Probleme bei openconnect, nicht auf 24/7 ausgelegt
