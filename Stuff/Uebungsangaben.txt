@@ -1,0 +1,53 @@
+Adler (Firmen-Fusion)
+--
+Sie bekommen als Consultant die Anfrage, wie die bestehenden Services ohne großen Aufwand auf beiden Seiten miteinander kommunizieren können. Es sollen dabei die inneren Softwareschichten (DB-Anbindung; Middleware; usw.) auf beiden Seiten nicht verändert werden. Nehmen Sie dabei an, dass die Systeme heterogen aufgebaut sind (Sprache, Struktur).Bereiten Sie die Präsentation für die technischen Architekten der beiden Anbieter vor.
+
+Hohenwarter (Firmen-Fusion)
+--
+Bei der getesteten Eingliederung der IT-Architektur kommt es immer wieder zu Netzwerkausfällen. Die Entscheidungsträger beschließen einen Maßnahmenkatalog. Sie werden mit folgender Maßnahme beauftragt: Es soll ein zuverlässiges verteiltes Dateisystem auf allen Servern eingesetzt werden. Welches Dateisystem würden Sie empfehlen?Beschreiben Sie das Konzept der Fehlerbehandlung für das gewählte Dateisystem.
+
+Reiländer (Firmen-Fusion)
+--
+Ihre Arbeitsgruppe bekommt den Auftrag eine verteilte Datenbank zu erstellen und dabei die schon längst notwendigen Schema-anpassungen durchzuführen. Sie haben dabei den Part der Synchronisationsanpassung bekommen. Was muss getan werden? Worauf müssen Sie achten? Welches Protokoll würden Sie verwenden?
+
+Steinkellner (Firmen-Fusion)
+--
+Mit fortlaufendem Einsatz und Erweiterung der Abrechnungssoftware ist die zugrundeliegende Datenbasis sehr groß geworden und die XML-Dateien erreichen eine Größe von mehreren Megabytes. Welche Ausbaustufe wäre sinnvoll, um die Daten gut strukturiert, performant und verteilt abspeichern zu können. Stellen Sie ein Konzept vor und nennen Sie Vor- und Nachteile dieser Erweiterung im Gegensatz zum bestehenden System.
+
+Taschner (Firmen-Fusion)
+--
+Als Systemadministrator des zu integrierenden Kleinbetriebs, der im Moment einen Datei-, einen Web- und einen Datenbankserver betreibt, erhalten Sie im nächsten Monat finanzielle Mittel, um einen neuen Server anschaffen zu können. Wie würden Sie diesen Server effizient einsetzen? Begründen Sie Ihre Entscheidung auch in Anbetracht der Zugriffe vom Mutterkonzern.
+
+Weinberger (Firmen-Fusion)
+--
+Sie erfahren von Ihrem Auftraggeber, dass die Daten nicht nur an eine weitere Stelle übertragen werden sollen, sondern, dass in 3 Monaten noch weitere 10 Zielserver installiert werden. Wie können Sie gewährleisten, dass die Daten auf allen Zielservern konsistent gehalten werden? Stellen Sie ein entsprechendes Transaktionskonzept Ihrer Wahl vor.
+
+Geyer (Smart-Home)
+--
+Als Junior-SW-Entwickler bei dem Unternehmen "Loxone" bekommen Sie die Aufgabe ein komponenten-basiertes Design für eine Sprinkleranlage mit Feuchtigkeitssensoren zu entwickeln. Erstellen Sie ein Konzept für den technischen Architekten!
+
+Hampl (Firmen-Fusion)
+--
+Die Firma "SafeBox" tritt an Sie heran um ein Konzept für eine Lichtschrankensteuerung auszuarbeiten. Beachten Sie dabei, dass die Steuerungselemente im safety-kritischen Bereich zum Einsatz kommen sollen. Welche echtzeitfähige Komponenten werden Sie hierfür einsetzen müssen? Welche Schwierigkeiten könnten bei der Übertragung aufkommen?
+
+Bruckner
+--
+In Ihrem Projekt verwenden Sie statistische Methoden um Analysen für Entscheidungsgrundlagen anzubieten. Dabei verwenden Sie externe Datenquellen. Ihr erster großer Kunde möchte jedoch weitere externe Informationsquellen einbinden um Ihrem System nun auch Abfragen zur Gewinnoptimierung bezüglich seiner Produktpalette stellen zu können. Wie würden Sie Ihr System erweitern und welche Technologien würden Sie dabei einsetzen?
+
+Melichar
+--
+Das Unternehmen „murland.at“ möchte von Ihrem Unternehmen eine Komplettlösung zur Analyse des Kundenverhaltens auf deren Internetplattform. Dabei soll es möglich sein bestimmte Gruppen an Kunden automatisch zu identifizieren um ihnen dann entsprechende Angebote zu unterbreiten. Erarbeiten Sie ein mögliches Konzept für eine kurze technische Präsentation!
+
+Brändli
+--
+Als Datenbankspezialist werden Sie herangezogen, um 2 kleine Busunternehmer bei der engeren Zusammenarbeit zu unterstützen. Beide Betreiber arbeiten im Moment mit unterschiedlichen IT-Systemen (wie Datenbank, Datenbankmanagementsystem, etc). Neben einem möglichen Konzept zur weiteren Vorgehensweise, werden Sie gebeten auch Probleme und Gefahren, die bei einem solchen Projekt vorkommen vorzustellen.
+
+Malik
+--
+Datamining-Algorithmen überlasten meist mit sehr viel parallelen Zugriffen auf Unmengen an Daten die eingesetzten Serversysteme. Erarbeiten Sie ein mögliches Konzept der Lastverteilung bei der Verwendung von unausgelasteten Workstations, die bei Bedarf zugeschaltet werden können! Welche DM-Algorithmen können dabei verwendet werden? Wie kann eine Interkommunikation der unterschiedlichen Hardware realisiert werden?
+
+Hollander
+--
+Sie erhalten als Junior-Softwareentwicklerin Ihrer neuen Firma die Aufgabe eine vorhandene Webplattform zu optimieren. Die Zugriffsprotokolle der Website zeigen auf, dass viele Benutzer bei großen Antwortmengen die Seite wieder verlassen. Welche Verbesserungsmöglichkeiten in Bezug auf die Performance können Sie präsentieren? Wie könnte Ihnen dabei eine Anpassung des Persistence-Layers helfen?
+
+
